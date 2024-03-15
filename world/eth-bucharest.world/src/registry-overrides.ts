@@ -12,7 +12,12 @@ export const missingRequiredFields = {
 
 // config for integrations config overrides
 const overrides = [
-
+  {
+    name: '@akashaorg/app-extensions',
+    integrationType: INTEGRATION_TYPES.APPLICATION,
+    sources: [`https://next.akasha-world-framework.pages.dev/apps/extensions/index.js`],
+    ...missingRequiredFields,
+  },
   {
     name: '@akashaorg/app-akasha-integration',
     integrationType: INTEGRATION_TYPES.APPLICATION,
@@ -77,6 +82,18 @@ const overrides = [
     name: '@akashaorg/ui-widget-mini-profile',
     integrationType: INTEGRATION_TYPES.WIDGET,
     sources: ['https://next.akasha-world-framework.pages.dev/widgets/mini-profile/index.js'],
+    ...missingRequiredFields,
+  },
+  {
+    name: '@akashaorg/ui-widget-analytics',
+    integrationType: INTEGRATION_TYPES.WIDGET,
+    sources: [`https://next.akasha-world-framework.pages.dev/widgets/analytics/index.js`],
+    ...missingRequiredFields,
+  },
+  {
+    name: '@akashaorg/ui-widget-trending',
+    integrationType: INTEGRATION_TYPES.WIDGET,
+    sources: [`https://next.akasha-world-framework.pages.dev/widgets/trending/index.js`],
     ...missingRequiredFields,
   },
 ];

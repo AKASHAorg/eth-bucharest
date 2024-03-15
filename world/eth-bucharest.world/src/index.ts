@@ -51,7 +51,7 @@ declare const __LOAD_LOCAL_SOURCES__: boolean;
   }
 
   const loaderConfig: WorldConfig = {
-    title: 'AKASHA World',
+    title: 'ETHBucharest World',
     // main layout (shell)
     layout: '@akashaorg/ui-widget-layout',
     // define an app that will load at root '/' path
@@ -59,11 +59,12 @@ declare const __LOAD_LOCAL_SOURCES__: boolean;
     // define pre-installed apps,
     // homepageApp is always loaded by default
     defaultApps: [
-
+      '@akashaorg/app-routing',
       '@akashaorg/app-auth-ewa',
       '@akashaorg/app-profile',
       '@akashaorg/app-notifications',
       '@akashaorg/app-settings-ewa',
+      '@akashaorg/app-extensions',
     ],
     // pre-installed widgets;
     // layout widget is always loaded by default
