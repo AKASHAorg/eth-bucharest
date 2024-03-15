@@ -1,0 +1,23 @@
+{
+  "name": "@akashaorg/design-system-core",
+  "version": "0.1.0",
+  "description": "",
+  "type": "module",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "src": "src"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AKASHAorg/eth-bucharest.git"
+  },
+  "private": true
+}

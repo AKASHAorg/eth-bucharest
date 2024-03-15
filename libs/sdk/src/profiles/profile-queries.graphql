@@ -1,0 +1,282 @@
+fragment UserProfileFragment on AkashaProfile{
+  id
+  did{
+    id
+    isViewer
+  }
+  name
+  links{
+    href
+    label
+  }
+  background {
+    alternatives {
+      src
+      width
+      height
+    }
+    default {
+      src
+      width
+      height
+    }
+  }
+  description
+  avatar {
+    default {
+      src
+      width
+      height
+    }
+    alternatives {
+      src
+      width
+      height
+    }
+  }
+
+  followers(last: 5){
+    pageInfo {
+      startCursor
+      endCursor
+      hasPreviousPage
+      hasNextPage
+    }
+  }
+
+  createdAt
+  nsfw
+}
+# id of the profile document
+query GetProfileByID($id: ID!) {
+  node(id: $id) {
+    ...on AkashaProfile {
+      ...UserProfileFragment
+    }
+  }
+}
+# id is the did string of the account
+query GetProfileByDid($id: ID!) {
+  node(id: $id) {
+    ...on CeramicAccount {
+      akashaProfile {
+        ...UserProfileFragment
+      }
+      isViewer
+    }
+  }
+}
+
+query GetProfiles($after: String, $before: String, $first: Int, $last: Int, $filters: AkashaProfileFiltersInput, $sorting: AkashaProfileSortingInput ){
+  akashaProfileIndex(after: $after, before: $before, first: $first, last: $last, filters: $filters, sorting: $sorting ){
+    edges {
+      node {
+        ...UserProfileFragment
+      }
+      cursor
+    }
+    pageInfo {
+      startCursor
+      endCursor
+      hasNextPage
+      hasPreviousPage
+    }
+  }
+}
+
+query GetProfileStream($indexer: ID!, $after: String, $before: String, $first: Int, $last: Int, $filters: AkashaProfileStreamFiltersInput, $sorting: AkashaProfileStreamSortingInput ){
+  node(id: $indexer){
+    ... on CeramicAccount{
+      akashaProfileStreamList(after: $after, before: $before, first: $first, last: $last, filters: $filters, sorting: $sorting ){
+        edges {
+          node {
+            profileID
+            active
+            createdAt
+            moderationID
+            status
+          }
+          cursor
+        }
+        pageInfo {
+          startCursor
+          endCursor
+          hasNextPage
+          hasPreviousPage
+        }
+      }
+    }
+  }
+}
+
+# saved interests for all documents, might be useful at some point
+query GetInterests($after: String, $before: String, $first: Int, $last: Int){
+  akashaProfileInterestsIndex(after: $after, before: $before, first: $first, last: $last ){
+    edges {
+      node {
+        topics {
+          value
+          labelType
+        }
+        did {
+          id
+        }
+        id
+      }
+      cursor
+    }
+    pageInfo {
+      startCursor
+      endCursor
+      hasNextPage
+      hasPreviousPage
+    }
+  }
+}
+
+query GetInterestsStream($indexer: ID!, $after: String, $before: String, $first: Int, $last: Int, $sorting: AkashaInterestsStreamSortingInput, $filters: AkashaInterestsStreamFiltersInput){
+  node(id: $indexer){
+    ... on CeramicAccount{
+      akashaInterestsStreamList(after: $after, before: $before, first: $first, last: $last, sorting: $sorting, filters: $filters){
+        edges {
+          node {
+            labelType
+            value
+            active
+            createdAt
+            id
+          }
+          cursor
+        }
+        pageInfo {
+          startCursor
+          endCursor
+          hasNextPage
+          hasPreviousPage
+        }
+      }
+    }
+  }
+}
+
+# get all interests for a specific DID account
+query GetInterestsByDid($id: ID!){
+  node(id: $id){
+    ... on CeramicAccount{
+      akashaProfileInterests {
+        topics {
+          value
+          labelType
+        }
+        did {
+          id
+        }
+        id
+      }
+      isViewer
+    }
+  }
+}
+
+# get interests from a specific Interests document id
+query GetInterestsById($id: ID!){
+  node(id: $id){
+    ... on AkashaProfileInterests{
+      topics {
+        value
+        labelType
+      }
+      did {
+        id
+      }
+      id
+    }
+  }
+}
+# get following
+query GetFollowingListByDid($id: ID!, $after: String, $before: String, $first: Int, $last: Int, $sorting: AkashaFollowSortingInput){
+  node(id: $id){
+    ... on CeramicAccount{
+      akashaFollowList(after: $after, before: $before, first: $first, last: $last, filters: {where: {isFollowing: {equalTo: true}}}, sorting: $sorting){
+        edges {
+          node {
+            id
+            isFollowing
+            profileID
+            profile {
+              ...UserProfileFragment
+            }
+            did {
+              id
+            }
+          }
+          cursor
+        }
+        pageInfo {
+          startCursor
+          endCursor
+          hasNextPage
+          hasPreviousPage
+        }
+      }
+      isViewer
+    }
+  }
+}
+
+# get followers
+query GetFollowersListByDid($id: ID!, $after: String, $before: String, $first: Int, $last: Int, $sorting: AkashaFollowSortingInput){
+  node(id: $id){
+    ... on CeramicAccount{
+      akashaProfile {
+        followers(after: $after, before: $before, first: $first, last: $last, filters: {where: {isFollowing: {equalTo: true}}}, sorting: $sorting){
+          edges {
+            node {
+              id
+              isFollowing
+              profileID
+              profile {
+                ...UserProfileFragment
+              }
+              did {
+                akashaProfile {
+                  ...UserProfileFragment
+                }
+              }
+            }
+            cursor
+          }
+          pageInfo {
+            startCursor
+            endCursor
+            hasNextPage
+            hasPreviousPage
+          }
+        }
+      }
+      isViewer
+    }
+  }
+}
+
+query GetProfileStatsByDid($id: ID!){
+  node(id: $id){
+    ... on CeramicAccount{
+      akashaFollowListCount(filters: {where: {isFollowing: {equalTo: true}}})
+      akashaBeamListCount(filters: {where: {active: {equalTo: true}}})
+#      akashaContentBlockListCount(filters: {where: {active: {equalTo: true}}})
+      akashaReflectListCount(filters: {where: {active: {equalTo: true}}})
+      akashaProfile {
+        ...UserProfileFragment
+        followersCount(filters: {where: {isFollowing: {equalTo: true}}})
+      }
+      isViewer
+    }
+  }
+}
+
+
+
+
+
+

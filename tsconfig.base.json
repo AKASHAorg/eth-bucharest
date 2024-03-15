@@ -1,20 +1,60 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
-    "declaration": false,
+    "jsx": "react",
     "moduleResolution": "node",
+    "alwaysStrict": true,
+    "declaration": true,
+    "noImplicitAny": false,
+    "removeComments": false,
+    "noLib": false,
+    "composite": true,
+    "importHelpers": true,
+    "esModuleInterop": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "es2015",
-    "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "pretty": true,
     "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": [
+      "dom",
+      "es2022"
+    ],
+    "module": "ES2020",
+    "target": "es2022",
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@akashaorg/typings/lib/*": ["./libs/typings/lib/*"],
+      "@akashaorg/composedb-models/*": ["./libs/composites/*"],
+      "@akashaorg/ui-awf-hooks/*": ["./libs/hooks/lib/*"],
+      "@akashaorg/design-system-components/*": ["./libs/design-system-components/lib/*"],
+      "@akashaorg/design-system-core/*": ["./libs/design-system-core/lib/*"]
+    }
   },
-  "exclude": ["node_modules", "tmp"]
+  "references": [
+    {
+      "path": "./libs/typings"
+    },
+    {
+      "path": "./libs/sdk"
+    },
+    {
+      "path": "./libs/hooks"
+    },
+    {
+      "path": "./libs/design-system-core"
+    },
+    {
+      "path": "./libs/design-system-components"
+    }
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "tmp"
+  ]
 }

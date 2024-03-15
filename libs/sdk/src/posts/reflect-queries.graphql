@@ -1,0 +1,126 @@
+fragment ReflectFragment on AkashaReflect{
+  id
+  author {
+    id
+    isViewer
+  }
+  version
+  active
+  content {
+    label
+    propertyType
+    value
+  }
+  isReply
+  reflection
+  createdAt
+  beam {
+    id
+    author{
+      id
+      isViewer
+    }
+  }
+  nsfw
+}
+
+query GetReflectionsFromBeam($id: ID!, $after: String, $before: String, $first: Int, $last: Int, $sorting: AkashaReflectSortingInput, $filters: AkashaReflectFiltersInput ){
+  node(id: $id){
+    ... on AkashaBeam{
+      reflections(after: $after, before: $before, first: $first, last: $last, sorting: $sorting, filters: $filters) {
+        edges{
+          node{
+            ...ReflectFragment
+          }
+          cursor
+        }
+        pageInfo {
+          startCursor
+          endCursor
+          hasNextPage
+          hasPreviousPage
+        }
+      }
+      reflectionsCount(filters: $filters)
+    }
+  }
+}
+
+query GetReflectionsByAuthorDid($id: ID!, $after: String, $before: String, $first: Int, $last: Int, $filters: AkashaReflectFiltersInput, $sorting: AkashaReflectSortingInput){
+  node(id: $id){
+    ... on CeramicAccount{
+      akashaReflectList(after: $after, before: $before, first: $first, last: $last, filters: $filters, sorting: $sorting){
+        edges{
+          node{
+            ...ReflectFragment
+          }
+          cursor
+        }
+        pageInfo {
+          startCursor
+          endCursor
+          hasNextPage
+          hasPreviousPage
+        }
+      }
+      isViewer
+    }
+  }
+}
+
+query GetReflectionStream($indexer: ID!, $after: String, $before: String, $first: Int, $last: Int, $filters: AkashaReflectStreamFiltersInput, $sorting: AkashaReflectStreamSortingInput){
+  node(id: $indexer){
+    ... on CeramicAccount{
+      akashaReflectStreamList(after: $after, before: $before, first: $first, last: $last, filters: $filters, sorting: $sorting){
+        edges{
+          node{
+            reflectionID
+            moderationID
+            beamID
+            active
+            status
+            createdAt
+          }
+          cursor
+        }
+        pageInfo {
+          startCursor
+          endCursor
+          hasNextPage
+          hasPreviousPage
+        }
+      }
+      isViewer
+    }
+  }
+}
+
+query GetReflectionById($id: ID!){
+  node(id: $id){
+    ... on AkashaReflect{
+      ...ReflectFragment
+    }
+  }
+}
+
+# should be CeramicStreamID instead of String for $id
+#
+query GetReflectReflections($id: String!, $after: String, $before: String, $first: Int, $last: Int, $sorting: AkashaReflectSortingInput){
+  akashaReflectIndex(after: $after, before: $before, first: $first, last: $last, filters: {and: [{where: {reflection: {equalTo: $id}}}, {where: {active: {equalTo: true}}}]}, sorting: $sorting){
+    edges{
+      node{
+          ...ReflectFragment
+      }
+      cursor
+    }
+    pageInfo {
+      startCursor
+      endCursor
+      hasNextPage
+      hasPreviousPage
+    }
+  }
+}
+
+
+

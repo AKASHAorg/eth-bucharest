@@ -1,0 +1,11 @@
+fragment IndexedProfileFragment on IndexProfilePayloadDocument{
+  profileID
+}
+
+mutation IndexProfile($jws: DID_JWS, $capability: CACAO_CAPABILITY){
+  indexProfile(jws: $jws, capability: $capability){
+    document{
+      ...IndexedProfileFragment
+    }
+  }
+}

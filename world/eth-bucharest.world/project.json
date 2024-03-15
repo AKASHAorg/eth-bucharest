@@ -1,0 +1,23 @@
+{
+  "name": "eth-bucharest.world",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "world/eth-bucharest.world/src",
+  "projectType": "application",
+  "targets": {
+    "prepare": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "world/eth-bucharest.world/",
+        "command": "tsc --build"
+      }
+    },
+    "start": {
+      "dependsOn": ["prepare"],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "world/eth-bucharest.world/",
+        "command": "webpack serve --config webpack.config.cjs --port 8181"
+      }
+    }
+  },
+}
