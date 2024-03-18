@@ -4,17 +4,28 @@ import {RootExtensionProps} from '@akashaorg/typings/lib/ui';
 import ReactDOMClient from 'react-dom/client';
 import ErrorLoader from '@akashaorg/design-system-core/lib/components/ErrorLoader';
 import Button from '@akashaorg/design-system-core/lib/components/Button';
+import {useRootComponentProps, withProviders} from '@akashaorg/ui-awf-hooks';
 
-const BeamRatingExtension: React.FC<RootExtensionProps> = (props) => {
+const SaveToFavsExtension: React.FC<RootExtensionProps> = (props) => {
   const {extensionData} = props;
+  const { plugins } = useRootComponentProps();
+
+  const saveToLocalPlugin = React.useMemo(() => {
+    return plugins['@akashaorg/example-app'] ?? {}
+  }, [plugins]);
 
   const handleRatingClick = () => {
-    console.log('rating beam', extensionData.beamId);
+    console.log('saving to favs', extensionData.itemId);
+  }
+
+  if (!extensionData.itemId) {
+    console.error('SaveToFavsExtension requires beamId');
+    return null;
   }
 
   return (
     <>
-      <Button label={'+1'} onClick={handleRatingClick} />
+      <Button label={`+1`} onClick={handleRatingClick} />
     </>
   );
 }
@@ -22,7 +33,7 @@ const BeamRatingExtension: React.FC<RootExtensionProps> = (props) => {
 export const {bootstrap, mount, unmount} = singleSpaReact({
   React,
   ReactDOMClient,
-  rootComponent: BeamRatingExtension,
+  rootComponent: withProviders(SaveToFavsExtension),
   errorBoundary: (err, errorInfo, props: RootExtensionProps) => {
     if (props.logger) {
       props.logger.error(`${JSON.stringify(errorInfo)}, ${errorInfo}`);

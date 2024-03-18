@@ -39,8 +39,8 @@ export const register: (opts: IntegrationRegistrationOptions) => IAppConfig = op
       subRoutes: [],
     },
     extensions: [{
-      mountsIn: 'example-app-plus-one',
-      loadingFn: () => import('./extension-points/rating'),
+      mountsIn: 'example-app-fav',
+      loadingFn: () => import('./extension-points/save-favourite'),
     }],
     contentBlocks: [
       {
