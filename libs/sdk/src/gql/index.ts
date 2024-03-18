@@ -135,7 +135,7 @@ class Gql {
      */
     const directionalLink = split(
       operation => {
-        return operation.getContext().source === this.contextSources.composeDB;
+        return true;
       },
       composeDBlink,
       createPersistedQueryLink({ sha256, useGETForHashedQueries: true }).concat(

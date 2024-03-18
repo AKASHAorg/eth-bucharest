@@ -8,6 +8,7 @@ import {
   ContentBlockModes,
   type ContentBlockRootProps,
 } from '@akashaorg/typings/lib/ui';
+import getSdk from '@akashaorg/awf-sdk';
 
 type SimpleEditorProps = {};
 
@@ -49,9 +50,21 @@ const SimpleEditor: React.FC<SimpleEditorProps> = () => {
     }
   }, [availableBlocks, blocksInUse.length]);
 
-  const handleSubmit = () => {
-    // create the beam
-    console.log('create the beam');
+  const handleSubmit = async () => {
+    const sdk = getSdk();
+   if(blocksInUse.length) {
+     const blk = await blocksInUse[0].blockRef.current?.createBlock({ nsfw: false });
+     const beam = await sdk.services.gql.client.CreateBeam({
+       i: {
+         content: {
+           content: [{blockID: blk.response.blockID, order: 0}],
+           active: true,
+           createdAt: new Date().toISOString(),
+         }
+       }
+     })
+     console.log(beam);
+   }
   };
 
   return (
