@@ -18,5 +18,5 @@
 !scripts/*
 !img/*
 !locales
-!locales/*
+!locales/**/*
 

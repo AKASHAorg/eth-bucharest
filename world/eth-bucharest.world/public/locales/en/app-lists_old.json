@@ -1,0 +1,13 @@
+{
+  "Delete Beam": "Delete Beam",
+  "You deleted this beam": "You deleted this beam",
+  "This beam was deleted by its author": "This beam was deleted by its author",
+  "Lists help you save your favorite posts for quick access at any time.": "Lists help you save your favorite posts for quick access at any time.",
+  "are": "are",
+  "is": "is",
+  "{{ deletedCount }} of which {{ linkingVerb }} deleted": "{{ deletedCount }} of which {{ linkingVerb }} deleted",
+  "You have {{ bookmarkCount }} lists.{{ inactivePostsText }}": "You have {{ bookmarkCount }} lists.{{ inactivePostsText }}",
+  "Check out the posts saved in your lists": "Check out the posts saved in your lists",
+  "You don’t have any saved content in your List": "You don’t have any saved content in your List",
+  "script-error": "script-error"
+}
