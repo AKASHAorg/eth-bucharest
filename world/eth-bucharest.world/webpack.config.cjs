@@ -23,7 +23,7 @@ module.exports = Object.assign(baseConfig, {
   plugins: baseConfig.plugins.concat([
     new CopyPlugin({
       patterns: [
-        { from: path.resolve(__dirname, '../dist/sw') },
+        { from: path.resolve(__dirname, '../dist/sw/worker.js'), to:'worker.js' },
         { from: path.resolve(__dirname, '../dist/sdk'), to: 'sdk' },
         { from: path.resolve(__dirname, '../dist/hooks'), to: 'hooks' },
         { from: path.resolve(__dirname, '../dist/apps'), to: 'apps' },
