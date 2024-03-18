@@ -17,25 +17,25 @@ declare const __LOAD_LOCAL_SOURCES__: boolean;
     {
       name: '@akashaorg/app-routing',
       integrationType: INTEGRATION_TYPES.APPLICATION,
-      sources: ['https://next.akasha-world-framework.pages.dev/apps/routing/index.js'],
+      sources: ['https://eth-bucharest.akasha-world-framework.pages.dev/apps/routing/index.js'],
       ...missingRequiredFields,
     },
     {
       name: '@akashaorg/ui-widget-layout',
       integrationType: INTEGRATION_TYPES.WIDGET,
-      sources: ['https://next.akasha-world-framework.pages.dev/widgets/layout/index.js'],
+      sources: ['https://eth-bucharest.akasha-world-framework.pages.dev/widgets/layout/index.js'],
       ...missingRequiredFields,
     },
     {
       name: '@akashaorg/ui-widget-sidebar',
       integrationType: INTEGRATION_TYPES.WIDGET,
-      sources: ['https://next.akasha-world-framework.pages.dev/widgets/sidebar/index.js'],
+      sources: ['https://eth-bucharest.akasha-world-framework.pages.dev/widgets/sidebar/index.js'],
       ...missingRequiredFields,
     },
     {
       name: '@akashaorg/ui-widget-topbar',
       integrationType: INTEGRATION_TYPES.WIDGET,
-      sources: ['https://next.akasha-world-framework.pages.dev/widgets/topbar/index.js'],
+      sources: ['https://eth-bucharest.akasha-world-framework.pages.dev/widgets/topbar/index.js'],
       ...missingRequiredFields,
     },
   ];
