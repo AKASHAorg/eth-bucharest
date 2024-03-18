@@ -49,6 +49,9 @@
     },
     {
       "path": "./libs/design-system-components"
+    },
+    {
+      "path": "./world/eth-bucharest.world"
     }
   ],
   "exclude": [
