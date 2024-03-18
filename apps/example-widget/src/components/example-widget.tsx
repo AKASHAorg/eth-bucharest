@@ -5,7 +5,7 @@ import Text from '@akashaorg/design-system-core/lib/components/Text';
 
 const ExampleWidget: React.FC<RootComponentProps> = () => {
   return (
-    <Card customStyle="flex place-self-center mt-4">
+    <Card customStyle="flex place-self-center">
       <Text align="center">✨Hello EthBucharest!✨</Text>
     </Card>
   );
