@@ -38,6 +38,10 @@ export const register: (opts: IntegrationRegistrationOptions) => IAppConfig = op
       area: [MenuItemAreaType.AppArea],
       subRoutes: [],
     },
+    extensions: [{
+      mountsIn: 'example-app-plus-one',
+      loadingFn: () => import('./extension-points/rating'),
+    }],
     contentBlocks: [
       {
         propertyType: 'text-block',
