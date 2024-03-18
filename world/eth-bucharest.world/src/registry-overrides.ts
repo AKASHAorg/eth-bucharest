@@ -19,12 +19,6 @@ const overrides = [
     ...missingRequiredFields,
   },
   {
-    name: '@akashaorg/app-akasha-integration',
-    integrationType: INTEGRATION_TYPES.APPLICATION,
-    sources: [`https://next.akasha-world-framework.pages.dev/apps/akasha/index.js`],
-    ...missingRequiredFields,
-  },
-  {
     name: '@akashaorg/app-auth-ewa',
     integrationType: INTEGRATION_TYPES.APPLICATION,
     sources: [`https://next.akasha-world-framework.pages.dev/apps/auth-app/index.js`],
@@ -37,21 +31,9 @@ const overrides = [
     ...missingRequiredFields,
   },
   {
-    name: '@akashaorg/app-notifications',
-    integrationType: INTEGRATION_TYPES.APPLICATION,
-    sources: [`https://next.akasha-world-framework.pages.dev/apps/notifications/index.js`],
-    ...missingRequiredFields,
-  },
-  {
     name: '@akashaorg/app-settings-ewa',
     integrationType: INTEGRATION_TYPES.APPLICATION,
     sources: [`https://next.akasha-world-framework.pages.dev/apps/settings-app/index.js`],
-    ...missingRequiredFields,
-  },
-  {
-    name: '@akashaorg/app-articles',
-    integrationType: INTEGRATION_TYPES.APPLICATION,
-    sources: [`https://next.akasha-world-framework.pages.dev/apps/articles/index.js`],
     ...missingRequiredFields,
   },
   {
@@ -76,24 +58,6 @@ const overrides = [
     name: '@akashaorg/ui-widget-layout',
     integrationType: INTEGRATION_TYPES.WIDGET,
     sources: [`https://next.akasha-world-framework.pages.dev/widgets/layout/index.js`],
-    ...missingRequiredFields,
-  },
-  {
-    name: '@akashaorg/ui-widget-mini-profile',
-    integrationType: INTEGRATION_TYPES.WIDGET,
-    sources: ['https://next.akasha-world-framework.pages.dev/widgets/mini-profile/index.js'],
-    ...missingRequiredFields,
-  },
-  {
-    name: '@akashaorg/ui-widget-analytics',
-    integrationType: INTEGRATION_TYPES.WIDGET,
-    sources: [`https://next.akasha-world-framework.pages.dev/widgets/analytics/index.js`],
-    ...missingRequiredFields,
-  },
-  {
-    name: '@akashaorg/ui-widget-trending',
-    integrationType: INTEGRATION_TYPES.WIDGET,
-    sources: [`https://next.akasha-world-framework.pages.dev/widgets/trending/index.js`],
     ...missingRequiredFields,
   },
   // example area

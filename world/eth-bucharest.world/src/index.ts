@@ -38,12 +38,6 @@ declare const __LOAD_LOCAL_SOURCES__: boolean;
       sources: ['https://next.akasha-world-framework.pages.dev/widgets/topbar/index.js'],
       ...missingRequiredFields,
     },
-    {
-      name: '@akashaorg/ui-widget-mini-profile',
-      integrationType: INTEGRATION_TYPES.WIDGET,
-      sources: ['https://next.akasha-world-framework.pages.dev/widgets/mini-profile/index.js'],
-      ...missingRequiredFields,
-    },
   ];
 
   if (__DEV__ || __LOAD_LOCAL_SOURCES__) {
@@ -63,7 +57,6 @@ declare const __LOAD_LOCAL_SOURCES__: boolean;
       '@akashaorg/app-routing',
       '@akashaorg/app-auth-ewa',
       '@akashaorg/app-profile',
-      '@akashaorg/app-notifications',
       '@akashaorg/app-settings-ewa',
       '@akashaorg/app-extensions',
       '@akashaorg/example-widget',
@@ -73,7 +66,6 @@ declare const __LOAD_LOCAL_SOURCES__: boolean;
     defaultWidgets: [
       '@akashaorg/ui-widget-topbar',
       '@akashaorg/ui-widget-sidebar',
-      '@akashaorg/ui-widget-mini-profile',
     ],
     analytics: {
       trackerUrl: "",
