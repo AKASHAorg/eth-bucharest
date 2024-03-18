@@ -5,6 +5,7 @@
   "projectType": "application",
   "targets": {
     "prepare": {
+      "dependsOn": ["@akashaorg/design-system-core:prepare"],
       "executor": "nx:run-commands",
       "options": {
         "cwd": "libs/hooks/",

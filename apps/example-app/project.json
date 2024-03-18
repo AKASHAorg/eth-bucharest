@@ -1,0 +1,25 @@
+{
+  "name": "app-example",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/example-app/src",
+  "projectType": "application",
+  "targets": {
+    "prepare": {
+      "dependsOn": ["@akashaorg/ui-awf-hooks:build", "@akashaorg/design-system-components:prepare"],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/example-app",
+        "command": "tsc --build"
+      }
+    },
+    "build": {
+      "dependsOn": ["prepare"],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/example-app",
+        "command": "webpack --config webpack.config.cjs"
+      }
+    }
+  },
+  "tags": []
+}

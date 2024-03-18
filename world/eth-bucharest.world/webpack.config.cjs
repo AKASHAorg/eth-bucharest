@@ -26,6 +26,7 @@ module.exports = Object.assign(baseConfig, {
         { from: path.resolve(__dirname, '../dist/sw') },
         { from: path.resolve(__dirname, '../dist/sdk'), to: 'sdk' },
         { from: path.resolve(__dirname, '../dist/hooks'), to: 'hooks' },
+        { from: path.resolve(__dirname, '../dist/apps'), to: 'apps' },
         { from: path.resolve(__dirname, '../../libs/design-system-core/src/static/img'), to: 'images' },
       ],
     }),

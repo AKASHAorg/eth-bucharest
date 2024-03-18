@@ -29,7 +29,7 @@
     "paths": {
       "@akashaorg/typings/lib/*": ["./libs/typings/lib/*"],
       "@akashaorg/composedb-models/*": ["./libs/composites/*"],
-      "@akashaorg/ui-awf-hooks/*": ["./libs/hooks/lib/*"],
+      "@akashaorg/ui-awf-hooks": ["./libs/hooks/lib/index.js"],
       "@akashaorg/design-system-components/*": ["./libs/design-system-components/lib/*"],
       "@akashaorg/design-system-core/*": ["./libs/design-system-core/lib/*"]
     }
@@ -52,6 +52,12 @@
     },
     {
       "path": "./world/eth-bucharest.world"
+    },
+    {
+      "path": "./apps/example-app"
+    },
+    {
+      "path": "./apps/example-widget"
     }
   ],
   "exclude": [

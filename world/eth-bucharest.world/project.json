@@ -5,6 +5,7 @@
   "projectType": "application",
   "targets": {
     "prepare": {
+      "dependsOn": ["@akashaorg/typings:prepare"],
       "executor": "nx:run-commands",
       "options": {
         "cwd": "world/eth-bucharest.world/",
@@ -12,7 +13,7 @@
       }
     },
     "start": {
-      "dependsOn": ["prepare"],
+      "dependsOn": ["app-example:build", "widget-example:build","prepare"],
       "executor": "nx:run-commands",
       "options": {
         "cwd": "world/eth-bucharest.world/",

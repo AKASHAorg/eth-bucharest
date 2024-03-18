@@ -1,0 +1,25 @@
+{
+  "name": "widget-example",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/example-widget/src",
+  "projectType": "application",
+  "targets": {
+    "prepare": {
+      "dependsOn": ["@akashaorg/ui-awf-hooks:build", "@akashaorg/design-system-components:prepare"],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/example-widget",
+        "command": "tsc --build"
+      }
+    },
+    "build": {
+      "dependsOn": ["prepare"],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/example-widget",
+        "command": "webpack --config webpack.config.cjs"
+      }
+    }
+  },
+  "tags": []
+}

@@ -96,6 +96,19 @@ const overrides = [
     sources: [`https://next.akasha-world-framework.pages.dev/widgets/trending/index.js`],
     ...missingRequiredFields,
   },
+  // example area
+  {
+    name: '@akashaorg/example-widget',
+    integrationType: INTEGRATION_TYPES.WIDGET,
+    sources: [`/apps/example-widget/index.js`],
+    ...missingRequiredFields,
+  },
+  {
+    name: '@akashaorg/example-app',
+    integrationType: INTEGRATION_TYPES.APPLICATION,
+    sources: [`/apps/example-app/index.js`],
+    ...missingRequiredFields,
+  },
 ];
 
 export default overrides;
