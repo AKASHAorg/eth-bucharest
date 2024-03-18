@@ -1,7 +1,6 @@
 import React, { useLayoutEffect } from 'react';
 import Button from '@akashaorg/design-system-core/lib/components/Button';
 import Card from '@akashaorg/design-system-core/lib/components/Card';
-import { useTranslation } from 'react-i18next';
 import { EditorBlockExtension } from '@akashaorg/ui-lib-extensions/lib/react/content-block/editor-block-extension';
 import { useRootComponentProps } from '@akashaorg/ui-awf-hooks';
 /**
@@ -27,7 +26,6 @@ const SimpleEditor = () => {
             ]);
         }
     }, [availableBlocks, blocksInUse.length]);
-    const { t } = useTranslation();
     const handleSubmit = () => {
         // create the beam
         console.log('create the beam');
@@ -36,11 +34,11 @@ const SimpleEditor = () => {
         return;
     };
     return (React.createElement(Card, null,
-        !availableBlocks.length && React.createElement("div", null, t('No available blocks.')),
+        !availableBlocks.length && React.createElement("div", null, "No available blocks."),
         blocksInUse.map((blockData, idx) => (React.createElement(Card, { key: blockData.key, id: `${blockData.propertyType}-${idx}`, type: "plain", onClick: () => setFocusedBlock(blockData.key) },
             React.createElement(EditorBlockExtension, { propertyType: blockData.propertyType, appName: blockData.appName, blockRef: blockData.blockRef })))),
         React.createElement(React.Fragment, null,
-            React.createElement(Button, { variant: "primary", customStyle: "flex place-self-end", label: `${t('Beam it')}`, onClick: handleSubmit }))));
+            React.createElement(Button, { variant: "primary", customStyle: "flex place-self-end", label: 'Beam it', onClick: handleSubmit }))));
 };
 export default SimpleEditor;
 //# sourceMappingURL=index.js.map

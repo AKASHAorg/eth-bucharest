@@ -1,7 +1,6 @@
-import React, { useEffect, useLayoutEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import Button from '@akashaorg/design-system-core/lib/components/Button';
 import Card from '@akashaorg/design-system-core/lib/components/Card';
-import { useTranslation } from 'react-i18next';
 import { EditorBlockExtension } from '@akashaorg/ui-lib-extensions/lib/react/content-block/editor-block-extension';
 import { useRootComponentProps } from '@akashaorg/ui-awf-hooks';
 import {
@@ -50,26 +49,19 @@ const SimpleEditor: React.FC<SimpleEditorProps> = () => {
     }
   }, [availableBlocks, blocksInUse.length]);
 
-  const { t } = useTranslation();
-
   const handleSubmit = () => {
     // create the beam
     console.log('create the beam');
   };
 
-  const setFocusedBlock = (blockId: number) => {
-    return;
-  };
-
   return (
     <Card>
-      {!availableBlocks.length && <div>{t('No available blocks.')}</div>}
+      {!availableBlocks.length && <div>No available blocks.</div>}
       {blocksInUse.map((blockData, idx) => (
         <Card
           key={blockData.key}
           id={`${blockData.propertyType}-${idx}`}
           type="plain"
-          onClick={() => setFocusedBlock(blockData.key)}
         >
           <EditorBlockExtension
             propertyType={blockData.propertyType}
@@ -82,7 +74,7 @@ const SimpleEditor: React.FC<SimpleEditorProps> = () => {
         <Button
           variant="primary"
           customStyle="flex place-self-end"
-          label={`${t('Beam it')}`}
+          label={'Beam it'}
           onClick={handleSubmit}
         />
       </>

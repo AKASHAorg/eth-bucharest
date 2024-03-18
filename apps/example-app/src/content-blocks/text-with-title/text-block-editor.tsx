@@ -1,7 +1,6 @@
 import React, { useState, useImperativeHandle, useCallback } from 'react';
 import type { RefObject, ChangeEvent } from 'react';
 import type { BlockInstanceMethods, ContentBlockRootProps } from '@akashaorg/typings/lib/ui';
-import { useTranslation } from 'react-i18next';
 
 /**
  * This component is used in the editor.
@@ -32,9 +31,6 @@ const TextBlockEditor: React.FC<
     };
   }, [props.blockInfo]);
 
-  const handleBlockFocus = useCallback((isFocused: boolean) => {
-    return;
-  }, []);
   /**
    * Exposing the following api is required by the editor.
    * The basic flow of publishing a Beam is:
@@ -47,12 +43,9 @@ const TextBlockEditor: React.FC<
     () => ({
       createBlock,
       retryBlockCreation,
-      handleFocusBlock: handleBlockFocus,
     }),
-    [createBlock, retryBlockCreation, handleBlockFocus],
+    [createBlock, retryBlockCreation],
   );
-
-  const { t } = useTranslation();
 
   const handleTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
@@ -67,12 +60,12 @@ const TextBlockEditor: React.FC<
       <input
         type="text"
         className="w-full p-2 mb-2 dark:text-white rounded"
-        placeholder={t('Write a title')}
+        placeholder="Write a title"
         onChange={handleTitleChange}
       />
       <textarea
         className="mb-2 dark:text-white w-full p-2 rounded"
-        placeholder={t('Write something')}
+        placeholder="Write something"
         onChange={handleContentChange}
       />
     </div>
