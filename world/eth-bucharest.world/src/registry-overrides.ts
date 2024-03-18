@@ -62,13 +62,13 @@ const overrides = [
   },
   // example area
   {
-    name: '@akashaorg/example-widget',
+    name: 'example-widget',
     integrationType: INTEGRATION_TYPES.WIDGET,
     sources: [`/apps/example-widget/index.js`],
     ...missingRequiredFields,
   },
   {
-    name: '@akashaorg/example-app',
+    name: 'example-app',
     integrationType: INTEGRATION_TYPES.APPLICATION,
     sources: [`/apps/example-app/index.js`],
     ...missingRequiredFields,

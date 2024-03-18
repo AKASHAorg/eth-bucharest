@@ -62,12 +62,17 @@ export const register: (opts: IntegrationRegistrationOptions) => IAppConfig = op
  */
 
 export const getPlugin = (props: RootComponentProps) => {
+
+  /**
+   * This plugin will be available as `plugins['example-app'].saveLocalData()` and
+   *    `plugins['example-app'].getLocalData()`.
+   */
   return {
-    saveLocalData(key: string, data: string) {
-      localStorage.setItem(key, data);
-    },
-    getLocalData(key: string) {
-      return localStorage.getItem(key);
-    },
+      saveLocalData(key: string, data: string) {
+        localStorage.setItem(key, data);
+      },
+      getLocalData(key: string) {
+        return localStorage.getItem(key);
+      },
   };
 };

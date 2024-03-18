@@ -10,7 +10,7 @@ const SaveToFavsExtension: React.FC<RootExtensionProps> = (props) => {
   const {extensionData} = props;
   const { plugins } = useRootComponentProps();
 
-  const saveToLocalPlugin = React.useMemo(() => {
+  const saveLocalDataPlugin = React.useMemo(() => {
     return plugins['@akashaorg/example-app'] ?? {}
   }, [plugins]);
 
