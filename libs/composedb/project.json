@@ -11,12 +11,20 @@
         "command": "node ./src/cmd/generate-config.mjs"
       }
     },
-    "build": {
-      "dependsOn": ["prepare"],
+    "deploy-composites": {
+      "dependsOn": [],
       "executor": "nx:run-commands",
       "options": {
         "cwd": "libs/composedb/",
-        "command": "webpack --config webpack.config.cjs"
+        "command": "node ./src/cmd/deploy-composites.mjs && tsc --build"
+      }
+    },
+    "start-ceramic-node": {
+      "dependsOn": [],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/composedb/",
+        "command": "ceramic daemon --config ./composedb.config.json"
       }
     }
   },

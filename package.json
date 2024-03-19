@@ -6,7 +6,10 @@
     "clean": "tsc --build --clean tsconfig.base.json",
     "prepare": "nx run-many --target=prepare --all",
     "build-deps": "nx run-many --target=build --all",
-    "serve": "nx start eth-bucharest.world --verbose"
+    "serve": "nx start eth-bucharest.world --verbose",
+    "ceramic:create-config": "nx generate-config @akashaorg/composedb-models --verbose",
+    "ceramic:start": "nx start-ceramic-node @akashaorg/composedb-models --verbose",
+    "ceramic:deploy": "nx deploy-composites @akashaorg/composedb-models --verbose"
   },
   "private": true,
   "dependencies": {

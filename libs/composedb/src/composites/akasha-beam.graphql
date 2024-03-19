@@ -1,4 +1,4 @@
-type AkashaContentBlock @loadModel(id: "kjzl6hvfrbw6c9raeoa7g1c9s53pl91qhnk8pp0cxmjbj2ug2t7mmn8arhz3mth") {
+type AkashaContentBlock @loadModel(id: "kjzl6hvfrbw6cb3mnj0u2jzsu1zxhl9a1eznw3a5n0ylpo1z8qp399zpymotczo") {
   id: ID!
 }
 
@@ -19,7 +19,7 @@ type Labeled{
   value: String! @string(minLength:2, maxLength: 60)
 }
 
-type AkashaProfile @loadModel(id: "kjzl6hvfrbw6c862oulkrdvxh2yfbhc997f7ahqtjppj2ejg8too3j7jmu8gsno") {
+type AkashaProfile @loadModel(id: "kjzl6hvfrbw6c5k8lp9vt6nz8xsghuv47jomi5wtnzkzv5wxtif6d65cpkad2ti") {
   id: ID!
 }
 

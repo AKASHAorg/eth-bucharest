@@ -47,14 +47,14 @@ ceramic.did = did
 const spinner = ora();
 
 export const fillModels = async () => {
-  const akashaProfile = await createComposite(ceramic, './composites/akasha-profile.graphql');
-  await writeEncodedComposite(akashaProfile, './src/__generated__/akasha-profile.json');
+  const akashaProfile = await createComposite(ceramic,  path.resolve(__dirname, '../composites/akasha-profile.graphql'));
+  await writeEncodedComposite(akashaProfile, path.resolve(__dirname, '../__generated__/akasha-profile.json'));
   const { AkashaProfile } = akashaProfile.toRuntime().models
 
   spinner.info(`AkashaProfile: ${AkashaProfile.id}`);
 
-  const akashaApp = await createComposite(ceramic, './composites/akasha-app.graphql');
-  await writeEncodedComposite(akashaApp, './src/__generated__/akasha-app.json');
+  const akashaApp = await createComposite(ceramic, path.resolve(__dirname,'../composites/akasha-app.graphql'));
+  await writeEncodedComposite(akashaApp, path.resolve(__dirname,'../__generated__/akasha-app.json'));
   const { AkashaApp } = akashaApp.toRuntime().models;
 
   spinner.info(`AkashaApp: ${AkashaApp.id}`);
@@ -151,10 +151,8 @@ const encodeComposites = async (files) => {
       composite = await createComposite(ceramic, path.resolve(__dirname, `../composites/${ file }`))
       return await writeEncodedComposite(
         composite,
-        path.resolve(__dirname, `../src/__generated__/${ file.split('.graphql')[0] }.json`)
+        path.resolve(__dirname, `../__generated__/${ file.split('.graphql')[0] }.json`)
       )
-      // const deployedComposite = await readEncodedComposite(ceramic, `./src/__generated__/${file.split('.graphql')[0]}.json`)
-      // deployedComposite.startIndexingOn(ceramic)
     } catch (err) {
       console.error(err)
     }
@@ -162,29 +160,25 @@ const encodeComposites = async (files) => {
 }
 
 const mergeComposites = async () => {
-  const files = readdirSync(path.resolve(__dirname, '../src/__generated__/')).filter(file => {
+  const files = readdirSync(path.resolve(__dirname, '../__generated__/')).filter(file => {
     return extname(file).toLowerCase() === '.json'
   })
-  const fil = [
-    path.resolve(__dirname, '../src/__generated__/akasha-app.json'),
-    path.resolve(__dirname, '../src/__generated__/akasha-profile.json'),
-  ]
   setTimeout(async () => {
     await mergeEncodedComposites(
       ceramic,
-      files.map(file => (path.resolve(__dirname, `../src/__generated__/${ file }`))),
-      path.resolve(__dirname, '../lib/runtime-definition.json')
+      files.map(file => (path.resolve(__dirname, `../__generated__/${ file }`))),
+      path.resolve(__dirname, '../../lib/runtime-definition.json')
     )
     await writeEncodedCompositeRuntime(
       ceramic,
-      path.resolve(__dirname, '../lib/runtime-definition.json'),
-      path.resolve(__dirname, '../src/runtime-definition.ts')
+      path.resolve(__dirname, '../../lib/runtime-definition.json'),
+      path.resolve(__dirname, '../runtime-definition.ts')
     )
     // await writeGraphQLSchema(
     //   path.resolve(__dirname, '../lib/runtime-definition.json'),
     //   path.resolve(__dirname, '../lib/schemas.graphql')
     //   )
-    const deployedComposite = await readEncodedComposite(ceramic, path.resolve(__dirname, '../lib/runtime-definition.json'))
+    const deployedComposite = await readEncodedComposite(ceramic, path.resolve(__dirname, '../../lib/runtime-definition.json'))
     await deployedComposite.startIndexingOn(ceramic)
   }, 3000)
 }
