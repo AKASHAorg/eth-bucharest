@@ -1,4 +1,4 @@
-# Initial Setup Guide
+# Initial Setup Guide - (for Linux/MacOS)
 
 > This is a Github template, use it to start your own project.
 
@@ -7,6 +7,7 @@ This project requires these packages before setup;
 
 - Node -> `>=20.9.0` (from v20.9.0 upwards)
 - Yarn -> `v4.1.1`
+- Operating System - Linux/MacOS
 
 > This project runs on a specific version of yarn - @4.1.1. If you are already on this version of yarn, and your node version meets the minimum requirement, you may skip to the **Getting Started** section.
 
