@@ -18530,10 +18530,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"one-webcrypto@https://github.com/web3-storage/one-webcrypto#5148cd14d5489a8ac4cd38223870e02db15a2382":
+"one-webcrypto@git+https://github.com/web3-storage/one-webcrypto.git":
   version: 1.0.3
   resolution: "one-webcrypto@https://github.com/web3-storage/one-webcrypto.git#commit=5148cd14d5489a8ac4cd38223870e02db15a2382"
   checksum: 10/57dc46707845446730751f0619120fcadda709c6a669609083845fa6dc2649af0cb4c493e007c3aef3247072dc1b4922cfc1c5a0aef18721054d5a8a6c7f43e3
+  languageName: node
+  linkType: hard
+
+"one-webcrypto@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "one-webcrypto@npm:1.0.3"
+  checksum: 10/b7df09a4ef30fc6708a45517a43c26ada7b2642ca319a8bf68d1b156c277d8d198897645a0d5ccf7e67c6b3e9a30578698889aea594bfdd9f1e23130f8889817
   languageName: node
   linkType: hard
 
