@@ -1,0 +1,13 @@
+{
+  "name": "eth-bucharest.world",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AKASHAorg/eth-bucharest.git"
+  },
+  "private": true
+}

@@ -1,0 +1,121 @@
+fragment AkashaAppFragment on AkashaApp{
+  id
+  applicationType
+  description
+  licence
+  name
+  displayName
+  keywords
+  releases(last: 5){
+    edges {
+      node {
+        id
+        createdAt
+        source
+        version
+      }
+      cursor
+    }
+  }
+  releasesCount
+  author {
+    id
+    isViewer
+    akashaProfile {
+     ...UserProfileFragment
+    }
+  }
+  contributors {
+    id
+    isViewer
+    akashaProfile {
+      ...UserProfileFragment
+    }
+  }
+}
+
+fragment AppReleaseFragment on AkashaAppRelease{
+  application {
+    ...AkashaAppFragment
+  }
+  applicationID
+  id
+  source
+  version
+  createdAt
+}
+
+query GetApps($after: String, $before: String, $first: Int, $last: Int, $filters: AkashaAppFiltersInput, $sorting: AkashaAppSortingInput){
+  akashaAppIndex(after: $after, before: $before, first: $first, last: $last, filters: $filters, sorting:  $sorting){
+    edges {
+      node {
+        ...AkashaAppFragment
+      }
+      cursor
+    }
+    pageInfo {
+      startCursor
+      endCursor
+      hasNextPage
+      hasPreviousPage
+    }
+  }
+}
+
+query GetAppsStream($indexer: ID!, $after: String, $before: String, $first: Int, $last: Int, $filters: AkashaAppsStreamFiltersInput, $sorting: AkashaAppsStreamSortingInput){
+  node(id: $indexer){
+    ... on CeramicAccount{
+      akashaAppsStreamList(after: $after, before: $before, first: $first, last: $last, filters: $filters, sorting:  $sorting){
+        edges {
+          node {
+            moderationID
+            active
+            applicationID
+            status
+            createdAt
+          }
+          cursor
+        }
+        pageInfo {
+          startCursor
+          endCursor
+          hasNextPage
+          hasPreviousPage
+        }
+      }
+    }
+  }
+}
+
+query GetAppsByID($id: ID!) {
+  node(id: $id) {
+    ...on AkashaApp {
+      ...AkashaAppFragment
+    }
+  }
+}
+
+query GetAppsReleases($after: String, $before: String, $first: Int, $last: Int, $filters: AkashaAppReleaseFiltersInput, $sorting: AkashaAppReleaseSortingInput){
+  akashaAppReleaseIndex(after: $after, before: $before, first: $first, last: $last, filters:  $filters, sorting: $sorting){
+    edges {
+      node {
+        ...AppReleaseFragment
+      }
+      cursor
+    }
+    pageInfo {
+      startCursor
+      endCursor
+      hasNextPage
+      hasPreviousPage
+    }
+  }
+}
+
+query GetAppReleaseByID($id: ID!) {
+  node(id: $id) {
+    ...on AkashaAppRelease {
+      ...AppReleaseFragment
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "post": "post",
+  "account": "account",
+  "reply": "reply",
+  "tag": "tag",
+  "unknown": "unknown",
+  "There was an error loading the {{itemTypeName}}": "There was an error loading the {{itemTypeName}}",
+  "We cannot show this {{itemTypeName}} now": "We cannot show this {{itemTypeName}} now",
+  "You reported {{reportedTypeName}} for the following reason": "You reported {{reportedTypeName}} for the following reason",
+  "It is awaiting moderation.": "It is awaiting moderation.",
+  "See it anyway": "See it anyway",
+  "Last edited": "Last edited",
+  "Report {{itemTypeName}}": "Report {{itemTypeName}}",
+  "This content has been moderated": "This content has been moderated",
+  "Delete Reply": "Delete Reply",
+  "You deleted this reply": "You deleted this reply",
+  "This reply was deleted by its author": "This reply was deleted by its author"
+}

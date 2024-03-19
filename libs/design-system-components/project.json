@@ -1,0 +1,17 @@
+{
+  "name": "@akashaorg/design-system-components",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/design-system-components/src",
+  "projectType": "application",
+  "targets": {
+    "prepare": {
+      "dependsOn": ["@akashaorg/design-system-core:prepare"],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/hooks/",
+        "command": "tsc --build"
+      }
+    }
+  },
+  "tags": []
+}

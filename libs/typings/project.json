@@ -1,0 +1,16 @@
+{
+  "name": "@akashaorg/typings",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/typings/src",
+  "targets": {
+    "prepare": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/typings",
+        "command": "tsc --build"
+      }
+    }
+  },
+  "projectType": "library",
+  "tags": ["scope:shared"]
+}

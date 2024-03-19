@@ -1,0 +1,24 @@
+{
+  "name": "@akashaorg/awf-sdk",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/sdk/src",
+  "projectType": "application",
+  "targets": {
+    "prepare": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/sdk",
+        "command": "tsc --build"
+      }
+    },
+    "build": {
+      "dependsOn": ["prepare"],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/sdk",
+        "command": "webpack --config webpack.config.mjs"
+      }
+    }
+  },
+  "tags": []
+}
