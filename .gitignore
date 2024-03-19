@@ -165,3 +165,4 @@ testem.log
 Thumbs.db
 
 .nx/cache
+*.seed.txt

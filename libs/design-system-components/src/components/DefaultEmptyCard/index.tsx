@@ -20,15 +20,15 @@ export type DefaultEmptyCardProps = {
 };
 
 const DefaultEmptyCard: React.FC<DefaultEmptyCardProps> = ({
-                                                             publicImagePath = '/images',
-                                                             assetExtension = 'webp',
-                                                             infoText,
-                                                             buttonLabel,
-                                                             assetName,
-                                                             noBorder = false,
-                                                             customCardSize,
-                                                             buttonClickHandler,
-                                                           }) => {
+  publicImagePath = '/images',
+  assetExtension = 'webp',
+  infoText,
+  buttonLabel,
+  assetName,
+  noBorder = false,
+  customCardSize,
+  buttonClickHandler,
+}) => {
   const cardSize = ` w-[${customCardSize?.width ? customCardSize.width : '180px'}] h-[${
     customCardSize?.height ? customCardSize.height : '180px'
   }]`;

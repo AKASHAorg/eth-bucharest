@@ -1,0 +1,24 @@
+{
+  "name": "@akashaorg/composedb-models",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "targets": {
+    "generate-config": {
+      "dependsOn": [],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/composedb/",
+        "command": "node ./src/cmd/generate-config.mjs"
+      }
+    },
+    "build": {
+      "dependsOn": ["prepare"],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/composedb/",
+        "command": "webpack --config webpack.config.cjs"
+      }
+    }
+  },
+  "tags": []
+}
