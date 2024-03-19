@@ -140,8 +140,7 @@
     "react-dom": "18.2.0",
     "vue-template-compiler": "2.7.15",
     "vue": "2.7.15",
-    "typescript": "5.4.2",
-    "one-webcrypto": "https://github.com/web3-storage/one-webcrypto#5148cd14d5489a8ac4cd38223870e02db15a2382"
+    "typescript": "5.4.2"
   },
   "packageManager": "yarn@4.1.1",
   "engines": {

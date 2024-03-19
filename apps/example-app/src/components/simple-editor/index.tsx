@@ -1,14 +1,9 @@
-import React, { useLayoutEffect } from 'react';
+import React from 'react';
 import Button from '@akashaorg/design-system-core/lib/components/Button';
 import Card from '@akashaorg/design-system-core/lib/components/Card';
 import { EditorBlockExtension } from '@akashaorg/ui-lib-extensions/lib/react/content-block/editor-block-extension';
-import { useRootComponentProps } from '@akashaorg/ui-awf-hooks';
-import {
-  type BlockInstanceMethods,
-  ContentBlockModes,
-  type ContentBlockRootProps,
-} from '@akashaorg/typings/lib/ui';
 import getSdk from '@akashaorg/awf-sdk';
+import { useEditorBlocks } from './use-editor-blocks';
 
 type SimpleEditorProps = {};
 
@@ -18,37 +13,7 @@ type SimpleEditorProps = {};
  */
 
 const SimpleEditor: React.FC<SimpleEditorProps> = () => {
-  const { getExtensionsPlugin } = useRootComponentProps();
-  const DEFAULT_BLOCK_TYPE = 'text-block';
-  const availableBlocks = React.useMemo(
-    () => getExtensionsPlugin().contentBlockStore.getInfos(),
-    [getExtensionsPlugin],
-  );
-  const [blocksInUse, setBlocksInUse] = React.useState<
-    (ContentBlockRootProps['blockInfo'] & {
-      appName: string;
-      blockRef: React.RefObject<BlockInstanceMethods>;
-      key: number;
-      status?: 'success' | 'pending' | 'error';
-      response?: { blockID: string; error?: string };
-      disablePublish?: boolean;
-    })[]
-  >([]);
-
-  useLayoutEffect(() => {
-    const defaultTextBlock = availableBlocks.find(bl => bl.propertyType === DEFAULT_BLOCK_TYPE);
-    if (availableBlocks.length && !blocksInUse.length) {
-      setBlocksInUse([
-        {
-          ...defaultTextBlock,
-          order: 0,
-          mode: ContentBlockModes.EDIT,
-          blockRef: React.createRef<BlockInstanceMethods>(),
-          key: 0,
-        },
-      ]);
-    }
-  }, [availableBlocks, blocksInUse.length]);
+  const {availableBlocks, blocksInUse} = useEditorBlocks();
 
   const handleSubmit = async () => {
     const sdk = getSdk();

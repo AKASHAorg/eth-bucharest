@@ -39,8 +39,11 @@ export const register: (opts: IntegrationRegistrationOptions) => IAppConfig = op
       subRoutes: [],
     },
     extensions: [{
-      mountsIn: 'example-app-fav',
-      loadingFn: () => import('./extension-points/save-favourite'),
+      /**
+       *  This extension will be mounted in the BeamCard component.
+       */
+      mountsIn: 'example-app-fav_*',
+      loadingFn: () => import('./extension-points/save-favourites'),
     }],
     contentBlocks: [
       {
