@@ -24,14 +24,14 @@ export type DidFieldProps = {
   customStyle?: string;
 };
 const DidField: React.FC<DidFieldProps> = ({
-                                             did,
-                                             isValid = true,
-                                             textColor = { light: 'secondaryLight', dark: 'secondaryDark' },
-                                             copiable = true,
-                                             copyLabel,
-                                             copiedLabel,
-                                             customStyle = '',
-                                           }) => {
+  did,
+  isValid = true,
+  textColor = { light: 'secondaryLight', dark: 'secondaryDark' },
+  copiable = true,
+  copyLabel,
+  copiedLabel,
+  customStyle = '',
+}) => {
   const networkType = getDidNetworkType(did);
   const truncatedDid = truncateDid(did, networkType);
 
