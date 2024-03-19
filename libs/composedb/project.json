@@ -26,6 +26,14 @@
         "cwd": "libs/composedb/",
         "command": "ceramic daemon --config ./composedb.config.json"
       }
+    },
+    "start-graphql": {
+      "dependsOn": [],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/composedb/",
+        "command": "node ./src/cmd/graphiql.mjs"
+      }
     }
   },
   "tags": []
