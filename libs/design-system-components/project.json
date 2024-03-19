@@ -8,7 +8,7 @@
       "dependsOn": ["@akashaorg/design-system-core:prepare"],
       "executor": "nx:run-commands",
       "options": {
-        "cwd": "libs/hooks/",
+        "cwd": "libs/design-system-components",
         "command": "tsc --build"
       }
     }

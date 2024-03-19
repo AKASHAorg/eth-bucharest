@@ -9,6 +9,28 @@ import {
   Scalars
 } from '@akashaorg/typings/lib/sdk/graphql-types-new';
 
+const createContentBlock = async (titleBlock: AkashaContentBlockLabeledValueInput, bodyBlock: AkashaContentBlockLabeledValueInput) => {
+  const sdk = getSdk();
+
+  return sdk.services.gql.client.CreateContentBlock({
+    i: {
+      content: {
+        active: true,
+        appVersionID: APP_VERSION_ID,
+        content: [titleBlock, bodyBlock],
+        createdAt: new Date().toISOString(),
+        kind: AkashaContentBlockBlockDef.Text
+      }
+    }
+  });
+}
+
+/**
+ * To keep things simple we are hardcoding the appVersionId.
+ * this property will be available through props.
+ */
+const APP_VERSION_ID = 'kjzl6kcym7w8y7tdwpzjep46ufcjyc2vaq671z0a1lxrcjq7ogu42ta3vh1w2dm';
+
 /**
  * This component is used in the editor.
  */
@@ -17,46 +39,47 @@ const TextBlockEditor: React.FC<
 > = props => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const retryCount = React.useRef(0);
 
   const createBlock = useCallback(async () => {
-    const sdk = getSdk();
     const titleBlockValue: AkashaContentBlockLabeledValueInput = {
       label: props.blockInfo.appName,
       propertyType: props.blockInfo.propertyType,
       value: title,
     };
+
     const bodyBlockValue: AkashaContentBlockLabeledValueInput = {
       label: props.blockInfo.appName,
       propertyType: props.blockInfo.propertyType,
       value: content,
     };
-    const block = await sdk.services.gql.client.CreateContentBlock({
-      i: {
-        content: {
-          active: true,
-          appVersionID: 'kjzl6kcym7w8y7tdwpzjep46ufcjyc2vaq671z0a1lxrcjq7ogu42ta3vh1w2dm',
-          content: [titleBlockValue, bodyBlockValue],
-          createdAt: new Date().toISOString(),
-          kind: AkashaContentBlockBlockDef.Text
-        }
+    try {
+      const response = await createContentBlock(titleBlockValue, bodyBlockValue);
+      return {
+        response: {
+          blockID: response.createAkashaContentBlock.document.id,
+        },
+        blockInfo: props.blockInfo,
+        retryCount: retryCount.current,
       }
-    })
-    return {
-      response: {
-        blockID: block.createAkashaContentBlock.document.id,
-      },
-      blockInfo: props.blockInfo,
-    };
+    } catch (err) {
+      return {
+        response: {
+          blockID: null,
+          error: err.message,
+        },
+        blockInfo: props.blockInfo,
+        retryCount: retryCount.current,
+      };
+    }
+
   }, [props.blockInfo, content, title]);
 
+
   const retryBlockCreation = useCallback(async () => {
-    return {
-      response: {
-        blockID: '0',
-        error: 'not implemented',
-      },
-      blockInfo: props.blockInfo,
-    };
+    retryCount.current += 1;
+    return createBlock()
+
   }, [props.blockInfo]);
 
   /**
