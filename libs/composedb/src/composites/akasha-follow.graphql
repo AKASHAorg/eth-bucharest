@@ -1,4 +1,4 @@
-type AkashaProfile @loadModel(id: "kjzl6hvfrbw6c5uhn2e42xshlleb5k4pi6fsl98nv1pzgwcawijgwmiwxhp7zb6"){
+type AkashaProfile @loadModel(id: "kjzl6hvfrbw6c862oulkrdvxh2yfbhc997f7ahqtjppj2ejg8too3j7jmu8gsno"){
     id: ID!
   }
 

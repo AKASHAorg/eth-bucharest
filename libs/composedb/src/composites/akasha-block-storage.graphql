@@ -1,8 +1,8 @@
-type AkashaContentBlock @loadModel(id: "kjzl6hvfrbw6c6tsne72ryi1mhvxyiy5f6megbjd3pjdfb5iyb3lx4cngx8qo29") {
+type AkashaContentBlock @loadModel(id: "kjzl6hvfrbw6c9raeoa7g1c9s53pl91qhnk8pp0cxmjbj2ug2t7mmn8arhz3mth") {
   id: ID!
 }
 
-type AkashaAppRelease @loadModel(id: "kjzl6hvfrbw6c928sxnz9vcow915vnu5oeb9m7tgrxxdkak80pxqp9y2kocxgz2") {
+type AkashaAppRelease @loadModel(id: "kjzl6hvfrbw6c5dwel0ej7ji6vedsbsqa2ll4tvb0spraw1ovj3i9jh0m4kr7cr") {
   id: ID!
 }
 
