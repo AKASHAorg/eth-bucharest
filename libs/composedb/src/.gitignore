@@ -1,3 +1,4 @@
 composites
+composites/*.graphql
 runtime-definition.ts
 __generated__
