@@ -1,0 +1,5 @@
+composites/*.graphql
+!composites/akasha-app.graphql
+!composites/akasha-profile.graphql
+runtime-definition.ts
+__generated__
