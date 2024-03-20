@@ -1,6 +1,5 @@
-!lib
-!lib/*
-lib/*.map
+lib
 *.config.json
 __generated__
 .ceramic
+src/composites/
