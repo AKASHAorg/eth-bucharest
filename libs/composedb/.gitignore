@@ -1,5 +1,8 @@
 lib
+lib/*
 *.config.json
 __generated__
 .ceramic
+src/composites
 src/composites/*
+src/runtime-definition.ts
