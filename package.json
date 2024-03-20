@@ -15,6 +15,7 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "3.9.5",
+    "@ceramicnetwork/cli": "5.3.0",
     "@ceramicnetwork/http-client": "5.3.0",
     "@composedb/client": "0.7.1",
     "@composedb/devtools": "0.7.1",

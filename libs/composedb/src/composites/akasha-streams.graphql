@@ -1,21 +1,21 @@
 
-type AkashaBeam @loadModel(id: "kjzl6hvfrbw6cax4pggs7d08zgpz0dawsexa2otcz0b2sr9lhk2tkic8q5lbsee") {
+type AkashaBeam @loadModel(id: "kjzl6hvfrbw6c5d8jb6bp4tvpaw44bdwxjzc3qtwz6axfs6vt97qucmdpgjgre9") {
   id: ID!
 }
 
-type AkashaContentBlock @loadModel(id: "kjzl6hvfrbw6cb3mnj0u2jzsu1zxhl9a1eznw3a5n0ylpo1z8qp399zpymotczo") {
+type AkashaContentBlock @loadModel(id: "kjzl6hvfrbw6c6tsne72ryi1mhvxyiy5f6megbjd3pjdfb5iyb3lx4cngx8qo29") {
   id: ID!
 }
 
-type AkashaProfile @loadModel(id: "kjzl6hvfrbw6c5k8lp9vt6nz8xsghuv47jomi5wtnzkzv5wxtif6d65cpkad2ti") {
+type AkashaProfile @loadModel(id: "kjzl6hvfrbw6c5uhn2e42xshlleb5k4pi6fsl98nv1pzgwcawijgwmiwxhp7zb6") {
   id: ID!
 }
 
-type AkashaReflect @loadModel(id: "kjzl6hvfrbw6c7bgiq4oxlf7i9zzeyc6kdxsi678grjq5dieii42t3hnoy9hexf") {
+type AkashaReflect @loadModel(id: "kjzl6hvfrbw6c64b9ed9xv3h1ba4e0fx2cwricwo7s2nquesghp9lbxsepqzppc") {
   id: ID!
 }
 
-type AkashaApp @loadModel(id: "kjzl6hvfrbw6c7wlm2yns4cg9flk08jm4fxrpqkczdfx36pllog9tl0ya0qnfj7") {
+type AkashaApp @loadModel(id: "kjzl6hvfrbw6c6p0ympkmu8g3aorgasp865gofgz8zdszm0x8ozowbj6niud2z9") {
   id: ID!
 }
 
