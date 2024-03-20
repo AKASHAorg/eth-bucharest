@@ -1,4 +1,4 @@
-composites
-composites/*.graphql
-runtime-definition.ts
+#composites
+#composites/*.graphql
+#runtime-definition.ts
 __generated__
