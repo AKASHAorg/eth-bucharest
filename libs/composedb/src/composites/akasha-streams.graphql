@@ -1,0 +1,109 @@
+
+type AkashaBeam @loadModel(id: "kjzl6hvfrbw6cax4pggs7d08zgpz0dawsexa2otcz0b2sr9lhk2tkic8q5lbsee") {
+  id: ID!
+}
+
+type AkashaContentBlock @loadModel(id: "kjzl6hvfrbw6cb3mnj0u2jzsu1zxhl9a1eznw3a5n0ylpo1z8qp399zpymotczo") {
+  id: ID!
+}
+
+type AkashaProfile @loadModel(id: "kjzl6hvfrbw6c5k8lp9vt6nz8xsghuv47jomi5wtnzkzv5wxtif6d65cpkad2ti") {
+  id: ID!
+}
+
+type AkashaReflect @loadModel(id: "kjzl6hvfrbw6c7bgiq4oxlf7i9zzeyc6kdxsi678grjq5dieii42t3hnoy9hexf") {
+  id: ID!
+}
+
+type AkashaApp @loadModel(id: "kjzl6hvfrbw6c7wlm2yns4cg9flk08jm4fxrpqkczdfx36pllog9tl0ya0qnfj7") {
+  id: ID!
+}
+
+enum ModerationStatus{
+  REMOVED,
+  IN_REVIEW,
+  SUSPENDED,
+  NSFW,
+  OK,
+  OTHER
+}
+
+enum StreamType{
+  BEAM,
+  REFLECT,
+  PROFILE,
+  APP,
+  EXTENSION,
+  PLUGIN,
+  WIDGET,
+  OTHER
+}
+
+type AkashaBeamStream @createModel(accountRelation: LIST, description: "Moderated Beams list v0.1") @createIndex(fields:[{path: "active"},{path: "beamID"}, {path: "createdAt"}, {path: "status"}, {path: "moderationID"}]){
+  beamID: StreamID! @documentReference(model: "AkashaBeam")
+  beam: AkashaBeam! @relationDocument(property: "beamID")
+  active: Boolean!
+  createdAt: DateTime!
+  status: ModerationStatus
+  moderationID: StreamID
+}
+
+type AkashaContentBlockStream @createModel(accountRelation: LIST, description: "Moderated Content Blocks v0.1") @createIndex(fields:[{path: "active"},{path: "blockID"}, {path: "createdAt"}, {path: "status"}, {path: "moderationID"}]){
+  blockID: StreamID! @documentReference(model: "AkashaContentBlock")
+  block: AkashaContentBlock! @relationDocument(property: "blockID")
+  active: Boolean!
+  createdAt: DateTime!
+  status: ModerationStatus
+  moderationID: StreamID
+}
+
+type AkashaReflectStream @createModel(accountRelation: LIST, description: "Moderated Beam Reflections v0.1") @createIndex(fields:[{path: "active"},{path: "reflectionID"}, {path: "createdAt"}, {path: "status"}, {path: "moderationID"}, {path: "beamID"}]){
+  reflectionID: StreamID! @documentReference(model: "AkashaReflect")
+  reflection: AkashaReflect! @relationDocument(property: "reflectionID")
+  beamID: StreamID! @documentReference(model: "AkashaBeam")
+  active: Boolean!
+  createdAt: DateTime!
+  status: ModerationStatus
+  moderationID: StreamID
+}
+
+type AkashaProfileStream @createModel(accountRelation: LIST, description: "Moderated Profiles list v0.1") @createIndex(fields:[{path: "active"},{path: "profileID"}, {path: "createdAt"}, {path: "status"}, {path: "moderationID"}]){
+  profileID: StreamID! @documentReference(model: "AkashaProfile")
+  profile: AkashaProfile! @relationDocument(property: "profileID")
+  active: Boolean!
+  createdAt: DateTime!
+  status: ModerationStatus
+  moderationID: StreamID
+}
+
+
+type AkashaInterestsStream @createModel(accountRelation: LIST, description: "Moderated Interests suggestion list v0.1") @createIndex(fields:[{path: "active"},{path: "labelType"}, {path: "value"}, {path: "createdAt"}, {path: "status"}, {path: "moderationID"}]){
+  labelType: String! @string(maxLength: 30)
+  value: String! @string(minLength:2, maxLength: 60)
+  active: Boolean!
+  createdAt: DateTime!
+  status: ModerationStatus
+  moderationID: StreamID
+}
+
+
+type AkashaAppsStream @createModel(accountRelation: LIST, description: "Moderated Apps suggestion list v0.1") @createIndex(fields:[{path: "active"},{path: "applicationID"}, {path: "createdAt"}, {path: "status"}, {path: "moderationID"}]){
+  applicationID: StreamID! @documentReference(model: "AkashaApp")
+  application: AkashaApp! @relationDocument(property: "applicationID")
+  active: Boolean!
+  createdAt: DateTime!
+  status: ModerationStatus
+  moderationID: StreamID
+}
+
+type AkashaIndexedStream @createModel(accountRelation: LIST, description: "Indexed Content v0.1") @createIndex(fields:[{path: "active"}, {path: "createdAt"}, {path: "status"}, {path: "moderationID"}, {path: "stream"}, {path: "streamType"}, {path: "indexType"}, {path: "indexValue"}]){
+  active: Boolean!
+  createdAt: DateTime!
+  status: ModerationStatus
+  stream: StreamID!
+  streamType: StreamType!
+  moderationID: StreamID
+  indexType: String! @string(maxLength: 30)
+  indexValue: String! @string(minLength:2, maxLength: 90)
+}
+  

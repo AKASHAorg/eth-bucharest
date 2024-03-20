@@ -1,71 +1,44 @@
-import React, { useLayoutEffect } from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import Button from '@akashaorg/design-system-core/lib/components/Button';
 import Card from '@akashaorg/design-system-core/lib/components/Card';
+import Text from '@akashaorg/design-system-core/lib/components/Text';
 import { EditorBlockExtension } from '@akashaorg/ui-lib-extensions/lib/react/content-block/editor-block-extension';
-import { useRootComponentProps } from '@akashaorg/ui-awf-hooks';
-import {
-  type BlockInstanceMethods,
-  ContentBlockModes,
-  type ContentBlockRootProps,
-} from '@akashaorg/typings/lib/ui';
-import getSdk from '@akashaorg/awf-sdk';
+import { useEditorBlocks } from './use-editor-blocks';
+import { CreateBeamMutation } from '@akashaorg/typings/lib/sdk/graphql-operation-types-new';
 
-type SimpleEditorProps = {};
+type SimpleEditorProps = {
+  onPublish?: (beamData: CreateBeamMutation['createAkashaBeam']['document']) => void;
+};
 
 /**
  * A simplified editor example. For a more complete version see:
  * https://github.com/AKASHAorg/akasha-core/blob/next/ui/apps/akasha/src/extensions/beam-editor/beam-editor.tsx
  */
 
-const SimpleEditor: React.FC<SimpleEditorProps> = () => {
-  const { getExtensionsPlugin } = useRootComponentProps();
-  const DEFAULT_BLOCK_TYPE = 'text-block';
-  const availableBlocks = React.useMemo(
-    () => getExtensionsPlugin().contentBlockStore.getInfos(),
-    [getExtensionsPlugin],
-  );
-  const [blocksInUse, setBlocksInUse] = React.useState<
-    (ContentBlockRootProps['blockInfo'] & {
-      appName: string;
-      blockRef: React.RefObject<BlockInstanceMethods>;
-      key: number;
-      status?: 'success' | 'pending' | 'error';
-      response?: { blockID: string; error?: string };
-      disablePublish?: boolean;
-    })[]
-  >([]);
+const SimpleEditor: React.FC<SimpleEditorProps> = ({ onPublish }) => {
+  const {createBeam, errors, availableBlocks, blocksInUse} = useEditorBlocks();
+  const [isPublishing, setIsPublishing] = useState(false);
+  const [isPublished, setIsPublished] = useState(false);
 
-  useLayoutEffect(() => {
-    const defaultTextBlock = availableBlocks.find(bl => bl.propertyType === DEFAULT_BLOCK_TYPE);
-    if (availableBlocks.length && !blocksInUse.length) {
-      setBlocksInUse([
-        {
-          ...defaultTextBlock,
-          order: 0,
-          mode: ContentBlockModes.EDIT,
-          blockRef: React.createRef<BlockInstanceMethods>(),
-          key: 0,
-        },
-      ]);
+  const handleSubmit = useCallback(async () => {
+    if (isPublishing) return;
+    setIsPublishing(true);
+    const beamData = await createBeam();
+    setTimeout(() => {
+      setIsPublished(true);
+      onPublish?.(beamData);
+    }, 250);
+  }, [createBeam, isPublishing]);
+
+
+  useEffect(() => {
+    if (isPublishing && isPublished && !errors.length) {
+      setTimeout(() => {
+        setIsPublishing(false);
+        setIsPublished(false);
+      }, 1000);
     }
-  }, [availableBlocks, blocksInUse.length]);
-
-  const handleSubmit = async () => {
-    const sdk = getSdk();
-   if(blocksInUse.length) {
-     const blk = await blocksInUse[0].blockRef.current?.createBlock({ nsfw: false });
-     const beam = await sdk.services.gql.client.CreateBeam({
-       i: {
-         content: {
-           content: [{blockID: blk.response.blockID, order: 0}],
-           active: true,
-           createdAt: new Date().toISOString(),
-         }
-       }
-     })
-     console.log(beam);
-   }
-  };
+  }, [isPublished, isPublishing, errors]);
 
   return (
     <Card>
@@ -84,10 +57,15 @@ const SimpleEditor: React.FC<SimpleEditorProps> = () => {
         </Card>
       ))}
       <>
+        {isPublishing && isPublished && errors.length == 0 && (
+          <Text variant={'body2'} align={'start'} customStyle="flex place-self-start">Beam created!</Text>
+          )
+        }
         <Button
           variant="primary"
+          disabled={isPublishing}
           customStyle="flex place-self-end"
-          label={'Beam it'}
+          label={isPublishing ? 'Beaming...' : 'Beam it'}
           onClick={handleSubmit}
         />
       </>

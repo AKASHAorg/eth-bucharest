@@ -17,7 +17,7 @@ const SaveToFavsExtension: React.FC<RootExtensionProps> = (props) => {
    * when a new app is installed the plugins will change
    */
   const localDataPlugin = React.useMemo(() => {
-    return plugins['@akashaorg/example-app'] ?? {}
+    return plugins['example-app'] ?? {}
   }, [plugins]);
 
   /**

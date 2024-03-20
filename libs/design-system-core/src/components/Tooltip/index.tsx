@@ -97,30 +97,30 @@ const Tooltip: React.FC<
   const eventHandlers =
     trigger === 'hover'
       ? {
-        onMouseOver: () => {
-          if ('open' in props) {
-            props.onOpen();
-            return;
-          }
-          setShowTooltip(true);
-        },
-        onMouseOut: () => {
-          if ('open' in props) {
-            props.onClose();
-            return;
-          }
-          setShowTooltip(false);
-        },
-      }
+          onMouseOver: () => {
+            if ('open' in props) {
+              props.onOpen();
+              return;
+            }
+            setShowTooltip(true);
+          },
+          onMouseOut: () => {
+            if ('open' in props) {
+              props.onClose();
+              return;
+            }
+            setShowTooltip(false);
+          },
+        }
       : {
-        onClick: () => {
-          if ('open' in props) {
-            props.onOpen();
-            return;
-          }
-          setShowTooltip(true);
-        },
-      };
+          onClick: () => {
+            if ('open' in props) {
+              props.onOpen();
+              return;
+            }
+            setShowTooltip(true);
+          },
+        };
 
   return (
     <Stack customStyle={customStyle}>

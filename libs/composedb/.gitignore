@@ -1,0 +1,6 @@
+!lib
+!lib/*
+lib/*.map
+*.config.json
+__generated__
+.ceramic

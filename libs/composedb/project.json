@@ -1,0 +1,40 @@
+{
+  "name": "@akashaorg/composedb-models",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "targets": {
+    "generate-config": {
+      "dependsOn": [],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/composedb/",
+        "command": "node ./src/cmd/generate-config.mjs"
+      }
+    },
+    "deploy-composites": {
+      "dependsOn": [],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/composedb/",
+        "command": "node ./src/cmd/deploy-composites.mjs && tsc --build"
+      }
+    },
+    "start-ceramic-node": {
+      "dependsOn": [],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/composedb/",
+        "command": "ceramic daemon --config ./composedb.config.json"
+      }
+    },
+    "start-graphql": {
+      "dependsOn": [],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/composedb/",
+        "command": "node ./src/cmd/graphiql.mjs"
+      }
+    }
+  },
+  "tags": []
+}
