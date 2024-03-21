@@ -1,15 +1,21 @@
 import React, { useState, useImperativeHandle, useCallback } from 'react';
 import type { RefObject, ChangeEvent } from 'react';
-import type { BlockInstanceMethods, ContentBlockRootProps } from '@akashaorg/typings/lib/ui';
+import type {
+  BlockInstanceMethods,
+  ContentBlockRootProps,
+} from '@akashaorg/typings/lib/ui';
 import getSdk from '@akashaorg/awf-sdk';
 import {
   AkashaContentBlockBlockDef,
   AkashaContentBlockLabeledValueInput,
   InputMaybe,
-  Scalars
+  Scalars,
 } from '@akashaorg/typings/lib/sdk/graphql-types-new';
 
-const createContentBlock = async (titleBlock: AkashaContentBlockLabeledValueInput, bodyBlock: AkashaContentBlockLabeledValueInput) => {
+const createContentBlock = async (
+  titleBlock: AkashaContentBlockLabeledValueInput,
+  bodyBlock: AkashaContentBlockLabeledValueInput
+) => {
   const sdk = getSdk();
 
   return sdk.services.gql.client.CreateContentBlock({
@@ -19,49 +25,53 @@ const createContentBlock = async (titleBlock: AkashaContentBlockLabeledValueInpu
         appVersionID: APP_VERSION_ID,
         content: [titleBlock, bodyBlock],
         createdAt: new Date().toISOString(),
-        kind: AkashaContentBlockBlockDef.Text
-      }
-    }
+        kind: AkashaContentBlockBlockDef.Text,
+      },
+    },
   });
-}
+};
 
 /**
  * To keep things simple we are hardcoding the appVersionId.
  * this property will be available through props.
  */
-const APP_VERSION_ID = 'kjzl6kcym7w8y7tdwpzjep46ufcjyc2vaq671z0a1lxrcjq7ogu42ta3vh1w2dm';
+const APP_VERSION_ID =
+  'kjzl6kcym7w8yb8jpr4rml66oje0m83igmo7ra1w39yubh4p3jk73th0gnaqguh';
 
 /**
  * This component is used in the editor.
  */
 const TextBlockEditor: React.FC<
   ContentBlockRootProps & { blockRef?: RefObject<BlockInstanceMethods> }
-> = props => {
+> = (props) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const retryCount = React.useRef(0);
 
   const createBlock = useCallback(async () => {
     const titleBlockValue: AkashaContentBlockLabeledValueInput = {
-      label: props.blockInfo.appName,
+      label: `${props.blockInfo.appName}`,
       propertyType: props.blockInfo.propertyType,
       value: title,
     };
 
     const bodyBlockValue: AkashaContentBlockLabeledValueInput = {
-      label: props.blockInfo.appName,
+      label: `${props.blockInfo.appName}`,
       propertyType: props.blockInfo.propertyType,
       value: content,
     };
     try {
-      const response = await createContentBlock(titleBlockValue, bodyBlockValue);
+      const response = await createContentBlock(
+        titleBlockValue,
+        bodyBlockValue
+      );
       return {
         response: {
           blockID: response.createAkashaContentBlock.document.id,
         },
         blockInfo: props.blockInfo,
         retryCount: retryCount.current,
-      }
+      };
     } catch (err) {
       return {
         response: {
@@ -72,14 +82,11 @@ const TextBlockEditor: React.FC<
         retryCount: retryCount.current,
       };
     }
-
   }, [props.blockInfo, content, title]);
-
 
   const retryBlockCreation = useCallback(async () => {
     retryCount.current += 1;
-    return createBlock()
-
+    return createBlock();
   }, [props.blockInfo]);
 
   /**
@@ -95,7 +102,7 @@ const TextBlockEditor: React.FC<
       createBlock,
       retryBlockCreation,
     }),
-    [createBlock, retryBlockCreation],
+    [createBlock, retryBlockCreation]
   );
 
   const handleTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
