@@ -23,7 +23,8 @@ Registering content-blocks will require the following properties:
 **icon** is used also in the editor's menu
 **loadingFn** is the loading function equivalent to single-spa's loadingFn
 
-> Note: in this example the editor is stripped down so the 'displayName' and 'icon' properties are not used.
+> Note: in this example the editor is stripped down so the 'displayName' and 'icon' 
+> properties are not used.
 > 
 > A more advanced editor can be found [here](https://github.com/AKASHAorg/akasha-core/blob/next/ui/apps/akasha/src/extensions/beam-editor/beam-editor.tsx)
 
@@ -46,15 +47,17 @@ React.useImperativeHandle(props.blockRef, () => ({
 }))
 ```
 
-For an implementation example see `src/content-blocks/text-with-title/text-block-editor.tsx`
+For an implementation example see 
+`src/content-blocks/text-with-title/text-block-editor.tsx`
 
 ### **"read-only-mode"**
-The content block in `readonly` mode is used to render the saved data and provide the required
-interaction logic. For example, a voting block can contain the voting interaction logic in readonly
-mode and the question editing part in the edit-mode block.
+The content block in `readonly` mode is used to render the saved data and provide 
+the required interaction logic. For example, a voting block can contain the voting 
+interaction logic in readonly mode and the question editing part in the 
+edit-mode block.
 
-The content-block is matched against both the application's name and the `propertyType` param
-when rendering the content.
+The content-block is matched against both the application's name and the 
+`propertyType` param when rendering the content.
 
 
 ### Content Block Data Model

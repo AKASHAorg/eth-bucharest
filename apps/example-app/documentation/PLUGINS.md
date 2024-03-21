@@ -1,22 +1,24 @@
 ### Plugins
 Integration with other apps can also happen at the data layer. Until now we've 
 presented a few ways in which apps can display different functionalities 
-belonging to other apps (through extension points and content-blocks) but in some cases we
-are only interested in data.
+belonging to other apps (through extension points and content-blocks) but in 
+some cases we are only interested in data.
 
-This is where we use plugins. They don't `render` anything in the view but can be used to store,
-retrieve and manipulate data.
+This is where we use plugins. They don't `render` anything in the view but can be 
+used to store, retrieve and manipulate data.
 
-For example, let's say we are building an app and we require a property from a specific profile app.
-We can do this by accessing the methods exposed by that specific profile through plugins.
+For example, let's say we are building an app and we require a property from a 
+specific profile app. We can do this by accessing the methods exposed by that 
+specific profile through plugins.
 
 #### Creating plugins
 
-Creating a plugin requires another named export from the root index file called `getPlugin`.
-This is an `async` method that should return an object. There is no standard in the shape 
-on this object however keep in mind that changing it should be done preserving backward compatibility.
+Creating a plugin requires another named export from the root index file called 
+`getPlugin`. This is an `async` method that should return an object. 
+There is no standard in the shape on this object however keep in mind that changing 
+it should be done preserving backward compatibility.
 
-#### Accessing plugins
+#### Accessing and using plugins
 To access a plugin in the register function you should use the function's param:
 Example:
 ```ts
@@ -41,7 +43,8 @@ const MyRootComponent = (props: RootComponentProps) => {
   return <>Hello World!</>
 }
 ```
->  ℹ️ Tip: In React you can use the already provided `useRootComponentProps` to avoid prop-drilling:
+>  ℹ️ Tip: In React you can use the already provided `useRootComponentProps` to 
+> avoid prop-drilling:
 >
 > Example:
 > ```tsx
@@ -54,3 +57,4 @@ const MyRootComponent = (props: RootComponentProps) => {
 >   return <>Hello Plugins!</>
 > }
 > ```
+
