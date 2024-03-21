@@ -11,7 +11,7 @@ The `example-app` provided is a stripped down version of an Antenna.
 
 To ensure compatibility with AKASHA Core and out loading system applications are required to export a register function.
 In the `example-app` the main [index](./src/index.tsx) there is already a named export `register` added which
-can be modified for your own need.
+can be modified for your own needs.
 
 > Note: The register function should be synchronous and defined as a named export.
 
@@ -47,7 +47,7 @@ Initialization and registration is done by the `app-loader` in the following ord
 - initialize apps and widgets (calls the `initialize` method on the apps and widgets - if provided)
 - register apps and widgets (calls the `register` method on the apps and widgets)
 
-> Note: The plugins are initialized firs so they are already available in the opts param of the register function
+> Note: The plugins are initialized first so they are already available in the opts param of the register function
 > and in the root component of the apps and widgets.
 >
 > However, the plugin you are trying to access can be provided by an app that is not installed so additional
