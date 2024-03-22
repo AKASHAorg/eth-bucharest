@@ -68,4 +68,3 @@ The content-block is matched against both the application's name and the
 ### Content Block Data Model
 
 @todo: explain the model behind a content block.
-
