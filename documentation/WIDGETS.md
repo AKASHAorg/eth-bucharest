@@ -1,5 +1,5 @@
 ### Widgets
-Beside the central area which is used by the apps, there are also other 
+Beside the central area which is used by the apps, there are other 
 sections in the layout that can be used by widget.
 As an example, the sidebar, the top bar and the card on the right of the screen
 are all widgets. The layout which defines the location of the apps and widgets in page
@@ -23,7 +23,7 @@ export const register = () => {
 }
 ```
 
-**loadingFn** loading function which will import the single-spa-react lifecycle methods
+**[loadingFn](./loading-fn.md)** loading function which will import the single-spa-react lifecycle methods
 
 **mountsIn** the mount point for this widget, should be set to one of the sections 
 defined by the layout

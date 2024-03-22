@@ -5,7 +5,7 @@ added/provided by an application. In order to use a specific content block,
 for example an `image` block, the application that provides it must be installed.
 
 For this example-app we have included a 
-[simple block](../src/content-blocks/text-with-title/text-block-editor.tsx) 
+[simple block](../apps/example-app/src/content-blocks/text-with-title/text-block-editor.tsx) 
 which displays a text field (title) and a textarea element (body). 
 Please refer to [content-blocks](./CONTENT_BLOCKS.md) docs for more info
 

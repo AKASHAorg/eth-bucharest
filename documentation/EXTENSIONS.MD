@@ -27,7 +27,7 @@ To define an extension the following properties must be set:
 
 It is also possible to control whether the extension should be loaded or not
 using the `activeWhen` property.
-This mechanism is exactly the same like the one used for [contextual widgets](../../example-widget/README.md#contextual-widgets)
+This mechanism is exactly the same as the one used for [contextual widgets](./WIDGETS.md#contextual-widgets)
 
 #### Using extensions
 

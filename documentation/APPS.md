@@ -15,17 +15,17 @@ The `example-app` provided is a stripped down version of an Antenna.
 
 To ensure compatibility with AKASHA Core and out loading system applications are 
 required to export a register function. In the `example-app` the main 
-[index](./src/index.tsx) there is already a named export `register` added which
+[index](../apps/example-app/src/index.tsx) there is already a named export `register` added which
 can be modified for your own needs.
 
 > Note: The register function should be synchronous and defined as a named export.
 
 The register function takes only one argument which is an object of the type
-[IntegrationRegistrationProps](../../libs/typings/src/ui/app-loader.ts)
+[IntegrationRegistrationProps](../libs/typings/src/ui/app-loader.ts)
 The returned value of the `register` function should be an object with the [IAppConfig](../../libs/typings/src/ui/apps.ts) type
 The required parameters are:
 
-**[loadingFn]()**
+**[loadingFn](./loading-fn.md)**
 
 **mountsIn** The slot id of the layout widget in which this app mounts.
 
@@ -34,9 +34,9 @@ The required parameters are:
 @TODO: explain the most important (required) properties of the returned object.
 
 @TODO: explain the optional
-[extensions](./documentation/EXTENSIONS.MD) 
+[extensions](./EXTENSIONS.MD) 
 and 
-[contentBlocks](./documentation/CONTENT_BLOCKS.md) properties 
+[contentBlocks](./CONTENT_BLOCKS.md) properties 
 (provide links to their docs)
 
 
@@ -57,7 +57,7 @@ Example:
 
 #### Plugins
 Apps and Widgets can also provide additional functionalities 
-through [plugins](./documentation/PLUGINS.md). Plugins are not rendered 
+through [plugins](./PLUGINS.md). Plugins are not rendered 
 into the view and their purpose is to allow other apps to implement additional 
 (domain specific) logic provided.
 Some examples of plugins:

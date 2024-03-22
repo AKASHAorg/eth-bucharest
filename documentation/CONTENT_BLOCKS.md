@@ -5,7 +5,7 @@ a code block etc.
 All of these blocks can be `injected` into the editor by different apps.
 
 To register a content-block an app should define an optional param into 
-it's [register](../src/index.tsx) function, called `contentBlocks`.
+it's [register](../apps/example-app/src/index.tsx) function, called `contentBlocks`.
 
 #### Interface
 
@@ -19,9 +19,13 @@ Registering content-blocks will require the following properties:
    loadingFn: () => () => import('./content-blocks/text-with-title'),
 }
 ```
+
 **[loadingFn](./loading-fn.md)**
+
 **propertyType** will be used to match the content published through this content.
+
 **displayName** is used in the editor's menu
+
 **icon** is used also in the editor's menu
 
 > Note: in this example the editor is stripped down so the 'displayName' and 'icon' 

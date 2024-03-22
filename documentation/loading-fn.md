@@ -1,13 +1,13 @@
 #### The loading function
 The `loadingFn` is the primary function for mounting the view.
 It is required to be defined for each of the AKASHA Core's 
-microfrontend type:
+micro-frontend type:
 - application
 - widget
 - extension-point
 - content-block
 
-Single-spa library (which is used under the hood) handles these microfrontends
+Single-spa library (which is used under the hood) handles these micro-frontends
 through some lifecycle methods:
 - boostrap
 - mount
