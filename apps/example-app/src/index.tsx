@@ -5,7 +5,7 @@ import {
   LogoTypeSource,
   MenuItemAreaType,
   MenuItemType,
-  type RootComponentProps,
+  RootComponentProps,
 } from '@akashaorg/typings/lib/ui';
 import React from 'react';
 import { GlobeAltIcon } from '@akashaorg/design-system-core/lib/components/Icon/hero-icons-outline';
@@ -23,14 +23,13 @@ export const initialize = (options: IntegrationRegistrationOptions): void => {
 /**
  * The register function is called right after the `initialize` function
  * This method is required for apps and widgets
- * @returns IAppConfig
  */
-export const register: (opts: IntegrationRegistrationOptions) => IAppConfig = opts => {
+
+export const register = (opts: IntegrationRegistrationOptions): IAppConfig => {
   return {
     loadingFn: () => import('./components'),
     mountsIn: opts.layoutConfig?.applicationSlotId,
     i18nNamespace: ['app-example'],
-    logo: { type: LogoTypeSource.ICON, value: <GlobeAltIcon /> },
     menuItems: {
       label: 'Example App',
       type: MenuItemType.App,
@@ -50,9 +49,7 @@ export const register: (opts: IntegrationRegistrationOptions) => IAppConfig = op
         propertyType: 'text-block',
         displayName: 'Text Block',
         icon: <GlobeAltIcon />,
-        loadingFn: () => {
-          return () => import('./content-blocks/text-with-title');
-        },
+        loadingFn: () => () => import('./content-blocks/text-with-title'),
       },
     ],
   };
