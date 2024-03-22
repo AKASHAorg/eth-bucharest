@@ -31,14 +31,9 @@ The required parameters are:
 
 **menuItems** This prarameter is used by sidebar to construct the menu. 
 
-@TODO: explain the most important (required) properties of the returned object.
-
-@TODO: explain the optional
-[extensions](./EXTENSIONS.MD) 
-and 
-[contentBlocks](./CONTENT_BLOCKS.md) properties 
-(provide links to their docs)
-
+Optionally apps (and widgets) can also define
+[extensions](./EXTENSIONS.MD) and 
+[contentBlocks](./CONTENT_BLOCKS.md) properties which are explained in their own docs.
 
 #### Application's layout and the mounting point.
 Applications have a specific mounting area that is defined by the layout widget. 
