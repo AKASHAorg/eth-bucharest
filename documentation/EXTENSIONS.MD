@@ -19,8 +19,15 @@ export const register = () => {
    }
 }
 ```
-@todo explain the interface
+To define an extension the following properties must be set:
 
+**[loadingFn](./loading-fn.md)**
+
+**mountsIn** -> the slot in which this extension will be mounted.
+
+It is also possible to control whether the extension should be loaded or not
+using the `activeWhen` property.
+This mechanism is exactly the same like the one used for [contextual widgets](../../example-widget/README.md#contextual-widgets)
 
 #### Using extensions
 
@@ -36,7 +43,7 @@ the `mountsIn` property on the extension's interface.
 
 Example usage:
 
-```ts
+```tsx
 import { Extension } from '@akashaorg/ui-lib-extensions/lib/react/extension';
 
 const MyReactComponent = () => {

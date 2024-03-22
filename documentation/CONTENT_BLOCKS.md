@@ -10,6 +10,7 @@ it's [register](../src/index.tsx) function, called `contentBlocks`.
 #### Interface
 
 Registering content-blocks will require the following properties:
+
 ```jsx
 {
    propertyType: 'text-block',
@@ -18,15 +19,16 @@ Registering content-blocks will require the following properties:
    loadingFn: () => () => import('./content-blocks/text-with-title'),
 }
 ```
+**[loadingFn](./loading-fn.md)**
 **propertyType** will be used to match the content published through this content.
 **displayName** is used in the editor's menu
 **icon** is used also in the editor's menu
-**loadingFn** is the loading function equivalent to single-spa's loadingFn
 
 > Note: in this example the editor is stripped down so the 'displayName' and 'icon' 
 > properties are not used.
 > 
 > A more advanced editor can be found [here](https://github.com/AKASHAorg/akasha-core/blob/next/ui/apps/akasha/src/extensions/beam-editor/beam-editor.tsx)
+> 
 
 
 #### Content Block Modes
@@ -58,7 +60,6 @@ edit-mode block.
 
 The content-block is matched against both the application's name and the 
 `propertyType` param when rendering the content.
-
 
 ### Content Block Data Model
 

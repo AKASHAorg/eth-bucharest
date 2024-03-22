@@ -9,7 +9,7 @@ library.
 ### Example app
 The `example-app` provided is a stripped down version of an Antenna.
 
-@todo: Explain what an Antenna is
+
 
 #### Interface
 
@@ -20,7 +20,16 @@ can be modified for your own needs.
 
 > Note: The register function should be synchronous and defined as a named export.
 
-@TODO: explain the params of the register function
+The register function takes only one argument which is an object of the type
+[IntegrationRegistrationProps](../../libs/typings/src/ui/app-loader.ts)
+The returned value of the `register` function should be an object with the [IAppConfig](../../libs/typings/src/ui/apps.ts) type
+The required parameters are:
+
+**[loadingFn]()**
+
+**mountsIn** The slot id of the layout widget in which this app mounts.
+
+**menuItems** This prarameter is used by sidebar to construct the menu. 
 
 @TODO: explain the most important (required) properties of the returned object.
 
