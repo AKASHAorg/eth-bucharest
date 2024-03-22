@@ -45,7 +45,7 @@ Applications have a specific mounting area that is defined by the layout widget.
 This configuration is then passed down to app register function's `opts` parameter 
 as `layoutConfig`. The layout used in this World defines the application's mount point
 in the central area, right below the topbar. (More detailed docs about the 
-layout [here]())
+layout [here](./layout-widget.md))
 
 Only one app can be loaded at any given time based on the URL's pathname.
 Example:
