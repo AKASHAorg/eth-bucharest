@@ -5,8 +5,6 @@ import getSdk from '@akashaorg/awf-sdk';
 import {
   AkashaContentBlockBlockDef,
   AkashaContentBlockLabeledValueInput,
-  InputMaybe,
-  Scalars
 } from '@akashaorg/typings/lib/sdk/graphql-types-new';
 
 const createContentBlock = async (titleBlock: AkashaContentBlockLabeledValueInput, bodyBlock: AkashaContentBlockLabeledValueInput) => {
