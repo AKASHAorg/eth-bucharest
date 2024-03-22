@@ -10,7 +10,8 @@
     "ceramic:create-config": "nx generate-config @akashaorg/composedb-models --verbose",
     "ceramic:start": "nx start-ceramic-node @akashaorg/composedb-models --verbose",
     "composedb:deploy": "nx deploy-composites @akashaorg/composedb-models --verbose",
-    "composedb:graphql": "nx start-graphql @akashaorg/composedb-models --verbose"
+    "composedb:graphql": "nx start-graphql @akashaorg/composedb-models --verbose",
+    "composedb:generate-data": "nx generate-data @akashaorg/composedb-models --verbose"
   },
   "private": true,
   "dependencies": {
@@ -90,6 +91,7 @@
   "devDependencies": {
     "@babel/core": "^7.14.5",
     "@babel/preset-react": "^7.14.5",
+    "@faker-js/faker": "8.4.1",
     "@nx/eslint": "18.0.7",
     "@nx/eslint-plugin": "18.0.7",
     "@nx/jest": "18.0.7",
