@@ -1,0 +1,5 @@
+type ExampleModel @createModel(accountRelation: SINGLE, description: "Example Model") {
+  displayName: String! @string(minLength: 3, maxLength: 50)
+  numberField: Int!
+  dateField: DateTime!
+}
