@@ -1,6 +1,6 @@
 # Initial Setup Guide - (for Linux/MacOS)
 
-> This is a Github template, use it to start your own project.
+> This is a GitHub template, use it to start your own project.
 
 ## Pre-requisites
 This project requires these packages before setup;
@@ -18,11 +18,9 @@ This project requires these packages before setup;
 2. If you already have nvm, please skip to next step. If you do not already have nvm installed, you can follow a more detailed instructions here on [nvm github repo](https://github.com/nvm-sh/nvm).
 
 3. Once you have installed and verified your nvm installation, you can now install the specified versions of `node` and `yarn`.
+  > If you are already on the minimum node version (v20.9.0), you may skip to step 5
 
-> If you are already on the minimum node version (v20.9.0), you may skip to step 5
-
-4. 
-- Run `nvm install 21.7.1` to install the specified version - 21.7.1 and `nvm use 21.7.1` to use this installed version.
+4. Run `nvm install 21.7.1` to install the specified version - 21.7.1 and `nvm use 21.7.1` to use this installed version.
 
 > For the purpose of this documentation, we are using node version 21.7.1, however you may replace this with any version that meets the minimum node version, as specified above.
 
@@ -52,7 +50,20 @@ This project requires these packages before setup;
 
 1. `yarn install` - install the project's dependencies
 2. `./node_modules/.bin/nx prepare @akashaorg/typings` - using nx, runs prepare command using nx for [typings](./libs/typings/package.json) package
-3. `yarn prepare` - using nx, runs prepare command for other packages
-4. `yarn serve` - to start the example app.
+3. `yarn ceramic:create-config`
+   - used to generate basic configuration for the ceramic node;
+   - add the printed env values to your .env file;
+   - this command should be run only for the initial setup; 
+4. `yarn ceramic:start` - to start Ceramic node(in a separated terminal window)
+5. `yarn composedb:deploy` - to deploy ceramic models
+6. `yarn composedb:generate-data`
+   - to deploy example-app and save generated data to the models;
+   - add the printed env values to your .env file;
+7. `yarn prepare` - using nx, runs prepare command for other packages
+8. `yarn serve` - to start the example app.
 
 You can view the deployment on your browser here `https://localhost:8181`
+
+To clean the cache, run:
+- `yarn clean` for ts compiled files 
+- `yarn cache clean` for the yarn cache 
