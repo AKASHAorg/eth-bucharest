@@ -70,6 +70,9 @@ This project requires these packages before setup;
 
 You can view the deployment on your browser here `https://localhost:8181`
 
+This example works on `sepolia` network by default.
+If you need to change to a different network then update the [sdk web3 module](./libs/sdk/src/common/web3.connector.ts) and restart from step #7
+
 To clean the cache, run:
 - `yarn clean` for ts compiled files 
 - `yarn cache clean` for the yarn cache 
