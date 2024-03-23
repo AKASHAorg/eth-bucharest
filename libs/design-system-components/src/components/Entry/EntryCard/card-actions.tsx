@@ -14,14 +14,22 @@ export type CardActionProps = {
   onReflect: () => void;
 };
 
-const CardActions: React.FC<CardActionProps> = props => {
-  const { itemId, reflectAnchorLink, disableActions, actionsRight, reflectionsCount, onReflect } =
-    props;
-  const reflectIconUi = <Icon icon={<ChatBubbleLeftRightIcon />} accentColor={true} />;
+const CardActions: React.FC<CardActionProps> = (props) => {
+  const {
+    itemId,
+    reflectAnchorLink,
+    disableActions,
+    actionsRight,
+    reflectionsCount,
+    onReflect,
+  } = props;
+  const reflectIconUi = (
+    <Icon icon={<ChatBubbleLeftRightIcon />} accentColor={true} />
+  );
   return (
     <Stack direction="row" align="center" justify="end" spacing="gap-x-2">
       <>{actionsRight}</>
-      <Anchor
+      {/* <Anchor
         href={`${reflectAnchorLink}/${itemId}`}
         onClick={e => {
           e.preventDefault();
@@ -43,7 +51,7 @@ const CardActions: React.FC<CardActionProps> = props => {
         ) : (
           reflectIconUi
         )}
-      </Anchor>
+      </Anchor> */}
     </Stack>
   );
 };
