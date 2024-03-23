@@ -60,14 +60,6 @@ const exp = {
         };
       },
     }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: '*.md',
-          context: process.cwd(),
-        },
-      ],
-    }),
     new Dotenv({
       path: path.resolve(__dirname, '../.env'),
       safe:

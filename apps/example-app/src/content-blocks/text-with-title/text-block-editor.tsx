@@ -33,8 +33,7 @@ const createContentBlock = async (
  * To keep things simple we are hardcoding the appVersionId.
  * this property will be available through props.
  */
-const APP_VERSION_ID =
-  'kjzl6kcym7w8y7blqsk8x90h8u4hnkmsz8yjeu35igbe8tyzw02sfjvqchz3dqf';
+const APP_VERSION_ID = process.env.ANTENNA_RELEASE_ID;
 
 /**
  * This component is used in the editor.
