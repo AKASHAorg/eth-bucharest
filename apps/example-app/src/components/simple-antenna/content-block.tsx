@@ -1,10 +1,7 @@
 import React, { useMemo, useRef } from 'react';
 import { hasOwn, useRootComponentProps } from '@akashaorg/ui-awf-hooks';
 import { useGetContentBlockByIdQuery } from '@akashaorg/ui-awf-hooks/lib/generated/apollo';
-import {
-  ContentBlockExtension,
-  MatchingBlock,
-} from '@akashaorg/ui-lib-extensions/lib/react/content-block';
+import { ContentBlockExtension } from '@akashaorg/ui-lib-extensions/lib/react/content-block';
 import Card from '@akashaorg/design-system-core/lib/components/Card';
 
 type ContentBlockType = {
@@ -26,13 +23,6 @@ const ContentBlock: React.FC<ContentBlockType> = (props) => {
       : null;
   }, [contentBlockReq.data]);
 
-  const { getExtensionsPlugin } = useRootComponentProps();
-  const contentBlockStoreRef = useRef(getExtensionsPlugin()?.contentBlockStore);
-
-  const matchingBlocks: MatchingBlock[] = !blockData
-    ? []
-    : contentBlockStoreRef.current.getMatchingBlocks(blockData);
-
   return (
     <Card
       type="plain"
@@ -45,7 +35,6 @@ const ContentBlock: React.FC<ContentBlockType> = (props) => {
     >
       <ContentBlockExtension
         blockData={blockData}
-        matchingBlocks={matchingBlocks}
         error={contentBlockReq.error?.message ?? ''}
         fetchError={{
           errorTitle: 'Network error occurred',

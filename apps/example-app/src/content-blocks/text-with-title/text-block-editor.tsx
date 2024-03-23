@@ -8,8 +8,6 @@ import getSdk from '@akashaorg/awf-sdk';
 import {
   AkashaContentBlockBlockDef,
   AkashaContentBlockLabeledValueInput,
-  InputMaybe,
-  Scalars,
 } from '@akashaorg/typings/lib/sdk/graphql-types-new';
 
 const createContentBlock = async (
@@ -36,7 +34,7 @@ const createContentBlock = async (
  * this property will be available through props.
  */
 const APP_VERSION_ID =
-  'kjzl6kcym7w8yb8jpr4rml66oje0m83igmo7ra1w39yubh4p3jk73th0gnaqguh';
+  'kjzl6kcym7w8y7blqsk8x90h8u4hnkmsz8yjeu35igbe8tyzw02sfjvqchz3dqf';
 
 /**
  * This component is used in the editor.
@@ -50,13 +48,13 @@ const TextBlockEditor: React.FC<
 
   const createBlock = useCallback(async () => {
     const titleBlockValue: AkashaContentBlockLabeledValueInput = {
-      label: `${props.blockInfo.appName}`,
+      label: `${props.blockInfo.appName}:title`,
       propertyType: props.blockInfo.propertyType,
       value: title,
     };
 
     const bodyBlockValue: AkashaContentBlockLabeledValueInput = {
-      label: `${props.blockInfo.appName}`,
+      label: `${props.blockInfo.appName}:body`,
       propertyType: props.blockInfo.propertyType,
       value: content,
     };
