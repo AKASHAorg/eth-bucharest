@@ -26,7 +26,7 @@ const ExampleAppRoot: React.FC<RootComponentProps> = (props) => {
   const handleFetchLatestPublished = () => {
     fetchMore({
       variables: {
-        before: beams[0].cursor,
+        before: beams[0]?.cursor,
         first: 1,
       },
     });
