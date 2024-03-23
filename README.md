@@ -49,7 +49,8 @@ This project requires these packages before setup;
 > To finalize the setup, run these commands in this order
 
 1. `yarn install` - install the project's dependencies
-2. `./node_modules/.bin/nx prepare @akashaorg/typings` - using nx, runs prepare command using nx for [typings](./libs/typings/package.json) package
+2. `./node_modules/.bin/nx prepare @akashaorg/typings` 
+   - using nx, runs prepare command using nx for [typings](./libs/typings/package.json) package
 3. `yarn ceramic:create-config`
    - used to generate basic configuration for the ceramic node;
    - add the printed env values to your .env file;
@@ -59,8 +60,10 @@ This project requires these packages before setup;
 6. `yarn composedb:generate-data`
    - to deploy example-app and save generated data to the models;
    - add the printed env values to your .env file;
-7. `yarn prepare` - using nx, runs prepare command for other packages
-8. `yarn serve` - to start the example app.
+7. `yarn prepare`
+   - using nx, runs prepare command for other packages
+8. `yarn serve` 
+   - to start the example app.
 
 You can view the deployment on your browser here `https://localhost:8181`
 
