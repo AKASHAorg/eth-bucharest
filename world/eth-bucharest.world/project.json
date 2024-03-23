@@ -20,5 +20,5 @@
         "command": "webpack serve --config webpack.config.cjs --port 8181"
       }
     }
-  },
+  }
 }
