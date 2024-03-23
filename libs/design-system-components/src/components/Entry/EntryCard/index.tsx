@@ -1,9 +1,19 @@
-import React, { ReactElement, ReactNode, Ref, CSSProperties, Fragment, useState } from 'react';
+import React, {
+  ReactElement,
+  ReactNode,
+  Ref,
+  CSSProperties,
+  Fragment,
+  useState,
+} from 'react';
 import Card from '@akashaorg/design-system-core/lib/components/Card';
 import Stack from '@akashaorg/design-system-core/lib/components/Stack';
 import ProfileAvatarButton from '@akashaorg/design-system-core/lib/components/ProfileAvatarButton';
 import Tooltip from '@akashaorg/design-system-core/lib/components/Tooltip';
-import EntryCardRemoved, { AuthorsRemovedMessage, OthersRemovedMessage } from '../EntryCardRemoved';
+import EntryCardRemoved, {
+  AuthorsRemovedMessage,
+  OthersRemovedMessage,
+} from '../EntryCardRemoved';
 import CardActions from './card-actions';
 import Text from '@akashaorg/design-system-core/lib/components/Text';
 import {
@@ -97,7 +107,7 @@ export type EntryCardProps = {
   transformSource: (src: Image) => Image;
 } & (BeamProps | ReflectProps);
 
-const EntryCard: React.FC<EntryCardProps> = props => {
+const EntryCard: React.FC<EntryCardProps> = (props) => {
   const {
     entryData,
     locale,
@@ -173,9 +183,14 @@ const EntryCard: React.FC<EntryCardProps> = props => {
   ];
   const hoverStyleLastEntry = lastEntry ? 'rounded-b-2xl' : '';
   const hoverStyle = hover
-    ? `${getColorClasses({ light: 'grey9/60', dark: 'grey3' }, 'hover:bg')} ${hoverStyleLastEntry}`
+    ? `${getColorClasses(
+        { light: 'grey9/60', dark: 'grey3' },
+        'hover:bg'
+      )} ${hoverStyleLastEntry}`
     : '';
-  const publishTime = entryData?.createdAt ? formatRelativeTime(entryData.createdAt, locale) : '';
+  const publishTime = entryData?.createdAt
+    ? formatRelativeTime(entryData.createdAt, locale)
+    : '';
   const avatar = authorProfile.error ? null : authorProfile.data?.avatar;
 
   const errorBoundaryProps: Pick<ErrorBoundaryProps, 'errorObj' | 'logger'> = {
@@ -187,7 +202,7 @@ const EntryCard: React.FC<EntryCardProps> = props => {
 
   const entryCardUi = (
     <Stack spacing="gap-y-2" padding="p-4" customStyle={hoverStyle}>
-      <Stack direction="row" justify="between">
+      <Stack direction="row" justify="start">
         <>
           {authorProfile.loading ? (
             <AuthorProfileLoading />
@@ -195,10 +210,14 @@ const EntryCard: React.FC<EntryCardProps> = props => {
             <ProfileAvatarButton
               data-testid="entry-profile-detail"
               profileId={entryData.authorId}
-              label={authorProfile.error ? entryData.authorId : authorProfile.data?.name}
+              label={
+                authorProfile.error
+                  ? entryData.authorId
+                  : authorProfile.data?.name
+              }
               avatar={transformSource(avatar?.default)}
-              alternativeAvatars={avatar?.alternatives?.map(alternative =>
-                transformSource(alternative),
+              alternativeAvatars={avatar?.alternatives?.map((alternative) =>
+                transformSource(alternative)
               )}
               href={`${profileAnchorLink}/${entryData.authorId}`}
               metadata={
@@ -214,7 +233,11 @@ const EntryCard: React.FC<EntryCardProps> = props => {
                     </Text>
                     <Tooltip
                       placement={'top'}
-                      content={formatDate(entryData?.createdAt, 'H[:]mm [·] D MMM YYYY', locale)}
+                      content={formatDate(
+                        entryData?.createdAt,
+                        'H[:]mm [·] D MMM YYYY',
+                        locale
+                      )}
                     >
                       <Text
                         variant="footnotes2"
@@ -234,7 +257,7 @@ const EntryCard: React.FC<EntryCardProps> = props => {
             />
           )}
         </>
-        <Menu
+        {/* <Menu
           anchor={{
             icon: <EllipsisHorizontalIcon />,
             plainIcon: true,
@@ -244,7 +267,7 @@ const EntryCard: React.FC<EntryCardProps> = props => {
           items={menuItems}
           disabled={disableActions}
           customStyle="shrink-0"
-        />
+        /> */}
       </Stack>
       {!entryData.active && (
         <EntryCardRemoved
@@ -276,13 +299,16 @@ const EntryCard: React.FC<EntryCardProps> = props => {
               {showNSFWCard && !showNSFWContent && (
                 <NSFW
                   {...nsfw}
-                  onClickToView={event => {
+                  onClickToView={(event) => {
                     event.stopPropagation();
                     if (!isLoggedIn) {
-                      if (showLoginModal && typeof showLoginModal === 'function') {
+                      if (
+                        showLoginModal &&
+                        typeof showLoginModal === 'function'
+                      ) {
                         showLoginModal(
                           null,
-                          'To view explicit or sensitive content, please connect to confirm your consent.',
+                          'To view explicit or sensitive content, please connect to confirm your consent.'
                         );
                       }
                     } else {
@@ -304,12 +330,12 @@ const EntryCard: React.FC<EntryCardProps> = props => {
                       content={rest.slateContent}
                       disabled={entryData.nsfw}
                       handleMentionClick={rest.onMentionClick}
-                      handleLinkClick={url => {
+                      handleLinkClick={(url) => {
                         rest.navigateTo?.({ getNavigationUrl: () => url });
                       }}
                     />
                   ) : (
-                    rest.sortedContents?.map(item => (
+                    rest.sortedContents?.map((item) => (
                       <Fragment key={item.blockID}>
                         {rest.children({ blockID: item.blockID })}
                       </Fragment>
