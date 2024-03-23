@@ -61,6 +61,8 @@ onError: payload => {},
 
 [ui/hooks/src/use-global-login.ts:34](https://github.com/AKASHAorg/akasha-core/blob/a8a8c5427/ui/hooks/src/use-global-login.ts#L34)
 
+___
+
 ### useConnectWallet
 
 ▸ **useConnectWallet**(): `Object`
