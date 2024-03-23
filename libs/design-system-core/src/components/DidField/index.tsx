@@ -10,7 +10,7 @@ import { getDidNetworkType, truncateDid } from '../../utils/did-utils';
 const didNetworkIconMapping = {
   eth: <Eth />,
   solana: <Solana />,
-  didKey: <DidKey />,
+  did: <DidKey />,
   noDid: <NoEth />,
 };
 
@@ -36,8 +36,15 @@ const DidField: React.FC<DidFieldProps> = ({
   const truncatedDid = truncateDid(did, networkType);
 
   const didDisplayBlock = (
-    <Stack direction="row" spacing="gap-x-1.5" align="center" customStyle={customStyle}>
-      {networkType && <Icon icon={isValid ? didNetworkIconMapping[networkType] : <NoEth />} />}
+    <Stack
+      direction="row"
+      spacing="gap-x-1.5"
+      align="center"
+      customStyle={customStyle}
+    >
+      {networkType && (
+        <Icon icon={isValid ? didNetworkIconMapping[networkType] : <NoEth />} />
+      )}
       <Text variant="footnotes1" color={textColor}>
         {truncatedDid}
       </Text>
