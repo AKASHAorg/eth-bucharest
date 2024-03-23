@@ -24,7 +24,6 @@ import Gql from '../gql';
 import { createFormattedValue } from '../helpers/observable';
 import { executeOnSW } from './helpers';
 import pino from 'pino';
-import Lit from '../common/lit';
 import CeramicService from '../common/ceramic';
 import { z } from 'zod';
 import { validate } from '../common/validator';
@@ -50,7 +49,6 @@ class AWF_Auth {
   private _log: pino.Logger;
   private _settings: Settings;
   private _gql: Gql;
-  private _lit: Lit;
   private _ceramic: CeramicService;
   private sessKey;
   private currentUser?: CurrentUser;
@@ -69,7 +67,6 @@ class AWF_Auth {
     @inject(TYPES.Log) log: Logging,
     @inject(TYPES.Settings) settings: Settings,
     @inject(TYPES.Gql) gql: Gql,
-    @inject(TYPES.Lit) lit: Lit,
     @inject(TYPES.Ceramic) ceramic: CeramicService,
   ) {
     this._db = db;
@@ -78,7 +75,6 @@ class AWF_Auth {
     this._log = log.create('AWF_Auth');
     this._settings = settings;
     this._gql = gql;
-    this._lit = lit;
     this._ceramic = ceramic;
   }
 
@@ -356,7 +352,6 @@ class AWF_Auth {
     this.currentUser = undefined;
     await this._gql.setContextViewerID('');
     await this._web3.disconnect();
-    await this._lit.disconnect();
     await this._ceramic.disconnect();
     await this._gql.resetCache();
     return true;

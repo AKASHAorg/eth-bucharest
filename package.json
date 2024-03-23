@@ -27,7 +27,6 @@
     "@headlessui/react": "1.7.18",
     "@heroicons/react": "2.1.1",
     "@hookform/resolvers": "3.0.0",
-    "@lit-protocol/sdk-browser": "1.1.250",
     "@popperjs/core": "2.11.8",
     "@tanstack/react-query": "4.36.1",
     "@web3-storage/w3up-client": "^11.1.3",

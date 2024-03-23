@@ -73,8 +73,6 @@ declare const __LOAD_LOCAL_SOURCES__: boolean;
     registryOverrides,
     socialLinks: [
       { icon: 'Github', link: 'https://github.com/AKASHAorg' },
-      { icon: 'Discord', link: '' },
-      { icon: 'Telegram', link: 'https://t.me/worldofethereum' },
       { icon: 'Twitter', link: 'https://twitter.com/AKASHAworld' },
     ],
   };
