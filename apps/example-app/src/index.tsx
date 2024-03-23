@@ -37,13 +37,15 @@ export const register = (opts: IntegrationRegistrationOptions): IAppConfig => {
       area: [MenuItemAreaType.AppArea],
       subRoutes: [],
     },
-    extensions: [{
-      /**
-       *  This extension will be mounted in the BeamCard component.
-       */
-      mountsIn: 'example-app-fav_*',
-      loadingFn: () => import('./extension-points/save-favourites'),
-    }],
+    extensions: [
+      {
+        /**
+         *  This extension will be mounted in the EntryCard component.
+         */
+        mountsIn: 'example-app-fav_*',
+        loadingFn: () => import('./extension-points/save-favourites'),
+      },
+    ],
     contentBlocks: [
       {
         propertyType: 'text-block',
@@ -67,47 +69,54 @@ export const getPlugin = (props: RootComponentProps) => {
    *    `plugins['example-app'].getLocalData()`.
    */
   let changeListeners = [];
-  const onChange = (ev: Pick<StorageEvent, 'key' | 'oldValue' | 'newValue' | 'storageArea' | 'url'>) => {
-    changeListeners.forEach(listener => listener(ev))
+  const onChange = (
+    ev: Pick<
+      StorageEvent,
+      'key' | 'oldValue' | 'newValue' | 'storageArea' | 'url'
+    >
+  ) => {
+    changeListeners.forEach((listener) => listener(ev));
   };
   let mainSubscribed = false;
 
   return {
-      subscribe(onChangeCb: () => void) {
-        if (!mainSubscribed) {
-          window.addEventListener('storage', onChange);
-          mainSubscribed = true;
+    subscribe(onChangeCb: () => void) {
+      if (!mainSubscribed) {
+        window.addEventListener('storage', onChange);
+        mainSubscribed = true;
+      }
+      changeListeners.push(onChangeCb);
+      return () => {
+        changeListeners = changeListeners.filter(
+          (listener) => listener !== onChangeCb
+        );
+        if (!changeListeners.length) {
+          window.removeEventListener('storage', onChange);
         }
-        changeListeners.push(onChangeCb);
-        return () => {
-          changeListeners = changeListeners.filter(listener => listener !== onChangeCb);
-          if (!changeListeners.length) {
-            window.removeEventListener('storage', onChange);
-          }
-        }
-      },
-      saveLocalData(key: string, data: string) {
-        const oldValue = this.getLocalData(key);
-        localStorage.setItem(key, data);
-        onChange({
-          key,
-          newValue: data,
-          oldValue,
-          storageArea: localStorage,
-          url: location.href,
-        });
-      },
-      removeLocaData(key) {
-        const oldValue = this.getLocalData(key);
-        localStorage.removeItem(key);
-        onChange({
-          key,
-          newValue: null,
-          oldValue,
-          storageArea: localStorage,
-          url: location.href,
-        });
-      },
+      };
+    },
+    saveLocalData(key: string, data: string) {
+      const oldValue = this.getLocalData(key);
+      localStorage.setItem(key, data);
+      onChange({
+        key,
+        newValue: data,
+        oldValue,
+        storageArea: localStorage,
+        url: location.href,
+      });
+    },
+    removeLocaData(key) {
+      const oldValue = this.getLocalData(key);
+      localStorage.removeItem(key);
+      onChange({
+        key,
+        newValue: null,
+        oldValue,
+        storageArea: localStorage,
+        url: location.href,
+      });
+    },
     getLocalData(key: string) {
       return localStorage.getItem(key);
     },

@@ -1,13 +1,16 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Button from '@akashaorg/design-system-core/lib/components/Button';
 import Card from '@akashaorg/design-system-core/lib/components/Card';
 import Text from '@akashaorg/design-system-core/lib/components/Text';
 import { EditorBlockExtension } from '@akashaorg/ui-lib-extensions/lib/react/content-block/editor-block-extension';
 import { useEditorBlocks } from './use-editor-blocks';
 import { CreateBeamMutation } from '@akashaorg/typings/lib/sdk/graphql-operation-types-new';
+import { useRootComponentProps, useGetLogin } from '@akashaorg/ui-awf-hooks';
 
 type SimpleEditorProps = {
-  onPublish?: (beamData: CreateBeamMutation['createAkashaBeam']['document']) => void;
+  onPublish?: (
+    beamData: CreateBeamMutation['createAkashaBeam']['document']
+  ) => void;
 };
 
 /**
@@ -16,11 +19,30 @@ type SimpleEditorProps = {
  */
 
 const SimpleEditor: React.FC<SimpleEditorProps> = ({ onPublish }) => {
-  const {createBeam, errors, availableBlocks, blocksInUse} = useEditorBlocks();
+  const { createBeam, errors, availableBlocks, blocksInUse } =
+    useEditorBlocks();
   const [isPublishing, setIsPublishing] = useState(false);
   const [isPublished, setIsPublished] = useState(false);
 
+  const { data } = useGetLogin();
+  const authenticatedDID = data?.id;
+
+  const { navigateToModal } = useRootComponentProps();
+  const showLoginModal = (title?: string, message?: string) => {
+    navigateToModal({
+      name: 'login',
+      title,
+      message,
+    });
+  };
+
   const handleSubmit = useCallback(async () => {
+    if (!authenticatedDID) {
+      return showLoginModal(
+        'Member Only Feature',
+        'You need to connect first to be able to use this feature.'
+      );
+    }
     if (isPublishing) return;
     setIsPublishing(true);
     const beamData = await createBeam();
@@ -28,8 +50,7 @@ const SimpleEditor: React.FC<SimpleEditorProps> = ({ onPublish }) => {
       setIsPublished(true);
       onPublish?.(beamData);
     }, 250);
-  }, [createBeam, isPublishing]);
-
+  }, [createBeam, isPublishing, authenticatedDID]);
 
   useEffect(() => {
     if (isPublishing && isPublished && !errors.length) {
@@ -58,9 +79,14 @@ const SimpleEditor: React.FC<SimpleEditorProps> = ({ onPublish }) => {
       ))}
       <>
         {isPublishing && isPublished && errors.length == 0 && (
-          <Text variant={'body2'} align={'start'} customStyle="flex place-self-start">Beam created!</Text>
-          )
-        }
+          <Text
+            variant={'body2'}
+            align={'start'}
+            customStyle="flex place-self-start"
+          >
+            Beam created!
+          </Text>
+        )}
         <Button
           variant="primary"
           disabled={isPublishing}

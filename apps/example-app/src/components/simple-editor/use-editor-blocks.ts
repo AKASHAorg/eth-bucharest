@@ -1,12 +1,13 @@
-import React, {useCallback, useLayoutEffect, useState} from 'react';
-import {BlockInstanceMethods, ContentBlockModes, ContentBlockRootProps} from '@akashaorg/typings/lib/ui';
-import {useRootComponentProps} from '@akashaorg/ui-awf-hooks';
+import React, { useCallback, useLayoutEffect, useState } from 'react';
+import {
+  BlockInstanceMethods,
+  ContentBlockModes,
+  ContentBlockRootProps,
+} from '@akashaorg/typings/lib/ui';
+import { useRootComponentProps } from '@akashaorg/ui-awf-hooks';
 import getSDK from '@akashaorg/awf-sdk';
 
 const DEFAULT_BLOCK_TYPE = 'text-block';
-
-const createBeam = () => {};
-
 
 export const useEditorBlocks = () => {
   const { getExtensionsPlugin } = useRootComponentProps();
@@ -14,7 +15,7 @@ export const useEditorBlocks = () => {
 
   const availableBlocks = React.useMemo(
     () => getExtensionsPlugin().contentBlockStore.getInfos(),
-    [getExtensionsPlugin],
+    [getExtensionsPlugin]
   );
 
   const [blocksInUse, setBlocksInUse] = React.useState<
@@ -29,7 +30,9 @@ export const useEditorBlocks = () => {
   >([]);
 
   useLayoutEffect(() => {
-    const defaultTextBlock = availableBlocks.find(bl => bl.propertyType === DEFAULT_BLOCK_TYPE);
+    const defaultTextBlock = availableBlocks.find(
+      (bl) => bl.propertyType === DEFAULT_BLOCK_TYPE
+    );
     if (availableBlocks.length && !blocksInUse.length) {
       setBlocksInUse([
         {
@@ -45,24 +48,24 @@ export const useEditorBlocks = () => {
 
   const createBeam = useCallback(async () => {
     const sdk = getSDK();
-    if(blocksInUse.length) {
+    if (blocksInUse.length) {
       try {
-        const blk = await blocksInUse[0].blockRef.current?.createBlock({ nsfw: false });
+        const blk = await blocksInUse[0].blockRef.current?.createBlock({
+          nsfw: false,
+        });
         const response = await sdk.services.gql.client.CreateBeam({
           i: {
             content: {
-              content: [{blockID: blk.response.blockID, order: 0}],
+              content: [{ blockID: blk.response.blockID, order: 0 }],
               active: true,
               createdAt: new Date().toISOString(),
-            }
-          }
+            },
+          },
         });
-        // @todo: pass the beam id through an event?
-        //  to be picked up by the antenna
         setBlocksInUse([]);
         return response.createAkashaBeam.document;
       } catch (err) {
-       setErrors([err.message]);
+        setErrors([err.message]);
       }
     }
   }, [blocksInUse, setBlocksInUse, setErrors]);
@@ -72,5 +75,5 @@ export const useEditorBlocks = () => {
     blocksInUse,
     createBeam,
     errors,
-  }
-}
+  };
+};

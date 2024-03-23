@@ -24,18 +24,17 @@ export type BeamResolverProps = {
 const BeamResolver: React.FC<BeamResolverProps> = (props) => {
   const { beamId } = props;
 
-  /*
-   *
-   *
-   *
+  /**
+   * this hook is used to fetch the authenticated user's credentials
+   * it will return an object with 2 props:
+   * id - the user's ceramic derived DID (decentralised identifier)
+   * ethAddress - the ethAddress from which the DID was derived
    */
   const { data } = useGetLogin();
   const authenticatedDID = data?.id;
 
-  /*
-   *
-   *
-   *
+  /**
+   * this hook will fetch the content of a beam (an entry) by its id
    */
   const beamReq = useGetBeamByIdQuery({
     variables: {
@@ -50,12 +49,14 @@ const BeamResolver: React.FC<BeamResolverProps> = (props) => {
       ? beamReq.data.node
       : null;
 
+  /**
+   * this mapping is used to adapt the data coming from the hook
+   * with the data used by the UI component
+   */
   const processedEntryData = mapBeamEntryData(entryData);
 
-  /*
-   *
-   *
-   *
+  /**
+   * fetch the profile data of the author of the beam
    */
   const {
     data: profileDataReq,
@@ -71,22 +72,8 @@ const BeamResolver: React.FC<BeamResolverProps> = (props) => {
       ? profileDataReq.node
       : { akashaProfile: null };
 
-  /*
-   *
-   *
-   *
-   */
-  const sortedEntryContent = React.useMemo(() => {
-    if (processedEntryData?.content) {
-      return sortByKey(processedEntryData?.content, 'order');
-    }
-    return [];
-  }, [processedEntryData?.content]);
-
-  /*
-   *
-   *
-   *
+  /**
+   * this plugin is used to navigate between apps
    */
   const { getRoutingPlugin } = useRootComponentProps();
   const navigateTo = getRoutingPlugin().navigateTo;
@@ -100,6 +87,18 @@ const BeamResolver: React.FC<BeamResolverProps> = (props) => {
   const handleContentClick = () => {
     return;
   };
+
+  /**
+   * in the case there are multiple content blocks
+   * this creates a new array with the blocks sorted
+   * with the original order they were published in
+   */
+  const sortedEntryContent = React.useMemo(() => {
+    if (processedEntryData?.content) {
+      return sortByKey(processedEntryData?.content, 'order');
+    }
+    return [];
+  }, [processedEntryData?.content]);
 
   if (beamReq.loading) return <EntryCardLoading />;
 
@@ -126,9 +125,7 @@ const BeamResolver: React.FC<BeamResolverProps> = (props) => {
       }
     >
       {({ blockID }) => (
-        <React.Suspense fallback={<></>}>
-          <ContentBlock blockID={blockID} onContentClick={handleContentClick} />
-        </React.Suspense>
+        <ContentBlock blockID={blockID} onContentClick={handleContentClick} />
       )}
     </EntryCard>
   );

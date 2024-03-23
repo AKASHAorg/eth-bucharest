@@ -12,6 +12,11 @@ type ContentBlockType = {
 const ContentBlock: React.FC<ContentBlockType> = (props) => {
   const { blockID, onContentClick } = props;
 
+  /**
+   * fetch the actual content of a beam, which is saved as content blocks
+   * for this example there is only one content block per beam
+   * but you can add more
+   */
   const contentBlockReq = useGetContentBlockByIdQuery({
     variables: { id: blockID },
     fetchPolicy: 'cache-first',

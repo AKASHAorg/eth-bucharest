@@ -13,8 +13,8 @@ export type SimpleAntennaProps = {
 
 const SimpleAntenna: React.FC<SimpleAntennaProps> = (props) => {
   const { beams, loading, handleFetchMore } = props;
-  const loadMoreRef = React.createRef<HTMLDivElement>();
 
+  const loadMoreRef = React.createRef<HTMLDivElement>();
   useIntersectionObserver({
     target: loadMoreRef,
     onIntersect: handleFetchMore,
