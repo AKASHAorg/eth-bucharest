@@ -1,15 +1,14 @@
 ### What is an application?
 
-An application is a standalone component that complements and extends your web3
-social network experience. Applications are the main building blocks of a world
-and it can be seen as a standalone SPA's (Single Page Application) except that they
-are loaded, mounted and unmounted by the underlying system (`app-loader`) which is
-a thin layer on top of the [single-spa](https://single-spa.js.org/) microfrontends
+An application is a standalone micro-frontend that complements and extends your web3 
+social network experience. Applications are the main building blocks of a world 
+and it can be seen as a standalone SPA's (Single Page Application) except that they 
+are loaded, mounted and unmounted by the underlying system (`app-loader`) which is 
+a thin layer on top of the [single-spa](https://single-spa.js.org/) microfrontends 
 library.
 
 ### Example app
-
-The `example-app` provided is a stripped down version of an Antenna App, such as the one on AKASHA World.
+The `example-app` provided is a stripped down version of an [Antenna](./GLOSSARY.md#antenna) app, such as the one on AKASHA World.
 
 #### Interface
 
@@ -21,8 +20,8 @@ can be modified for your own needs.
 > Note: The register function should be synchronous and defined as a named export.
 
 The register function takes only one argument which is an object of the type
-[IntegrationRegistrationOptions](../libs/typings/src/ui/app-loader.ts)
-The returned value of the `register` function should be an object with the [IAppConfig](../../libs/typings/src/ui/apps.ts) type
+[IntegrationRegistrationProps](../libs/typings/src/ui/app-loader.ts)
+The returned value of the `register` function should be an object with the [IAppConfig](../libs/typings/src/ui/apps.ts) type
 The required parameters are:
 
 **[loadingFn](./loading-fn.md)**
@@ -77,3 +76,5 @@ Initialization and registration is done by the `app-loader` in the following ord
 >
 > However, the plugin you are trying to access can be provided by an app that is not
 > installed so additional fallback logic should be added to avoid breaking your app.
+
+### See [Widgets](./WIDGETS.md) next.

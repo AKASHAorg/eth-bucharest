@@ -69,4 +69,4 @@ pathToActiveWhen(['/some/path/1', '/app1'])
 ### Plugins
 
 Widgets can also expose plugins the same way the apps do.
-Please consult [plugins documentation](./PLUGINS.md) for documentation.
+Please consult [plugins documentation](./PLUGINS.md) next.

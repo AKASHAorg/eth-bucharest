@@ -1,9 +1,8 @@
 ### Plugins
-
-Integration with other apps can also happen at the data layer. Until now, we've
-presented a few ways in which apps can display different functionalities
-belonging to other apps (through extension points and content-blocks) but in
-some cases we are only interested in data.
+Integration with other apps can also happen at the data layer. Until now, we've 
+presented a few ways in which apps can display different functionalities 
+belonging to other apps (through [extension points](./EXTENSIONS.MD) and 
+[content-blocks](./CONTENT_BLOCKS.md)) but in some cases we are only interested in data.
 
 This is where we use plugins. They don't `render` anything in the view but can be
 used to store, retrieve and manipulate data.
@@ -12,8 +11,10 @@ For example, let's say we are building an app, and we require a property from a
 specific profile app. We can do this by accessing the methods exposed by that
 specific profile through plugins.
 
-It is not mandatory for the applications to also provide a plugin. However, the plugin
-system is quite a powerful way to integrate with other apps at the data layer.
+
+It is **NOT** mandatory for the applications to also provide a plugin. However, the plugin
+system is a quite powerful way to integrate with other apps at the data layer.
+
 
 #### Creating plugins
 

@@ -1,3 +1,18 @@
+### Table of contents:
+1. [Initial Setup Guide](#initial-setup-guide---for-linuxmacos)
+  - [Pre-requisites](#pre-requisites) 
+  - [Installing/Updating required packages](#installingupdating-required-packages)
+  - [Getting started with the repo](#getting-started-with-the-repo)
+  - [Installing deps and starting the app](#install-dependencies-and-start-app)
+2. [Applications](./documentation/APPS.md)
+3. [Widgets](./documentation/WIDGETS.md)
+4. [Plugins](./documentation/PLUGINS.md)
+5. [Extension-points](./documentation/EXTENSIONS.MD)
+6. [Editor](./documentation/EDITOR.md)
+7. [Content Blocks](./documentation/CONTENT_BLOCKS.md)
+8. [The layout widget](./documentation/layout-widget.md)
+
+
 # Initial Setup Guide - (for Linux/MacOS)
 
 > This is a GitHub template, use it to start your own project.
@@ -76,3 +91,5 @@ If you need to change to a different network then update the [sdk web3 module](.
 To clean the cache, run:
 - `yarn clean` for ts compiled files 
 - `yarn cache clean` for the yarn cache 
+
+#### Next, explore the docs for [Applications](./documentation/APPS.md)

@@ -1,6 +1,6 @@
 ### Editor
+Adding contents to an [Antenna](./GLOSSARY.md#antenna) app is made through an editor.
 
-Adding content to an Antenna app is made through an editor.
 The editor is a list of content blocks, each content block being
 added/provided by an application. In order to use a specific content block,
 for example an `image` block, the application that provides it must be installed.
