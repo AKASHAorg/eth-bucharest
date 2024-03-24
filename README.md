@@ -1,16 +1,18 @@
-### Table of contents:
-1. [Initial Setup Guide](#initial-setup-guide---for-linuxmacos)
-  - [Pre-requisites](#pre-requisites) 
-  - [Installing/Updating required packages](#installingupdating-required-packages)
-  - [Getting started with the repo](#getting-started-with-the-repo)
-  - [Installing deps and starting the app](#install-dependencies-and-start-app)
-2. [Applications](./documentation/APPS.md)
-3. [Widgets](./documentation/WIDGETS.md)
-4. [Plugins](./documentation/PLUGINS.md)
-5. [Extension-points](./documentation/EXTENSIONS.MD)
-6. [Editor](./documentation/EDITOR.md)
-7. [Content Blocks](./documentation/CONTENT_BLOCKS.md)
-8. [The layout widget](./documentation/layout-widget.md)
+### DEVELOPMENT
+___
+#### *Initial Setup Guide*
+1. [Pre-requisites](#pre-requisites) 
+2. [Installing/Updating required packages](#installingupdating-required-packages)
+3. [Getting started with the repo](#getting-started-with-the-repo)
+4. [Installing deps and starting the app](#install-dependencies-and-start-app)
+#### *Build*
+1. [Applications](./documentation/APPS.md)
+2. [Widgets](./documentation/WIDGETS.md)
+3. [Plugins](./documentation/PLUGINS.md)
+4. [Extension-points](./documentation/EXTENSIONS.MD)
+5. [Editor](./documentation/EDITOR.md)
+6. [Content Blocks](./documentation/CONTENT_BLOCKS.md)
+7. [The layout widget](./documentation/layout-widget.md)
 
 
 # Initial Setup Guide - (for Linux/MacOS)
