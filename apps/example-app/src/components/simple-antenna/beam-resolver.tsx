@@ -1,6 +1,7 @@
 import React from 'react';
 import EntryCardLoading from '@akashaorg/design-system-components/lib/components/Entry/EntryCardLoading';
 import EntryCard from '@akashaorg/design-system-components/lib/components/Entry/EntryCard';
+import ContentBlockRenderer from './content-block-renderer';
 import { EntityTypes } from '@akashaorg/typings/lib/ui';
 import {
   hasOwn,
@@ -15,8 +16,6 @@ import {
   useGetProfileByDidQuery,
 } from '@akashaorg/ui-awf-hooks/lib/generated/apollo';
 import { Extension } from '@akashaorg/ui-lib-extensions/lib/react/extension';
-
-import ContentBlock from './content-block';
 
 export type BeamResolverProps = {
   beamId: string;
@@ -125,7 +124,10 @@ const BeamResolver: React.FC<BeamResolverProps> = (props) => {
       }
     >
       {({ blockID }) => (
-        <ContentBlock blockID={blockID} onContentClick={handleContentClick} />
+        <ContentBlockRenderer
+          blockID={blockID}
+          onContentClick={handleContentClick}
+        />
       )}
     </EntryCard>
   );
