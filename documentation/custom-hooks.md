@@ -5,7 +5,6 @@ Currently we have the following hooks:
 
 ## Available Custom Hooks
 
-- [useGlobalLogin](#usegloballogin)
 - [useLogin](#uselogin)
 - [useLogout](#uselogout)
 - [useConnectWallet](#useconnectwallet)
@@ -19,47 +18,7 @@ Currently we have the following hooks:
 - [useListenForMutationEvents](#uselistenformutationevents)
 - [useGetSettings](#usegetsettings)
 - [useSaveSettings](#usesavesettings)
-- [useBeams](#usebeams)
-- [useBeamsByTags](#usebeamsbytags)
-- [useMentions](#usementions)
-- [useNsfwToggling](#usensfwtoggling)
-- [usePlaformHealthCheck](#useplaformhealthcheck)
-- [useLegalDoc](#uselegaldoc)
-___
 
-### useGlobalLogin
-
-▸ **useGlobalLogin**(`props`): `void`
-
-Hook that will fire an action when the sign in is called
-
-**`Example`**
-
-useGlobalLogin hook
-```typescript
-useGlobalLogin({
-onLogin: payload => {},
-onLogout: () => {},
-waitForAuth: payload => {}.
-onReady: payload => {},
-onLoadFromCache: payload => {},
-onError: payload => {},
-})
-```
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `props` | [`UseGlobalLoginProps`](interfaces/UseGlobalLoginProps.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[ui/hooks/src/use-global-login.ts:34](https://github.com/AKASHAorg/akasha-core/blob/a8a8c5427/ui/hooks/src/use-global-login.ts#L34)
 
 ___
 
@@ -312,44 +271,6 @@ onError: payload => {},
 
 ___
 
-### useLegalDoc
-
-▸ **useLegalDoc**(`docName`): `Object`
-
-Hook to get legal docs stored on ipfs
-
-**`Example`**
-
-useLegalDoc hook
-```typescript
-const termsOfUseDocQuery = useLegalDoc('TermsOfUse');
-
-const termsOfUseDoc = termsOfUseDocQuery.data;
-```
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `docName` | `LEGAL_DOCS` |
-
-#### Returns
-
-`Object`
-
-| Name | Type |
-| :------ | :------ |
-| `data` | `string` |
-| `error` | `Error` |
-| `isFetched` | `boolean` |
-| `isLoading` | `boolean` |
-
-#### Defined in
-
-[ui/hooks/src/use-legal.ts:20](https://github.com/AKASHAorg/akasha-core/blob/a8a8c5427/ui/hooks/src/use-legal.ts#L20)
-
-___
-
 
 ### useLogin
 
@@ -460,48 +381,6 @@ markAsRead('message id');
 
 ___
 
-### useMentions
-
-▸ **useMentions**(`authenticatedDID`): `Object`
-
-Hook to get a list of users a person can mention by checking the person's following
-list and search for the names that match the keyword entered after the @ symbol.
-Note: Users cannot mention people they don't already follow.
-
-**`Example`**
-
-useMentions hook
-```typescript
-  const { setMentionQuery, mentions } = useMentions(authenticatedDID);
-
-// set the handler to start searching after a user enter the @ symbol and then a keyword:
-  const handleGetMentions = (query: string) => {
-       setMentionQuery(query);
-    };
-```
-The list of possible mentions is returned through the `mentions` variable.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `authenticatedDID` | `string` |
-
-#### Returns
-
-`Object`
-
-| Name | Type |
-| :------ | :------ |
-| `mentions` | { `avatar?`: { `alternatives?`: { `height`: `number` ; `src`: `any` ; `width`: `number`  }[] ; `default`: { `height`: `number` ; `src`: `any` ; `width`: `number`  }  } ; `background?`: { `alternatives?`: { `height`: `number` ; `src`: `any` ; `width`: `number`  }[] ; `default`: { `height`: `number` ; `src`: `any` ; `width`: `number`  }  } ; `createdAt`: `any` ; `description?`: `string` ; `did`: { `id`: `string` ; `isViewer`: `boolean`  } ; `followers`: { `pageInfo`: { `endCursor?`: `string` ; `hasNextPage`: `boolean` ; `hasPreviousPage`: `boolean` ; `startCursor?`: `string`  }  } ; `id`: `string` ; `links?`: { `href`: `any` ; `label?`: `string`  }[] ; `name`: `string` ; `nsfw?`: `boolean`  }[] |
-| `setMentionQuery` | `Dispatch`<`SetStateAction`<`string`\>\> |
-
-#### Defined in
-
-[ui/hooks/src/use-mentions.ts:20](https://github.com/AKASHAorg/akasha-core/blob/a8a8c5427/ui/hooks/src/use-mentions.ts#L20)
-
-___
-
 ### useNetworkChangeListener
 
 ▸ **useNetworkChangeListener**(): `any`[]
@@ -564,57 +443,6 @@ networkNotSupported: true if web3 provider is not on the specified network
 #### Defined in
 
 [ui/hooks/src/use-network-state.ts:36](https://github.com/AKASHAorg/akasha-core/blob/a8a8c5427/ui/hooks/src/use-network-state.ts#L36)
-
-___
-
-### useNsfwToggling
-
-▸ **useNsfwToggling**(): `Object`
-
-Hook to get and set user's choice for showing/hiding nsfw content
-
-**`Example`**
-
-useNsfwToggling hook
-```typescript
-const {showNsfw, toggleShowNsfw} = useNsfwToggling();
-```
-To toggle the nsfw state, pass a boolean value to the toggleShowNsfw function,
- e.g. `toggleShowNsfw(true)`
-
-#### Returns
-
-`Object`
-
-| Name | Type |
-| :------ | :------ |
-| `showNsfw` | `boolean` |
-| `toggleShowNsfw` | (`showNsfw`: `boolean`) => `void` |
-
-#### Defined in
-
-[ui/hooks/src/use-nsfw.ts:13](https://github.com/AKASHAorg/akasha-core/blob/a8a8c5427/ui/hooks/src/use-nsfw.ts#L13)
-
-___
-
-### usePlaformHealthCheck
-
-▸ **usePlaformHealthCheck**(): `Object`
-
-#### Returns
-
-`Object`
-
-| Name | Type |
-| :------ | :------ |
-| `data` | { `statusCode`: `number` ; `success`: `boolean`  } |
-| `data.statusCode` | `number` |
-| `data.success` | `boolean` |
-| `isLoading` | `boolean` |
-
-#### Defined in
-
-[ui/hooks/src/use-health-check.ts:11](https://github.com/AKASHAorg/akasha-core/blob/a8a8c5427/ui/hooks/src/use-health-check.ts#L11)
 
 ___
 
@@ -862,122 +690,6 @@ usePendingReflections hook
 [ui/hooks/src/use-pending-reflections.ts](https://github.com/AKASHAorg/akasha-core/blob/a8a8c5427/ui/hooks/src/use-pending-reflections.ts)
 
 ___
-
-### useBeams
-
-▸ **useBeams**(`UseBeamsOptions`): `Object`
-
-Hook that retrieves all the beams created in general or by a certain DID (when
-a `did` param is provided).
-
-**`Example`**
-
-useBeams hook
-```typescript
-const {
-     beams,
-     fetchNextPage,
-     fetchPreviousPage,
-     hasNextPage,
-     hasPreviousPage,
-     fetchInitialData,
-     onReset,
-     called,
-     isLoading,
-     hasErrors,
-     errors,
-   } = useBeams({
-     overscan: 10,
-     sorting: { createdAt: SortOrder.Desc },
-     filters: { where: { status: { equalTo: AkashaBeamStreamModerationStatus.Ok } } },
-   });
-```
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `overscan` | `number` |
-| `filters?` | `AkashaBeamStreamFiltersInput` |
-| `sorting?` | `AkashaBeamStreamSortingInput` |
-| `did?` | `string` |
-
-#### Returns
-
-`Object`
-
-| Name | Type |
-| :------ | :------ |
-| `beams` | `any` |
-| `called` | `boolean` |
-| `errors` | `string`[] |
-| `fetchInitialData` | (`restoreItem?`: { `key`: `string` ; `offsetTop`: `number`  }) => `Promise`<`void`\> |
-| `fetchNextPage` | (`lastCursor`: `string`) => `Promise`<`void`\> |
-| `fetchPreviousPage` | (`firstCursor`: `string`) => `Promise`<`void`\> |
-| `hasErrors` | `boolean` |
-| `hasNextPage` | `any` |
-| `hasPreviousPage` | `any` |
-| `isLoading` | `boolean` |
-| `onReset` | () => `Promise`<`void`\> |
-
-#### Defined in
-
-[ui/hooks/src/use-beams.ts:61](https://github.com/AKASHAorg/akasha-core/blob/a8a8c5427/ui/hooks/src/use-beams.ts#L61)
-
-___
-
-### useBeamsByTags
-
-▸ **useBeamsByTags**(`tag`): `Object`
-
-Hook that retrieves all the beams created with a specific tag or an array of tags
-
-**`Example`**
-
-useBeamsByTags hook
-```typescript
-  const {
-   beams,
-   called,
-   fetchNextPage,
-   fetchPreviousPage,
-   hasNextPage,
-   hasPreviousPage,
-   fetchInitialData,
-   onReset,
-   isLoading,
-   hasErrors,
-   errors,
- } = useBeamsByTags('akasha');
-```
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `tag` | `string` \| `string`[] | One tag or an array of tags. |
-
-#### Returns
-
-`Object`
-
-| Name | Type |
-| :------ | :------ |
-| `beams` | { `cursor`: `string` ; `node?`: { `active`: `boolean` ; `createdAt`: `any` ; `indexType`: `string` ; `indexValue`: `string` ; `moderationID?`: `any` ; `status?`: `AkashaIndexedStreamModerationStatus` ; `stream`: `any` ; `streamType?`: `AkashaIndexedStreamStreamType`  }  }[] |
-| `called` | `boolean` |
-| `errors` | `string`[] |
-| `fetchInitialData` | (`newTag?`: `boolean`, `restoreItem?`: { `key`: `string` ; `offsetTop`: `number`  }) => `Promise`<`void`\> |
-| `fetchNextPage` | (`lastCursor`: `string`) => `Promise`<`void`\> |
-| `fetchPreviousPage` | (`firstCursor`: `string`) => `Promise`<`void`\> |
-| `hasErrors` | `boolean` |
-| `hasNextPage` | `boolean` |
-| `hasPreviousPage` | `boolean` |
-| `isLoading` | `boolean` |
-| `onReset` | () => `Promise`<`void`\> |
-
-#### Defined in
-
-[ui/hooks/src/use-beams-by-tags.ts:36](https://github.com/AKASHAorg/akasha-core/blob/a8a8c5427/ui/hooks/src/use-beams-by-tags.ts#L36)
 
 
 
