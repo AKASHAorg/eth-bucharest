@@ -1657,17 +1657,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ceramicnetwork/3id-did-resolver@npm:^5.3.0":
-  version: 5.3.0
-  resolution: "@ceramicnetwork/3id-did-resolver@npm:5.3.0"
+"@ceramicnetwork/3id-did-resolver@npm:^5.4.0":
+  version: 5.4.0
+  resolution: "@ceramicnetwork/3id-did-resolver@npm:5.4.0"
   dependencies:
-    "@ceramicnetwork/common": "npm:^5.2.0"
-    "@ceramicnetwork/stream-tile": "npm:^5.2.0"
+    "@ceramicnetwork/common": "npm:^5.3.0"
+    "@ceramicnetwork/stream-tile": "npm:^5.3.0"
     "@ceramicnetwork/streamid": "npm:^5.0.0"
     least-recent: "npm:^1.0.3"
     multiformats: "npm:^13.0.0"
     uint8arrays: "npm:^5.0.1"
-  checksum: 10/c601453ffbdd1f6ab7ad3a3018dca5989cd34e02787cb08a5f148951a98556488a48977e58381b65f2ba91bcba06b1f5f5de76c09555329e1f4d3e3dbe8720d9
+  checksum: 10/93667f4a5287d70f493cce8c59c3dfbf18d58d159ddbe9384a92e3636ffa54686a0399369ef123ee853f967954c1bf2973f94019610acc833c23dfe4b3691e27
   languageName: node
   linkType: hard
 
@@ -1682,6 +1682,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ceramicnetwork/anchor-listener@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "@ceramicnetwork/anchor-listener@npm:4.3.0"
+  dependencies:
+    "@ceramicnetwork/anchor-utils": "npm:^4.3.0"
+    "@ethersproject/providers": "npm:^5.5.1"
+    rxjs: "npm:^7.8.1"
+  checksum: 10/68d2677fa4d91fc9d3a579ef502d4ec3286b597ac6e05755e163b9e6175b47fadcd2c975263f472ed02872e21837828e4d33820e1971383a2ee0bbb36411f7c5
+  languageName: node
+  linkType: hard
+
 "@ceramicnetwork/anchor-utils@npm:^4.2.0":
   version: 4.2.0
   resolution: "@ceramicnetwork/anchor-utils@npm:4.2.0"
@@ -1691,6 +1702,18 @@ __metadata:
     multiformats: "npm:^13.0.0"
     uint8arrays: "npm:^5.0.1"
   checksum: 10/cc292f95317a29d1cf9ba691da574acc7acb5617c1eb20a4bba2851c6c1d66751fd365a356cf60a913e51a4b7d31961a1366c84b64175933087ec7f484cf0742
+  languageName: node
+  linkType: hard
+
+"@ceramicnetwork/anchor-utils@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "@ceramicnetwork/anchor-utils@npm:4.3.0"
+  dependencies:
+    "@ceramicnetwork/common": "npm:^5.3.0"
+    "@ethersproject/abi": "npm:^5.7.0"
+    multiformats: "npm:^13.0.0"
+    uint8arrays: "npm:^5.0.1"
+  checksum: 10/67a06b911c2071d649ae94f09e33d22bfccd5bbd08ee17d75e0153b4e78490be2a8b9358ee742c0c8f569d5611ece9e7ef6d771a12c83916df26d055fc34c3f0
   languageName: node
   linkType: hard
 
@@ -1731,21 +1754,43 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ceramicnetwork/cli@npm:5.3.0":
+"@ceramicnetwork/blockchain-utils-validation@npm:^5.3.0":
   version: 5.3.0
-  resolution: "@ceramicnetwork/cli@npm:5.3.0"
+  resolution: "@ceramicnetwork/blockchain-utils-validation@npm:5.3.0"
+  dependencies:
+    "@ceramicnetwork/blockchain-utils-linking": "npm:^5.0.0"
+    "@ceramicnetwork/common": "npm:^5.3.0"
+    "@ethersproject/contracts": "npm:^5.5.0"
+    "@ethersproject/providers": "npm:^5.5.1"
+    "@ethersproject/wallet": "npm:^5.5.0"
+    "@noble/curves": "npm:^1.1.0"
+    "@polkadot/util-crypto": "npm:^7.0.2"
+    "@smontero/eosio-signing-tools": "npm:^0.0.6"
+    "@taquito/utils": "npm:^11.2.0"
+    "@tendermint/sig": "npm:^0.6.0"
+    "@zondax/filecoin-signing-tools": "npm:^0.18.2"
+    caip: "npm:~1.1.0"
+    tweetnacl: "npm:^1.0.3"
+    uint8arrays: "npm:^5.0.1"
+  checksum: 10/cde5cb75cdbe5ec15eeda9275e53aca6302810f8f611a0f5c0e2be1e3bb4643fa7284bb1ca95a6a259f56cae127f329f014fa3962620d3ddb518421fc970f86f
+  languageName: node
+  linkType: hard
+
+"@ceramicnetwork/cli@npm:5.4.0":
+  version: 5.4.0
+  resolution: "@ceramicnetwork/cli@npm:5.4.0"
   dependencies:
     "@awaitjs/express": "npm:^0.9.0"
-    "@ceramicnetwork/3id-did-resolver": "npm:^5.3.0"
-    "@ceramicnetwork/codecs": "npm:^4.2.0"
-    "@ceramicnetwork/common": "npm:^5.2.0"
-    "@ceramicnetwork/core": "npm:^5.3.0"
-    "@ceramicnetwork/http-client": "npm:^5.3.0"
-    "@ceramicnetwork/indexing": "npm:^4.3.0"
-    "@ceramicnetwork/ipfs-daemon": "npm:^5.3.0"
+    "@ceramicnetwork/3id-did-resolver": "npm:^5.4.0"
+    "@ceramicnetwork/codecs": "npm:^4.3.0"
+    "@ceramicnetwork/common": "npm:^5.3.0"
+    "@ceramicnetwork/core": "npm:^5.4.0"
+    "@ceramicnetwork/http-client": "npm:^5.4.0"
+    "@ceramicnetwork/indexing": "npm:^4.4.0"
+    "@ceramicnetwork/ipfs-daemon": "npm:^5.4.0"
     "@ceramicnetwork/logger": "npm:^5.0.0"
     "@ceramicnetwork/observability": "npm:^1.4.4"
-    "@ceramicnetwork/stream-tile": "npm:^5.2.0"
+    "@ceramicnetwork/stream-tile": "npm:^5.3.0"
     "@ceramicnetwork/streamid": "npm:^5.0.0"
     "@stablelib/random": "npm:^1.0.1"
     aws-sdk: "npm:^2.1049.0"
@@ -1772,7 +1817,7 @@ __metadata:
     uint8arrays: "npm:^5.0.1"
   bin:
     ceramic: bin/ceramic.js
-  checksum: 10/6021e80c3649c33e373d3de4428b4d62dfa3c11912725e4cea105db61c4095bdbdbe1a6dc7bd0d5138411637a4e23cd47b4fb5c88af665a757bb6d892aee38ee
+  checksum: 10/3c9d22ba38ead3e1dfd88cf447acb6daeb79870dadd5add45cedc4c8917ead8e451ba92db79e2464d37e5d2f31eaf47c3d57781b3f9a91f7473a52ef2512fe73
   languageName: node
   linkType: hard
 
@@ -1788,6 +1833,21 @@ __metadata:
     multiformats: "npm:^13.0.0"
     uint8arrays: "npm:^5.0.1"
   checksum: 10/563b3acc98ff71726f3bdc1fbedb7c4f038d76714f08f139d3c240ff42ced98ce16e2a6610c7882dcb879835fb3d3c0f407e42004104531f944d82223bf23216
+  languageName: node
+  linkType: hard
+
+"@ceramicnetwork/codecs@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "@ceramicnetwork/codecs@npm:4.3.0"
+  dependencies:
+    "@ceramicnetwork/common": "npm:^5.3.0"
+    "@ceramicnetwork/streamid": "npm:^5.0.0"
+    cartonne: "npm:^3.0.1"
+    codeco: "npm:^1.1.0"
+    dag-jose: "npm:^4.0.0"
+    multiformats: "npm:^13.0.0"
+    uint8arrays: "npm:^5.0.1"
+  checksum: 10/f62e44ecb0168ad7cd95170fe16e8101db6b54485d004a592a7ea4e3e270725553b52eb89c74a57400def149dd4792ea93dfdbffd845436dd56578b8c76f5056
   languageName: node
   linkType: hard
 
@@ -1816,7 +1876,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ceramicnetwork/core@npm:^5.2.0, @ceramicnetwork/core@npm:^5.3.0":
+"@ceramicnetwork/common@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "@ceramicnetwork/common@npm:5.3.0"
+  dependencies:
+    "@ceramicnetwork/streamid": "npm:^5.0.0"
+    "@didtools/cacao": "npm:^3.0.0"
+    "@didtools/pkh-ethereum": "npm:^0.2.0"
+    "@didtools/pkh-solana": "npm:^0.2.0"
+    "@didtools/pkh-stacks": "npm:^0.2.0"
+    "@didtools/pkh-tezos": "npm:^0.3.0"
+    "@ipld/dag-cbor": "npm:^9.1.0"
+    "@stablelib/random": "npm:^1.0.1"
+    caip: "npm:~1.1.0"
+    flat: "npm:^5.0.2"
+    it-first: "npm:^3.0.4"
+    jet-logger: "npm:1.2.2"
+    lodash.clonedeep: "npm:^4.5.0"
+    logfmt: "npm:^1.3.2"
+    multiformats: "npm:^13.0.0"
+    rxjs: "npm:^7.8.1"
+    uint8arrays: "npm:^5.0.1"
+  checksum: 10/35dd8f19ccdcebb6af72860762d2b7827d829a662aad62a253d4eba69826ca2a3cf4e6c15b09c5ee7bb0cab2fb17ad9fe1a9a00ceaf75a81e21a037f62e35dc6
+  languageName: node
+  linkType: hard
+
+"@ceramicnetwork/core@npm:^5.2.0":
   version: 5.3.0
   resolution: "@ceramicnetwork/core@npm:5.3.0"
   dependencies:
@@ -1872,7 +1957,80 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ceramicnetwork/http-client@npm:5.3.0, @ceramicnetwork/http-client@npm:^5.2.0, @ceramicnetwork/http-client@npm:^5.3.0":
+"@ceramicnetwork/core@npm:^5.4.0":
+  version: 5.4.0
+  resolution: "@ceramicnetwork/core@npm:5.4.0"
+  dependencies:
+    "@ceramicnetwork/anchor-listener": "npm:^4.3.0"
+    "@ceramicnetwork/anchor-utils": "npm:^4.3.0"
+    "@ceramicnetwork/codecs": "npm:^4.3.0"
+    "@ceramicnetwork/common": "npm:^5.3.0"
+    "@ceramicnetwork/indexing": "npm:^4.4.0"
+    "@ceramicnetwork/ipfs-topology": "npm:^5.3.0"
+    "@ceramicnetwork/job-queue": "npm:^4.4.0"
+    "@ceramicnetwork/observability": "npm:^1.4.4"
+    "@ceramicnetwork/pinning-aggregation": "npm:^5.3.0"
+    "@ceramicnetwork/pinning-ipfs-backend": "npm:^5.3.0"
+    "@ceramicnetwork/stream-caip10-link": "npm:^5.3.0"
+    "@ceramicnetwork/stream-caip10-link-handler": "npm:^5.4.0"
+    "@ceramicnetwork/stream-model": "npm:^4.3.0"
+    "@ceramicnetwork/stream-model-handler": "npm:^4.4.0"
+    "@ceramicnetwork/stream-model-instance": "npm:^4.4.0"
+    "@ceramicnetwork/stream-model-instance-handler": "npm:^4.4.0"
+    "@ceramicnetwork/stream-tile": "npm:^5.3.0"
+    "@ceramicnetwork/stream-tile-handler": "npm:^5.4.0"
+    "@ceramicnetwork/streamid": "npm:^5.0.0"
+    "@ceramicnetwork/wasm-bloom-filter": "npm:^0.1.0"
+    "@datastructures-js/priority-queue": "npm:^6.1.0"
+    "@ethersproject/providers": "npm:^5.5.1"
+    "@ipld/dag-cbor": "npm:^7.0.0"
+    "@scarf/scarf": "npm:^1.1.1"
+    "@stablelib/random": "npm:^1.0.1"
+    "@stablelib/sha256": "npm:^1.0.1"
+    "@stablelib/uuid": "npm:^1.0.1"
+    ajv: "npm:^8.8.2"
+    ajv-formats: "npm:^2.1.1"
+    await-semaphore: "npm:^0.1.3"
+    cartonne: "npm:^3.0.1"
+    codeco: "npm:^1.1.0"
+    dag-jose: "npm:^4.0.0"
+    dids: "npm:^5.0.0"
+    it-all: "npm:^3.0.1"
+    it-batch: "npm:^3.0.1"
+    it-first: "npm:^3.0.4"
+    knex: "npm:^2.5.1"
+    least-recent: "npm:^1.0.3"
+    level-ts: "npm:^2.1.0"
+    lodash.clonedeep: "npm:^4.5.0"
+    mapmoize: "npm:^1.2.1"
+    multiformats: "npm:^13.0.0"
+    p-queue: "npm:^8.0.1"
+    pg: "npm:^8.11.3"
+    rxjs: "npm:^7.8.1"
+    sqlite3: "npm:^5.0.8"
+    uint8arrays: "npm:^5.0.1"
+  checksum: 10/5fd63022b28db66da69e242de9a412d38b6534f529a348f16f49d9a14549af6669e3d9e1930373747671250d24ed2ae23abfef104518edb173c0b7ecb3b58c0d
+  languageName: node
+  linkType: hard
+
+"@ceramicnetwork/http-client@npm:5.4.0, @ceramicnetwork/http-client@npm:^5.4.0":
+  version: 5.4.0
+  resolution: "@ceramicnetwork/http-client@npm:5.4.0"
+  dependencies:
+    "@ceramicnetwork/common": "npm:^5.3.0"
+    "@ceramicnetwork/stream-caip10-link": "npm:^5.3.0"
+    "@ceramicnetwork/stream-model": "npm:^4.3.0"
+    "@ceramicnetwork/stream-model-instance": "npm:^4.4.0"
+    "@ceramicnetwork/stream-tile": "npm:^5.3.0"
+    "@ceramicnetwork/streamid": "npm:^5.0.0"
+    "@scarf/scarf": "npm:^1.1.1"
+    query-string: "npm:^7.1.0"
+    rxjs: "npm:^7.8.1"
+  checksum: 10/d0620ee5dd0bca745284236a9783ebb1b9f061c8b15e0ff25b69cc2a754223892a449f76ac5f64823cca51999946f719fdfac88aa4d0952257fa87100d5bd9e9
+  languageName: node
+  linkType: hard
+
+"@ceramicnetwork/http-client@npm:^5.2.0":
   version: 5.3.0
   resolution: "@ceramicnetwork/http-client@npm:5.3.0"
   dependencies:
@@ -1911,12 +2069,34 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ceramicnetwork/ipfs-daemon@npm:^5.3.0":
-  version: 5.3.0
-  resolution: "@ceramicnetwork/ipfs-daemon@npm:5.3.0"
+"@ceramicnetwork/indexing@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "@ceramicnetwork/indexing@npm:4.4.0"
   dependencies:
-    "@ceramicnetwork/common": "npm:^5.2.0"
-    "@ceramicnetwork/ipfs-topology": "npm:^5.2.0"
+    "@ceramicnetwork/anchor-listener": "npm:^4.3.0"
+    "@ceramicnetwork/anchor-utils": "npm:^4.3.0"
+    "@ceramicnetwork/common": "npm:^5.3.0"
+    "@ceramicnetwork/job-queue": "npm:^4.4.0"
+    "@ceramicnetwork/stream-model": "npm:^4.3.0"
+    "@ceramicnetwork/streamid": "npm:^5.0.0"
+    "@ethersproject/providers": "npm:^5.5.1"
+    knex: "npm:^2.5.1"
+    lodash.clonedeep: "npm:^4.5.0"
+    multiformats: "npm:^13.0.0"
+    p-queue: "npm:^8.0.1"
+    pg-boss: "npm:^8.2.0"
+    rxjs: "npm:^7.8.1"
+    uint8arrays: "npm:^5.0.1"
+  checksum: 10/c2779fd1b50f6325e293f296418ca636fdb2b2b2e1884829be7f2c5d82f4754798caa784fe8245584a002412252405a44acfda998620735335199d116fe7db5b
+  languageName: node
+  linkType: hard
+
+"@ceramicnetwork/ipfs-daemon@npm:^5.4.0":
+  version: 5.4.0
+  resolution: "@ceramicnetwork/ipfs-daemon@npm:5.4.0"
+  dependencies:
+    "@ceramicnetwork/common": "npm:^5.3.0"
+    "@ceramicnetwork/ipfs-topology": "npm:^5.3.0"
     express: "npm:^4.18.2"
     get-port: "npm:^7.0.0"
     go-ipfs: "npm:^0.18.1"
@@ -1927,7 +2107,7 @@ __metadata:
     tmp-promise: "npm:^3.0.3"
   bin:
     ipfs-daemon: bin/ipfs-daemon.js
-  checksum: 10/16088ce4bd81e52a98e11649284712878377d18f7e79ef268df01a8c688b001bd43b6e42cc2c7605ed8f993dce4b381371ec6c71bc77c7b82e28b924af9e1e64
+  checksum: 10/4c52fb9ff58db2db28bb390c11be629cc174abbe9548f939deb3f8825d073be444f32a50f84c419bc0c5506533c8af41a6496df6db600c72ce28ce0bb38471be
   languageName: node
   linkType: hard
 
@@ -1940,6 +2120,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ceramicnetwork/ipfs-topology@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "@ceramicnetwork/ipfs-topology@npm:5.3.0"
+  dependencies:
+    "@ceramicnetwork/common": "npm:^5.3.0"
+  checksum: 10/e5329320d5aa7efb0f7dbf81297d3be0823b8df4fc2069d0667c559cb654576108877d45da0b89904dd23b9de27d8a57f46c76d0b70cfb0f3ab7052d873fb009
+  languageName: node
+  linkType: hard
+
 "@ceramicnetwork/job-queue@npm:^4.3.0":
   version: 4.3.0
   resolution: "@ceramicnetwork/job-queue@npm:4.3.0"
@@ -1949,6 +2138,18 @@ __metadata:
     pg-boss: "npm:^8.2.0"
     rxjs: "npm:^7.8.1"
   checksum: 10/1627ecec912ee265c5168872f2b2b1a09fd2eff17e07816013812c7a5ffd64b6d9a435b1ea62665d5e8555282d12338c3f144af0f6974d1aac1f16444e9a7fe0
+  languageName: node
+  linkType: hard
+
+"@ceramicnetwork/job-queue@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "@ceramicnetwork/job-queue@npm:4.4.0"
+  dependencies:
+    "@ceramicnetwork/common": "npm:^5.3.0"
+    pg: "npm:^8.11.3"
+    pg-boss: "npm:^8.2.0"
+    rxjs: "npm:^7.8.1"
+  checksum: 10/22c9b48a85c516ad3083769b0554762da333b4a6b8a19137f14280dabef4f0d024572d6b006335441828cc3f26d5d58431a6c927b4654a438588abab34dc46a8
   languageName: node
   linkType: hard
 
@@ -1988,6 +2189,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ceramicnetwork/pinning-aggregation@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "@ceramicnetwork/pinning-aggregation@npm:5.3.0"
+  dependencies:
+    "@stablelib/sha256": "npm:^1.0.1"
+    uint8arrays: "npm:^5.0.1"
+  checksum: 10/06b525c2d324168d60fb2024be7a85128585e8495fd1376c6c53fd4afe72adf7f4184c1db78422b855269128c42ed4a8189a1156cfd8072ead2d3c6f0b030427
+  languageName: node
+  linkType: hard
+
 "@ceramicnetwork/pinning-ipfs-backend@npm:^5.2.0":
   version: 5.2.0
   resolution: "@ceramicnetwork/pinning-ipfs-backend@npm:5.2.0"
@@ -1996,6 +2207,17 @@ __metadata:
     ipfs-http-client: "npm:^60.0.0"
     uint8arrays: "npm:^5.0.1"
   checksum: 10/98ac35d9d2c9b7983f6aff754217a885dbc835c19afdf630857f4e7a48b58ff5074575d34e866ba288eeb595c5425ad95aa4fa62841376898e9511b6e893e8ce
+  languageName: node
+  linkType: hard
+
+"@ceramicnetwork/pinning-ipfs-backend@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "@ceramicnetwork/pinning-ipfs-backend@npm:5.3.0"
+  dependencies:
+    "@stablelib/sha256": "npm:^1.0.1"
+    ipfs-http-client: "npm:^60.0.0"
+    uint8arrays: "npm:^5.0.1"
+  checksum: 10/e55e3854c75c55cf6bee2d856dbda95c05975415f2569154d2114cc41d62ba2ebc6586d036169041e24d8a8106e3b7012592cc6700172abb9d90ca2884c90a28
   languageName: node
   linkType: hard
 
@@ -2008,6 +2230,18 @@ __metadata:
     "@ceramicnetwork/stream-caip10-link": "npm:^5.2.0"
     "@ceramicnetwork/stream-handler-common": "npm:^4.2.0"
   checksum: 10/d2dd150312656c4f7dbbe13a7c412f5c4602e76ef14352004eeacc620baf407e114803ba8c17c09caef8d9ed05f8a81a05f182c7ad88a55846bab5a4dfef5fbd
+  languageName: node
+  linkType: hard
+
+"@ceramicnetwork/stream-caip10-link-handler@npm:^5.4.0":
+  version: 5.4.0
+  resolution: "@ceramicnetwork/stream-caip10-link-handler@npm:5.4.0"
+  dependencies:
+    "@ceramicnetwork/blockchain-utils-validation": "npm:^5.3.0"
+    "@ceramicnetwork/common": "npm:^5.3.0"
+    "@ceramicnetwork/stream-caip10-link": "npm:^5.3.0"
+    "@ceramicnetwork/stream-handler-common": "npm:^4.3.0"
+  checksum: 10/36ff6219533beeee735b9467af25ee05660520c2a7bb9aa43fe23bac5c8c580a73ceb428c0650a7029e0ac3efec4723aa5304dad9dccefee1ab7ff3c655fd890
   languageName: node
   linkType: hard
 
@@ -2024,6 +2258,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ceramicnetwork/stream-caip10-link@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "@ceramicnetwork/stream-caip10-link@npm:5.3.0"
+  dependencies:
+    "@ceramicnetwork/common": "npm:^5.3.0"
+    "@ceramicnetwork/streamid": "npm:^5.0.0"
+    caip: "npm:~1.1.0"
+    did-resolver: "npm:^4.0.1"
+    lodash.clonedeep: "npm:^4.5.0"
+  checksum: 10/8332e858ea35a71f204495c4894748cddb4595dbd2b7195ee53bc929bcf06d92f922d614d678a28b600d225aff279a97888a8820fafddabfcae0a330bfbeb209
+  languageName: node
+  linkType: hard
+
 "@ceramicnetwork/stream-handler-common@npm:^4.2.0":
   version: 4.2.0
   resolution: "@ceramicnetwork/stream-handler-common@npm:4.2.0"
@@ -2032,6 +2279,17 @@ __metadata:
     "@ceramicnetwork/streamid": "npm:^5.0.0"
     lodash.clonedeep: "npm:^4.5.0"
   checksum: 10/36e6169541f231f2923462af5e040daae52fb23ad233d43777a05909851a54c787d9b9f99faf653299ad727ff102df839d0c126637afe49598fe58c1b661259f
+  languageName: node
+  linkType: hard
+
+"@ceramicnetwork/stream-handler-common@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "@ceramicnetwork/stream-handler-common@npm:4.3.0"
+  dependencies:
+    "@ceramicnetwork/common": "npm:^5.3.0"
+    "@ceramicnetwork/streamid": "npm:^5.0.0"
+    lodash.clonedeep: "npm:^4.5.0"
+  checksum: 10/e2db06900166f30e94afae7336258bac64cdd4db2596162866593835c03f439b902f6bf4990526395e4e8c47d5efcb9ae15dd14dfc7b0870cc36ff3af2397f8a
   languageName: node
   linkType: hard
 
@@ -2054,6 +2312,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ceramicnetwork/stream-model-handler@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "@ceramicnetwork/stream-model-handler@npm:4.4.0"
+  dependencies:
+    "@ceramicnetwork/common": "npm:^5.3.0"
+    "@ceramicnetwork/stream-handler-common": "npm:^4.3.0"
+    "@ceramicnetwork/stream-model": "npm:^4.3.0"
+    "@ceramicnetwork/streamid": "npm:^5.0.0"
+    ajv: "npm:^8.8.2"
+    ajv-formats: "npm:^2.1.1"
+    fast-json-patch: "npm:^3.1.0"
+    json-ptr: "npm:^3.1.1"
+    lodash.clonedeep: "npm:^4.5.0"
+    lodash.ismatch: "npm:^4.4.0"
+    uint8arrays: "npm:^5.0.1"
+  checksum: 10/41601b3484c493eb4bd04336adda6ab58a0251759b8c930896f3474d0929b4e79c7904f5cbfb5d238ac822d0b5105588fea53bd9cdfb2878b46be46ad0721d1b
+  languageName: node
+  linkType: hard
+
 "@ceramicnetwork/stream-model-instance-handler@npm:^4.3.0":
   version: 4.3.0
   resolution: "@ceramicnetwork/stream-model-instance-handler@npm:4.3.0"
@@ -2073,6 +2350,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ceramicnetwork/stream-model-instance-handler@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "@ceramicnetwork/stream-model-instance-handler@npm:4.4.0"
+  dependencies:
+    "@ceramicnetwork/common": "npm:^5.3.0"
+    "@ceramicnetwork/stream-handler-common": "npm:^4.3.0"
+    "@ceramicnetwork/stream-model": "npm:^4.3.0"
+    "@ceramicnetwork/stream-model-instance": "npm:^4.4.0"
+    "@ceramicnetwork/streamid": "npm:^5.0.0"
+    ajv: "npm:^8.8.2"
+    ajv-formats: "npm:^2.1.1"
+    fast-json-patch: "npm:^3.1.0"
+    least-recent: "npm:^1.0.3"
+    lodash.clonedeep: "npm:^4.5.0"
+    uint8arrays: "npm:^5.0.1"
+  checksum: 10/6248f72649f110c0cd54c619688e8fd56db99599cc3c3da8214543b1dd5e9d8259d4d85f91738733b052e051d19f86f9bc8bb4e2e16a52f76a002981034d884e
+  languageName: node
+  linkType: hard
+
 "@ceramicnetwork/stream-model-instance@npm:^4.2.0, @ceramicnetwork/stream-model-instance@npm:^4.3.0":
   version: 4.3.0
   resolution: "@ceramicnetwork/stream-model-instance@npm:4.3.0"
@@ -2085,6 +2381,21 @@ __metadata:
     object-sizeof: "npm:^2.6.1"
     uint8arrays: "npm:^5.0.1"
   checksum: 10/49e8a0a662e3334ba5aa8cff8b4c0d4e8bc186509bbdf7a3904ef42215b3cdd05332eaa1dfce725840fb81da14635b483423ff2acad7149f405c4c9a55cb69d2
+  languageName: node
+  linkType: hard
+
+"@ceramicnetwork/stream-model-instance@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "@ceramicnetwork/stream-model-instance@npm:4.4.0"
+  dependencies:
+    "@ceramicnetwork/common": "npm:^5.3.0"
+    "@ceramicnetwork/streamid": "npm:^5.0.0"
+    "@ipld/dag-cbor": "npm:^7.0.0"
+    "@stablelib/random": "npm:^1.0.1"
+    fast-json-patch: "npm:^3.1.0"
+    object-sizeof: "npm:^2.6.1"
+    uint8arrays: "npm:^5.0.1"
+  checksum: 10/0eece58268726d9338ea8b689537def4a326e7a56c784e5fc49b9ec2fdc182dfc5e550609227b0b86fb2be8645014a6cedc215f80d32cf9522252f052a4493de
   languageName: node
   linkType: hard
 
@@ -2108,6 +2419,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ceramicnetwork/stream-model@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "@ceramicnetwork/stream-model@npm:4.3.0"
+  dependencies:
+    "@ceramicnetwork/codecs": "npm:^4.3.0"
+    "@ceramicnetwork/common": "npm:^5.3.0"
+    "@ceramicnetwork/streamid": "npm:^5.0.0"
+    "@ipld/dag-cbor": "npm:^7.0.0"
+    "@stablelib/random": "npm:^1.0.1"
+    ajv: "npm:^8.8.2"
+    ajv-formats: "npm:^2.1.1"
+    codeco: "npm:^1.1.0"
+    fast-json-patch: "npm:^3.1.0"
+    json-schema-typed: "npm:^8.0.1"
+    multiformats: "npm:^13.0.0"
+    uint8arrays: "npm:^5.0.1"
+  checksum: 10/77902d385a23154b0e79d642b01b1d59984964145ea260eb0a97e7f5b08bba333a2b1169edd4e57c10b9263969c531b79f6574206626db47ae50a1bc0d583443
+  languageName: node
+  linkType: hard
+
 "@ceramicnetwork/stream-tile-handler@npm:^5.3.0":
   version: 5.3.0
   resolution: "@ceramicnetwork/stream-tile-handler@npm:5.3.0"
@@ -2126,6 +2457,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ceramicnetwork/stream-tile-handler@npm:^5.4.0":
+  version: 5.4.0
+  resolution: "@ceramicnetwork/stream-tile-handler@npm:5.4.0"
+  dependencies:
+    "@ceramicnetwork/common": "npm:^5.3.0"
+    "@ceramicnetwork/stream-handler-common": "npm:^4.3.0"
+    "@ceramicnetwork/stream-tile": "npm:^5.3.0"
+    "@ceramicnetwork/streamid": "npm:^5.0.0"
+    ajv: "npm:^8.8.2"
+    ajv-formats: "npm:^2.1.1"
+    fast-json-patch: "npm:^3.1.0"
+    least-recent: "npm:^1.0.3"
+    lodash.clonedeep: "npm:^4.5.0"
+    uint8arrays: "npm:^5.0.1"
+  checksum: 10/2c9399aebbf5f9f3b45ffd12c503c3901f6c49f9550265689bac58abc9ce5bf678322e0df64134329d671be8b574b495cf6734c64f0e9da218ef925a74c3c4a7
+  languageName: node
+  linkType: hard
+
 "@ceramicnetwork/stream-tile@npm:^5.2.0":
   version: 5.2.0
   resolution: "@ceramicnetwork/stream-tile@npm:5.2.0"
@@ -2139,6 +2488,22 @@ __metadata:
     lodash.clonedeep: "npm:^4.5.0"
     uint8arrays: "npm:^5.0.1"
   checksum: 10/e599ce0d525ebae8578e73dc79e03702079b249348e175fc903edf25e3f60e7c406c27267007f91bdea3a5ed3a4a8dd8584807511f48b4c2533cdbc3627aca00
+  languageName: node
+  linkType: hard
+
+"@ceramicnetwork/stream-tile@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "@ceramicnetwork/stream-tile@npm:5.3.0"
+  dependencies:
+    "@ceramicnetwork/common": "npm:^5.3.0"
+    "@ceramicnetwork/streamid": "npm:^5.0.0"
+    "@ipld/dag-cbor": "npm:^7.0.0"
+    "@stablelib/random": "npm:^1.0.1"
+    dids: "npm:^5.0.0"
+    fast-json-patch: "npm:^3.1.0"
+    lodash.clonedeep: "npm:^4.5.0"
+    uint8arrays: "npm:^5.0.1"
+  checksum: 10/9102838605abf788ae5658b4286d684d34dc541ab38b500fb7ae19f883e15886c48fc54d3a563edc7c8dee5110295f084318a7411233ea5f79915583f7e8dc68
   languageName: node
   linkType: hard
 
@@ -5106,11 +5471,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@org/source@workspace:."
   dependencies:
-    "@apollo/client": "npm:3.9.5"
+    "@apollo/client": "npm:3.9.9"
     "@babel/core": "npm:^7.14.5"
     "@babel/preset-react": "npm:^7.14.5"
-    "@ceramicnetwork/cli": "npm:5.3.0"
-    "@ceramicnetwork/http-client": "npm:5.3.0"
+    "@ceramicnetwork/cli": "npm:5.4.0"
+    "@ceramicnetwork/http-client": "npm:5.4.0"
     "@composedb/client": "npm:0.7.1"
     "@composedb/devtools": "npm:0.7.1"
     "@composedb/devtools-node": "npm:0.7.1"
