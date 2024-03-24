@@ -1,15 +1,15 @@
-import React, { useMemo, useRef } from 'react';
-import { hasOwn, useRootComponentProps } from '@akashaorg/ui-awf-hooks';
+import React, { useMemo } from 'react';
+import Card from '@akashaorg/design-system-core/lib/components/Card';
 import { useGetContentBlockByIdQuery } from '@akashaorg/ui-awf-hooks/lib/generated/apollo';
 import { ContentBlockExtension } from '@akashaorg/ui-lib-extensions/lib/react/content-block';
-import Card from '@akashaorg/design-system-core/lib/components/Card';
+import { hasOwn } from '@akashaorg/ui-awf-hooks';
 
-type ContentBlockType = {
+type ContentBlockRendererProps = {
   blockID: string;
   onContentClick?: () => void;
 };
 
-const ContentBlock: React.FC<ContentBlockType> = (props) => {
+const ContentBlockRenderer: React.FC<ContentBlockRendererProps> = (props) => {
   const { blockID, onContentClick } = props;
 
   /**
@@ -61,4 +61,4 @@ const ContentBlock: React.FC<ContentBlockType> = (props) => {
   );
 };
 
-export default ContentBlock;
+export default ContentBlockRenderer;
