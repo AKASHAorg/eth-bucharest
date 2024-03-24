@@ -1,6 +1,6 @@
 ### What is an application?
 
-An application is a standalone micro-frontend that complement and extend your web3 
+An application is a standalone micro-frontend that complements and extends your web3 
 social network experience. Applications are the main building blocks of a world 
 and it can be seen as a standalone SPA's (Single Page Application) except that they 
 are loaded, mounted and unmounted by the underlying system (`app-loader`) which is 
