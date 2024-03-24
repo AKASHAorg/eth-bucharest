@@ -1,5 +1,5 @@
 ### What is an application?
-An application is a standalone component that complement and extend your web3 
+An application is a standalone micro-frontend that complement and extend your web3 
 social network experience. Applications are the main building blocks of a world 
 and it can be seen as a standalone SPA's (Single Page Application) except that they 
 are loaded, mounted and unmounted by the underlying system (`app-loader`) which is 
@@ -7,9 +7,7 @@ a thin layer on top of the [single-spa](https://single-spa.js.org/) microfronten
 library.
 
 ### Example app
-The `example-app` provided is a stripped down version of an Antenna.
-
-
+The `example-app` provided is a stripped down version of an [Antenna](./GLOSSARY.md#antenna).
 
 #### Interface
 
@@ -22,14 +20,14 @@ can be modified for your own needs.
 
 The register function takes only one argument which is an object of the type
 [IntegrationRegistrationProps](../libs/typings/src/ui/app-loader.ts)
-The returned value of the `register` function should be an object with the [IAppConfig](../../libs/typings/src/ui/apps.ts) type
+The returned value of the `register` function should be an object with the [IAppConfig](../libs/typings/src/ui/apps.ts) type
 The required parameters are:
 
 **[loadingFn](./loading-fn.md)**
 
 **mountsIn** The slot id of the layout widget in which this app mounts.
 
-**menuItems** This prarameter is used by sidebar to construct the menu. 
+**menuItems** This parameter is used by sidebar to construct the menu. 
 
 Optionally apps (and widgets) can also define
 [extensions](./EXTENSIONS.MD) and 
@@ -72,3 +70,5 @@ Initialization and registration is done by the `app-loader` in the following ord
 >
 > However, the plugin you are trying to access can be provided by an app that is not 
 > installed so additional fallback logic should be added to avoid breaking your app.
+
+### See [Widgets](./WIDGETS.md) next.

@@ -2,7 +2,7 @@
 
 The layout of a world is defined by a layout widget. It defines a few areas in which the apps and widgets can be mounted.
 
-- topbar area
+- top bar area
 - sidebar area
 - app area
 - widget area

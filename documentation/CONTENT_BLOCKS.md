@@ -1,6 +1,6 @@
 ### Content Blocks
 The content beamed (posted) into the apps is composed of one or more blocks.
-For example, a beam (post) can contain a rich text format block, an image block, 
+For example, a [beam](./GLOSSARY.md#beam) (post) can contain a rich text format block, an image block, 
 a code block etc.
 All of these blocks can be `injected` into the editor by different apps.
 
@@ -11,7 +11,7 @@ it's [register](../apps/example-app/src/index.tsx) function, called `contentBloc
 
 Registering content-blocks will require the following properties:
 
-```jsx
+```
 {
    propertyType: 'text-block',
    displayName: 'Text Block',
@@ -46,7 +46,7 @@ In edit mode the content block must expose a simple api using React's
 `useImperativeHandle` to allow editor to use it for publishing. The ref is passed 
 as prop so there is no need to use forwardRef.
 
-```
+```ts
 React.useImperativeHandle(props.blockRef, () => ({
   async createBlock() {},
   async retryBlockCreation() {},
@@ -54,7 +54,7 @@ React.useImperativeHandle(props.blockRef, () => ({
 ```
 
 For an implementation example see 
-`src/content-blocks/text-with-title/text-block-editor.tsx`
+[src/content-blocks/text-with-title/text-block-editor.tsx](../apps/example-app/src/content-blocks/text-with-title/text-block-editor.tsx)
 
 ### **"read-only-mode"**
 The content block in `readonly` mode is used to render the saved data and provide 

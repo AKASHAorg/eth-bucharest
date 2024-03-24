@@ -32,7 +32,7 @@ This mechanism is exactly the same as the one used for [contextual widgets](./WI
 #### Using extensions
 
 To enable a smooth usage of these extension, AKASHA Core provides
-a small library which is already available under the name `@akshaorg/ui-lib-extensions`
+a small library which is already available under the name `@akashaorg/ui-lib-extensions`
 
 The library comes with a React component `<Extension />` which will do the heavy
 lifting for mounting/unmounting the extensions by matching the `name` prop with
