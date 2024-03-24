@@ -12,6 +12,7 @@ const ExampleAppRoot: React.FC<RootComponentProps> = (props) => {
     beamData: CreateBeamMutation['createAkashaBeam']['document']
   ) => {
     console.log('new beam published:', beamData);
+    handleFetchLatestPublished();
   };
 
   const { data, loading, error, fetchMore } = useGetBeamsQuery({
@@ -21,6 +22,15 @@ const ExampleAppRoot: React.FC<RootComponentProps> = (props) => {
   const beams = React.useMemo(() => {
     return data?.akashaBeamIndex?.edges || [];
   }, [data]);
+
+  const handleFetchLatestPublished = () => {
+    fetchMore({
+      variables: {
+        before: beams[0]?.cursor,
+        first: 1,
+      },
+    });
+  };
 
   const handleFetchMore = () => {
     fetchMore({

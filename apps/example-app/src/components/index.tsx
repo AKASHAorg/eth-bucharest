@@ -14,6 +14,12 @@ export const { bootstrap, mount, unmount } = singleSpaReact({
     if (props.logger) {
       props.logger.error(`${error.message} - ${errorInfo.componentStack}`);
     }
-    return <ErrorLoader type="script-error" title="Error in auth app" details={error.message} />;
+    return (
+      <ErrorLoader
+        type="script-error"
+        title="Error in example app"
+        details={error.message}
+      />
+    );
   },
 });

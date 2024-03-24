@@ -1,3 +1,18 @@
+### Table of contents:
+1. [Initial Setup Guide](#initial-setup-guide---for-linuxmacos)
+  - [Pre-requisites](#pre-requisites) 
+  - [Installing/Updating required packages](#installingupdating-required-packages)
+  - [Getting started with the repo](#getting-started-with-the-repo)
+  - [Installing deps and starting the app](#install-dependencies-and-start-app)
+2. [Applications](./documentation/APPS.md)
+3. [Widgets](./documentation/WIDGETS.md)
+4. [Plugins](./documentation/PLUGINS.md)
+5. [Extension-points](./documentation/EXTENSIONS.MD)
+6. [Editor](./documentation/EDITOR.md)
+7. [Content Blocks](./documentation/CONTENT_BLOCKS.md)
+8. [The layout widget](./documentation/layout-widget.md)
+
+
 # Initial Setup Guide - (for Linux/MacOS)
 
 > This is a GitHub template, use it to start your own project.
@@ -13,7 +28,7 @@ This project requires these packages before setup;
 
 ### Installing/Updating required packages
 
-1. If you are using a different version, consider using **nvm** to handle different versions of node and yarn on your computer.
+1. If you are using different versions of **node** and **yarn**, consider using **nvm** and **corepack** respectively to handle the versions on your computer.
 
 2. If you already have nvm, please skip to next step. If you do not already have nvm installed, you can follow a more detailed instructions here on [nvm github repo](https://github.com/nvm-sh/nvm).
 
@@ -57,7 +72,7 @@ This project requires these packages before setup;
    - add the printed env values to your .env file;
    - this command should be run only for the initial setup; 
 4. `yarn ceramic:start`
-   - to start Ceramic node(in a separated terminal window)
+   - to start Ceramic node(in a separate terminal window)
 5. `yarn composedb:deploy`
    - to deploy ceramic models
 6. `yarn composedb:generate-data`
@@ -76,3 +91,5 @@ If you need to change to a different network then update the [sdk web3 module](.
 To clean the cache, run:
 - `yarn clean` for ts compiled files 
 - `yarn cache clean` for the yarn cache 
+
+#### Next, explore the docs for [Applications](./documentation/APPS.md)

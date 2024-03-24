@@ -13,8 +13,8 @@ export type SimpleAntennaProps = {
 
 const SimpleAntenna: React.FC<SimpleAntennaProps> = (props) => {
   const { beams, loading, handleFetchMore } = props;
-  const loadMoreRef = React.createRef<HTMLDivElement>();
 
+  const loadMoreRef = React.createRef<HTMLDivElement>();
   useIntersectionObserver({
     target: loadMoreRef,
     onIntersect: handleFetchMore,
@@ -22,7 +22,7 @@ const SimpleAntenna: React.FC<SimpleAntennaProps> = (props) => {
   });
 
   return (
-    <Stack direction="column" spacing="gap-4" customStyle="overflow-auto">
+    <Stack direction="column" spacing="gap-4">
       {beams?.length > 0 &&
         beams?.map((edge, idx) => (
           <BeamResolver key={idx} beamId={edge.node?.id} />
