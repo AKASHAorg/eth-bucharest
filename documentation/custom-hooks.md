@@ -13,6 +13,7 @@ Currently we have the following hooks:
 - [useNetworkState](#usenetworkstate)
 - [useGetLoginProfile](#usegetloginprofile)
 - [useProfileStats](#useprofilestats)
+- [useRootComponentProps](#userootcomponentprops)
 - [useMarkAsRead](#usemarkasread)
 - [useCheckNewNotifications](#usechecknewnotifications)
 - [useListenForMutationEvents](#uselistenformutationevents)
@@ -83,11 +84,10 @@ const network = currentNetworkQuery.data;
 
 `Object`
 
-network name
 
-| Name | Type |
-| :------ | :------ |
-| `data` | `string` |
+| Name | Type | Description |
+| :------ | :------ |:------ |
+| `data` | `string` | Information about the network name |
 | `error` | `Error` |
 | `isLoading` | `boolean` |
 
@@ -143,7 +143,7 @@ ___
 ▸ **useGetLoginProfile**(): `Object`
 
 Hook that automatically fetches the profile data of the logged in user
-when it logs in
+when he/she logs in
 
 **`Example`**
 
@@ -430,7 +430,7 @@ const networkNotSupported = networkStateQuery.data.networkNotSupported;
 
 `Object`
 
-networkNotSupported: true if web3 provider is not on the specified network
+networkNotSupported will return true if web3 provider is not on the specified network
 
 | Name | Type |
 | :------ | :------ |
@@ -497,8 +497,11 @@ A hook to get required network name from the SDK
 
 **`Example`**
 
-```ts
 useRequiredNetwork hook
+```typescript
+const requiredNetworkQuery = useRequiredNetwork();
+
+const requiredNetworkName = requiredNetworkQuery.data;
 ```
 
 #### Returns
@@ -507,11 +510,7 @@ useRequiredNetwork hook
 
 An object containing the data and statuses of the request:
 { data, isLoading, error, isSuccess }
-```typescript
-const requiredNetworkQuery = useRequiredNetwork();
 
-const requiredNetworkName = requiredNetworkQuery.data;
-```
 
 | Name | Type |
 | :------ | :------ |
@@ -532,6 +531,15 @@ ___
 
 ▸ **useRootComponentProps**<`T`\>(): { `getContext`: () => `T` ; `getExtensionsPlugin`: () => `IPluginsMap` ; `getRoutingPlugin`: (`ns`: `string`) => `any` ; `getTranslationPlugin`: (`ns`: `string`) => { `i18n`: `i18n`  }  } & `T`
 
+Hook that allows you to access the routing plugin, extension plugins, worldConfig information, logger, etc.
+
+**`Example`**
+
+useRootComponentProps hook
+```typescript
+  const { baseRouteName, getRoutingPlugin, getTranslationPlugin, logger } = useRootComponentProps();
+```
+
 #### Type parameters
 
 | Name | Type |
@@ -540,7 +548,15 @@ ___
 
 #### Returns
 
-{ `getContext`: () => `T` ; `getExtensionsPlugin`: () => `IPluginsMap` ; `getRoutingPlugin`: (`ns`: `string`) => `any` ; `getTranslationPlugin`: (`ns`: `string`) => { `i18n`: `i18n`  }  } & `T`
+`Object`
+
+| Name | Type |
+| :------ | :------ |
+| `getContext` | () => `T` |
+| `getExtensionsPlugin` | () => `IPluginsMap` |
+| `getRoutingPlugin` | (`ns`: `string`) => `any` |
+| `getTranslationPlugin` | (`ns`: `string`) => { `i18n`: `i18n`  }  } & `T` |
+
 
 #### Defined in
 
