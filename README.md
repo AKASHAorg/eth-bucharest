@@ -1,5 +1,5 @@
 ### DEVELOPMENT
-___
+***
 #### *Initial Setup Guide*
 1. [Pre-requisites](#pre-requisites) 
 2. [Installing/Updating required packages](#installingupdating-required-packages)
