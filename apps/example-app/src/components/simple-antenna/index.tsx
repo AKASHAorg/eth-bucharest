@@ -22,7 +22,7 @@ const SimpleAntenna: React.FC<SimpleAntennaProps> = (props) => {
   });
 
   return (
-    <Stack direction="column" spacing="gap-4" customStyle="overflow-auto">
+    <Stack direction="column" spacing="gap-4">
       {beams?.length > 0 &&
         beams?.map((edge, idx) => (
           <BeamResolver key={idx} beamId={edge.node?.id} />
