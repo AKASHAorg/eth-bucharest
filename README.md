@@ -28,7 +28,7 @@ This project requires these packages before setup;
 
 ### Installing/Updating required packages
 
-1. If you are using a different version, consider using **nvm** to handle different versions of node and yarn on your computer.
+1. If you are using different versions of **node** and **yarn**, consider using **nvm** and **corepack** respectively to handle the versions on your computer.
 
 2. If you already have nvm, please skip to next step. If you do not already have nvm installed, you can follow a more detailed instructions here on [nvm github repo](https://github.com/nvm-sh/nvm).
 
@@ -72,7 +72,7 @@ This project requires these packages before setup;
    - add the printed env values to your .env file;
    - this command should be run only for the initial setup; 
 4. `yarn ceramic:start`
-   - to start Ceramic node(in a separated terminal window)
+   - to start Ceramic node(in a separate terminal window)
 5. `yarn composedb:deploy`
    - to deploy ceramic models
 6. `yarn composedb:generate-data`
