@@ -14,8 +14,6 @@ Currently we have the following hooks:
 - [useGetLoginProfile](#usegetloginprofile)
 - [useProfileStats](#useprofilestats)
 - [useRootComponentProps](#userootcomponentprops)
-- [useMarkAsRead](#usemarkasread)
-- [useCheckNewNotifications](#usechecknewnotifications)
 - [useListenForMutationEvents](#uselistenformutationevents)
 - [useGetSettings](#usegetsettings)
 - [useSaveSettings](#usesavesettings)
@@ -568,7 +566,7 @@ ___
 
 ▸ **useSaveSettings**(): `Object`
 
-Hook to save app's settings using sdk settings service
+Hook to save an app's settings using the SDK's settings service
 
 **`Example`**
 
@@ -670,8 +668,7 @@ ___
 
 ▸ **usePendingReflections**(`pendingReflectionsReactiveVar`): `ReactiveVar<ReflectEntryData[]>`
 
-Hook that handle the adding, removing and returning of pending Reflections by first providing a reactive variable parameter to the hook as the initial state of the
-pending reflections. The updated pending reflections returned can be used to update/re-render the
+Hook that handles the adding, removing and returning of the pending Reflections by making use of Apollo's reactive variables. The updated pending reflections returned can be used to update/re-render the
 components directly without the need to use `useQuery`.
 
 **`Example`**
