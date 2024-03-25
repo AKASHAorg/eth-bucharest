@@ -48,6 +48,7 @@ module.exports = Object.assign(baseConfig, {
         index: 'index.html',
       },
     },
+    hot: true,
     historyApiFallback: {
       index: 'index.html',
     },

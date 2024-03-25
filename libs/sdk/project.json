@@ -5,6 +5,7 @@
   "projectType": "application",
   "targets": {
     "prepare": {
+      "dependsOn": ["@akashaorg/typings:prepare"],
       "executor": "nx:run-commands",
       "options": {
         "cwd": "libs/sdk",
@@ -17,7 +18,11 @@
       "options": {
         "cwd": "libs/sdk",
         "command": "webpack --config webpack.config.mjs"
-      }
+      },
+      "outputs": [
+        "{workspaceRoot}/world/dist/sdk",
+        "{workspaceRoot}/world/dist/sw"
+      ]
     }
   },
   "tags": []

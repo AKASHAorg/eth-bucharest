@@ -18,7 +18,8 @@
       "options": {
         "cwd": "libs/hooks/",
         "command": "webpack --config webpack.config.cjs"
-      }
+      },
+      "outputs": ["{projectRoot}/lib", "{workspaceRoot}/world/dist/hooks"]
     }
   },
   "tags": []

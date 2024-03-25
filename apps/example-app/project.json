@@ -5,7 +5,11 @@
   "projectType": "application",
   "targets": {
     "prepare": {
-      "dependsOn": ["@akashaorg/ui-awf-hooks:build", "@akashaorg/design-system-components:prepare"],
+      "dependsOn": [
+        "@akashaorg/ui-awf-hooks:build",
+        "@akashaorg/design-system-components:prepare",
+        "@akashaorg/awf-sdk:build"
+      ],
       "executor": "nx:run-commands",
       "options": {
         "cwd": "apps/example-app",
@@ -18,7 +22,11 @@
       "options": {
         "cwd": "apps/example-app",
         "command": "webpack --config webpack.config.cjs"
-      }
+      },
+      "outputs": [
+        "{projectRoot}/lib",
+        "{workspaceRoot}/world/dist/apps/example-app"
+      ]
     }
   },
   "tags": []

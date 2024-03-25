@@ -13,7 +13,12 @@
       }
     },
     "start": {
-      "dependsOn": ["app-example:build", "widget-example:build","@akashaorg/awf-sdk:build", "prepare"],
+      "dependsOn": [
+        "app-example:build",
+        "widget-example:build",
+        "@akashaorg/awf-sdk:build",
+        "prepare"
+      ],
       "executor": "nx:run-commands",
       "options": {
         "cwd": "world/eth-bucharest.world/",
