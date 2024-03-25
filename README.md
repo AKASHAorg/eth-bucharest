@@ -13,6 +13,7 @@
 5. [Editor](./documentation/EDITOR.md)
 6. [Content Blocks](./documentation/CONTENT_BLOCKS.md)
 7. [The layout widget](./documentation/layout-widget.md)
+8. [React hooks](./documentation/custom-hooks.md)
 
 
 # Initial Setup Guide - (for Linux/MacOS)
