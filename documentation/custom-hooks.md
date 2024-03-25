@@ -85,7 +85,7 @@ const network = currentNetworkQuery.data;
 
 | Name | Type | Description |
 | :------ | :------ |:------ |
-| `data` | `string` | Information about the network name |
+| `data` | `string` | The network name |
 | `error` | `Error` |
 | `isLoading` | `boolean` |
 
@@ -195,7 +195,7 @@ ___
 
 ### useGetSettings
 
-▸ **useGetSettings**(`app`): `Object`
+▸ **useGetSettings**(`appName`): `Object`
 
 Hook to get saved settings for an app
 
@@ -212,7 +212,7 @@ const savedSettings = savedSettingsQuery.data;
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `app` | `string` | The app's name for example @akashaorg/app-akasha-verse |
+| `appName` | `string` | The app's name for example @akashaorg/app-akasha-verse |
 
 #### Returns
 
