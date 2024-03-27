@@ -77,8 +77,8 @@ This project requires these packages before setup;
 
 1. `yarn install`
    - install the project's dependencies
-2. `yarn prepare`
-   - using nx, runs prepare command for other packages
+2. `./node_modules/.bin/nx prepare @akashaorg/typings`
+   - using nx, runs prepare command using nx for [typings](./libs/typings/package.json) package
 3. `yarn ceramic:create-config`
    - used to generate basic configuration for the ceramic node;
    - add the printed env values to your .env file;
